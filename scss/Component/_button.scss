@@ -1,0 +1,16 @@
+.login-btn {
+  display: flex;
+
+  & img {
+    border-radius: 50%;
+    width: spacing(3);
+    margin-right: spacing(0.8);
+  }
+  & span {
+    font-size: 1.3rem;
+    color: tc("text-1");
+    border-right: 1px solid bc("whisper");
+    margin-right: spacing(1.1);
+    padding-right: spacing(1.1);
+  }
+}

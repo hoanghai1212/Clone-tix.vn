@@ -1,0 +1,42 @@
+.header {
+  position: fixed;
+  padding: 0 spacing(2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: spacing(6);
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.95);
+  @include box-shadow(0, 0, spacing(1.5), 0, rgba(0, 0, 0, 0.3));
+
+  &__logo {
+    img {
+      width: spacing(5);
+    }
+  }
+
+  &__middle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    a {
+      margin-right: spacing(2);
+      color: tc("primary");
+      font-size: 1.3rem;
+      font-weight: fw("fwMedium");
+      transition: 0.2s all;
+
+      &:hover {
+        color: tc("secondary");
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    line-height: spacing(3);
+  }
+}

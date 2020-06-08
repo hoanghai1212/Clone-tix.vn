@@ -3,7 +3,99 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TIX - Đặt vé nhanh nhất / Trang chủ</title>
+    <title>TIX - Đặt Vé Nhanh Nhất / Trang Chủ</title>
+
+    <link rel="icon" href="./img/white-logo.png" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <div class="header__left">
+        <a href="./index.html" class="header__logo"
+          ><img src="./img/web-logo.png" alt="logo"
+        /></a>
+      </div>
+      <div class="header__middle">
+        <a href="#">Lịch Chiếu</a>
+        <a href="#">Cụm Rạp</a>
+        <a href="#">Tin Tức</a>
+        <a href="#">Ứng Dụng</a>
+      </div>
+      <div class="header__right">
+        <div class="login-btn">
+          <img src="./img/avatar.png" alt="user" />
+          <span>Đăng nhập</span>
+        </div>
+
+        <div class="header__location-select" id="location-select"></div>
+      </div>
+    </header>
+
+    <section class="carousel">
+      <div class="carousel__wrapper">
+        <a href="/">
+          <img src="./img/ke-truc-dem-banner.png" alt="" />
+          <div class="carousel__linear-bg"></div>
+          <div class="carousel__play-btn">
+            <img src="./img/play-video.png" alt="" />
+          </div>
+        </a>
+        <a href="/">
+          <img src="./img/can-phong-banner.png" alt="" />
+          <div class="carousel__linear-bg"></div>
+          <div class="carousel__play-btn">
+            <img src="./img/play-video.png" alt="" />
+          </div>
+        </a>
+        <a href="/">
+          <img src="./img/nao-ca-vang-banner.png" alt="" />
+          <div class="carousel__linear-bg"></div>
+          <div class="carousel__play-btn">
+            <img src="./img/play-video.png" alt="" />
+          </div>
+        </a>
+        <a href="/">
+          <img src="./img/sam-sam-banner.png" alt="" />
+          <div class="carousel__linear-bg"></div>
+          <div class="carousel__play-btn">
+            <img src="./img/play-video.png" alt="" />
+          </div>
+        </a>
+      </div>
+      <div class="quick-buy" id="quick-buy">
+        <div class="dropdownselectFilm" id="dropdownselectFilm"></div>
+        <div class="dropdownselectCinema" id="dropdownselectCinema"></div>
+        <div class="dropdownselectDate" id="dropdownselectDate"></div>
+        <div class="dropdownselectSession" id="dropdownselectSession"></div>
+      </div>
+    </section>
+
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script type="text/javascript" src="./JS/slick-init.js"></script>
+
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/dropdown.js"></script>
+  </body>
 </html>

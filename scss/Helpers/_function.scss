@@ -1,0 +1,35 @@
+// get color from bg color array
+@function bc($color) {
+  @if map-has-key($map: $bgColors, $key: $color) {
+    @return map-get($map: $bgColors, $key: $color);
+  }
+  @warn ("{$color} color doesn't exist");
+  @return "";
+}
+
+@function tc($color) {
+  @if map-has-key($map: $txtColors, $key: $color) {
+    @return map-get($map: $txtColors, $key: $color);
+  }
+  @warn ("{$color} color doesn't exist");
+  @return "";
+}
+
+@function spacing($num) {
+  @return $num * $spacing;
+}
+@function fs($font) {
+  @if map-has-key($map: $fontSizes, $key: $font) {
+    @return map-get($map: $fontSizes, $key: $font);
+  }
+  @warn ("{$font} color doesn't exist");
+  @return "";
+}
+
+@function fw($weight) {
+  @if map-has-key($map: $fwArr, $key: $weight) {
+    @return map-get($map: $fwArr, $key: $weight);
+  }
+  @warn ("{$weight} color doesn't exist");
+  @return "";
+}

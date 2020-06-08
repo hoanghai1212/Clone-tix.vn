@@ -1,0 +1,216 @@
+.carousel {
+  position: relative;
+  text-align: center;
+  margin-top: 60px;
+
+  .carousel__wrapper {
+    a {
+      position: relative;
+
+      & > img {
+        width: 100%;
+      }
+
+      &:hover .carousel__play-btn {
+        opacity: 1;
+      }
+    }
+
+    .carousel__linear-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #000, transparent 20%);
+      top: 0;
+    }
+
+    .slick-prev {
+      position: absolute;
+      top: 45%;
+      left: spacing(1.5);
+      transform: translateY(-50%);
+      z-index: 2;
+      border: none;
+      background: url(../../../img/back-session.png) no-repeat center;
+      background-size: contain;
+      color: transparent;
+      background-color: transparent;
+      height: spacing(10);
+      width: spacing(5);
+      cursor: pointer;
+      opacity: 0.5;
+    }
+
+    .slick-next {
+      position: absolute;
+      top: 45%;
+      right: spacing(1.5);
+      transform: translateY(-50%);
+      border: none;
+      background: url(../../../img/next-session.png) no-repeat center;
+      background-size: contain;
+      color: transparent;
+      background-color: transparent;
+      height: spacing(10);
+      width: spacing(5);
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      z-index: 2;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: none;
+
+      li {
+        button {
+          width: spacing(1.2);
+          height: spacing(1.2);
+          border-radius: 50%;
+          border: none;
+          font-size: 0;
+          margin-right: spacing(0.8);
+        }
+
+        &.slick-active {
+          button {
+            background: bc("label-c");
+          }
+        }
+      }
+    }
+  }
+
+  &__play-btn {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s;
+    opacity: 0;
+
+    & img {
+      transition: all 0.2s;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .quick-buy {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 2;
+    max-width: spacing(94);
+    border-radius: 5px;
+    background: bc("white");
+    text-align: left;
+    @include size(100%, spacing(8));
+    @include box-shadow(0, 0, spacing(1), 0, rgba(0, 0, 0, 0.3));
+    @include flexbox(flex, center);
+
+    .dropdownselectFilm {
+      // @include size(30%, 50%);
+      @include size(30%, 50%);
+      position: relative;
+      border-right: 1px solid #fff;
+      border-right-color: rgba(238, 238, 238, 0.88);
+    }
+
+    .dropdownselectDate,
+    .dropdownselectCinema,
+    .dropdownselectSession {
+      @include size(calc(70% / 4), 50%);
+      position: relative;
+      border-right: 1px solid #fff;
+      border-right-color: rgba(238, 238, 238, 0.88);
+    }
+
+    .select-selected {
+      @include centerAbsolute("top");
+      color: tc("primary");
+      width: 100%;
+      font-size: 1.4rem;
+      background: url(../../img/dropdown-icon.png) no-repeat right 8px center;
+      padding: 7%;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .select-items {
+      position: absolute;
+      font-size: 1.4rem;
+      max-height: spacing(30);
+      min-width: spacing(16);
+      overflow-y: scroll;
+      top: 100%;
+      left: 0;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      background: bc("white");
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+
+      // for firefox
+      scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
+      scrollbar-width: thin;
+
+      .same-as-selected {
+        background-color: bc("location");
+        color: tc("white");
+      }
+
+      div {
+        padding: spacing(0.3) spacing(2);
+        transition: 0.2s all;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:hover {
+          background-color: bc("location");
+          color: tc("white");
+        }
+      }
+
+      // for chrome
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track-piece {
+        background: bc("scroll-bg");
+        border-radius: 0 4px 4px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 0 4px 4px 0;
+        background: bc("scroll-thumb");
+      }
+
+      /*hide the items when the select box is closed:*/
+      &.select-hide {
+        display: none;
+      }
+    }
+  }
+}
