@@ -212,5 +212,21 @@
         display: none;
       }
     }
+
+    &__button {
+      position: relative;
+      @include size(calc(70% / 4), 50%);
+
+      button {
+        @include centerAbsolute("both");
+        padding: spacing(1.2) spacing(2.5);
+        background-color: bc("buy-btn");
+        border: none;
+        border-radius: 4px;
+        font-size: 1.4rem;
+        color: tc("white");
+        cursor: pointer;
+      }
+    }
   }
 }
