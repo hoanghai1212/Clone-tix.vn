@@ -11,7 +11,7 @@
         "../scss/Layout/_header.scss",
         "../scss/Component/_button.scss",
         "../scss/Component/_dropdown.scss",
-        "../scss/Page/Index/_carousel.scss"
+        "../scss/screens/_carousel.scss"
     ],
     "names": [],
     "file": "main.css"
