@@ -9,3 +9,18 @@ $(document).ready(function ()
 
     });
 });
+
+$(document).ready(function ()
+{
+    $('.nowShowing__carousel').slick({
+        infinity: true,
+   
+    });
+
+    $('.comingSoon__carousel').slick({
+        infinity: true,
+    });
+    
+});
+
+

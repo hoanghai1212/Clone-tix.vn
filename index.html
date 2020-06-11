@@ -27,7 +27,7 @@
         /></a>
       </div>
       <div class="header__middle">
-        <a href="#">Lịch Chiếu</a>
+        <a href="/#filmBlock">Lịch Chiếu</a>
         <a href="#">Cụm Rạp</a>
         <a href="#">Tin Tức</a>
         <a href="#">Ứng Dụng</a>
@@ -35,7 +35,7 @@
       <div class="header__right">
         <div class="login-btn">
           <img src="./img/avatar.png" alt="user" />
-          <span>Đăng nhập</span>
+          <span>Đăng Nhập</span>
         </div>
 
         <div class="header__location-select" id="location-select"></div>
@@ -47,28 +47,28 @@
         <a href="/">
           <img src="./img/ke-truc-dem-banner.png" alt="" />
           <div class="carousel__linear-bg"></div>
-          <div class="carousel__play-btn">
+          <div class="play-btn">
             <img src="./img/play-video.png" alt="" />
           </div>
         </a>
         <a href="/">
           <img src="./img/can-phong-banner.png" alt="" />
           <div class="carousel__linear-bg"></div>
-          <div class="carousel__play-btn">
+          <div class="play-btn">
             <img src="./img/play-video.png" alt="" />
           </div>
         </a>
         <a href="/">
           <img src="./img/nao-ca-vang-banner.png" alt="" />
           <div class="carousel__linear-bg"></div>
-          <div class="carousel__play-btn">
+          <div class="play-btn">
             <img src="./img/play-video.png" alt="" />
           </div>
         </a>
         <a href="/">
           <img src="./img/sam-sam-banner.png" alt="" />
           <div class="carousel__linear-bg"></div>
-          <div class="carousel__play-btn">
+          <div class="play-btn">
             <img src="./img/play-video.png" alt="" />
           </div>
         </a>
@@ -79,18 +79,69 @@
         <div class="dropdownselectDate" id="dropdownselectDate"></div>
         <div class="dropdownselectSession" id="dropdownselectSession"></div>
         <div class="quick-buy__button">
-          <button type="button">MUA VÉ NGAY</button>
+          <button class="" type="button">MUA VÉ NGAY</button>
         </div>
       </div>
     </section>
+    <section class="content">
+      <!-- FILM BLOCK -->
+      <div class="filmBlock" id="filmBlock">
+        <!-- Tab links -->
+        <div class="tab">
+          <button
+            class="filmBlock__tablinks active"
+            onclick="openFilm(event, 'nowShowing', 'filmBlock__tabcontent', 'filmBlock__tablinks', '.film__carousel')"
+            id="defaultOpen"
+          >
+            Đang Chiếu
+          </button>
+          <button class="filmBlock__tablinks" onclick="openFilm(event, 'comingSoon','filmBlock__tabcontent', 'filmBlock__tablinks', '.film__carousel')">
+            Sắp Chiếu
+          </button>
+        </div>
 
+        <!-- Tab content -->
+        <div id="nowShowing" class="filmBlock__tabcontent active">
+          <div class="nowShowing__carousel film__carousel"></div>
+        </div>
+
+        <div id="comingSoon" class="filmBlock__tabcontent">
+          <div class="comingSoon__carousel film__carousel"></div>
+        </div>
+      </div>
+
+      <!-- CINEMA BLOCK -->
+      <div class="cinemaBlock">
+        <!-- Tab links -->
+        <div class="tab">
+          <button class="cinemaBlock__tablinks active" onclick="openFilm(event, 'cgvCinema','cinemaBlock__tabcontent', 'cinemaBlock__tablinks', '.cinema__carousel')" id="defaultOpen">
+            <img src="./img/cgv.png" alt="cgv">
+          </button>
+          <button class="cinemaBlock__tablinks " onclick="openFilm(event, 'cgvCinema','cinemaBlock__tabcontent', 'cinemaBlock__tablinks', '.cinema__carousel' )">
+            <img src="./img/bhd.png" alt="cgv">
+          </button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="cgvCinema" class="cinemaBlock__tabcontent active">
+          <div class="cinema__carousel"></div>
+        </div>
+
+        <div id="bhdCinema" class="cinemaBlock__tabcontent">
+          <div class="cinema__carousel"></div>
+        </div>
+      </div>
+
+      <!-- NEWS BLOCK -->
+      <div class="newsBlock"></div>
+    </section>
     <script
       type="text/javascript"
-      src="//code.jquery.com/jquery-1.11.0.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     ></script>
     <script
       type="text/javascript"
-      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.0/jquery-migrate.min.js"
     ></script>
     <script
       type="text/javascript"
@@ -100,5 +151,6 @@
 
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/dropdown.js"></script>
+    <script type="text/javascript" src="./js/tabspanel.js"></script>
   </body>
 </html>

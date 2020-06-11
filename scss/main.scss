@@ -1,13 +1,21 @@
 @import "./Base/reset";
 
-@import "./Helpers/fonts";
-@import "./Helpers/function";
 @import "./Helpers/mixin";
+@import "./Helpers/function";
 @import "./Helpers/variable";
+@import "./Helpers/fonts";
+@import "./Helpers/keyframes";
+
+@import "./Base/slick-custom";
 
 @import "./Layout/header";
+@import "./Layout/content";
 
 @import "./Component/button";
+@import "./Component/label";
 @import "./Component/dropdown";
+@import "./Component/filmblock";
+@import "./Component/cinemaBlock";
+@import "./Component/newsBlock";
 
 @import "./screens/carousel";

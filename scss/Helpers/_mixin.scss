@@ -51,34 +51,47 @@
   $inset: false
 ) {
   @if $inset {
-    box-shadow: inset $x $y $blur $spread $color;
+    box-shadow: inset
+      spacing($x)
+      spacing($y)
+      spacing($blur)
+      spacing($spread)
+      $color;
   } @else {
-    box-shadow: $x $y $blur $spread $color;
+    box-shadow: spacing($x) spacing($y) spacing($blur) spacing($spread) $color;
   }
 }
 
-@mixin position(
-  $position,
-  $top: null,
-  $right: null,
-  $bottom: null,
-  $left: null
-) {
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number
+    {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
   position: $position;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
 }
 
-@mixin absolute($args...) {
-  @include position(absolute, $args...);
+// Positioning helpers
+@mixin absolute($args: "", $transX: null, $transY: null) {
+  @include position(absolute, $args);
+
+  @if ($transX and $transY) {
+    transform: translate($transX, $transY);
+  } @else if ($transX) {
+    transform: translateX($transX);
+  } @else if ($transY) {
+    transform: translatey($transY);
+  }
 }
-@mixin relative($args...) {
-  @include position(relative, $args...);
+
+@mixin fixed($args: "") {
+  @include position(fixed, $args);
 }
-@mixin fixed($args...) {
-  @include position(fixed, $args...);
+
+@mixin relative($args: "") {
+  @include position(relative, $args);
 }
 
 @mixin minWidth($breakpoint) {
@@ -90,4 +103,56 @@
   @media only screen and(max-width: $breakpoints) {
     @content;
   }
+}
+@mixin truncateText($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin margin-padding(
+  $m-direction: all,
+  $m-amount: null,
+  $p-direction: all,
+  $p-amount: null
+) {
+  @if $m-direction == all {
+    margin: $m-amount;
+  } @else {
+    margin-#{$m-direction}: $m-amount;
+  }
+  @if $p-direction == all {
+    padding: $p-amount;
+  } @else {
+    padding-#{$p-direction}: $p-amount;
+  }
+}
+
+@mixin font($fsz: null, $color: null, $fwe: null, $lhe: null) {
+  @if ($fsz) {
+    font-size: fs($fsz);
+  }
+  @if ($color) {
+    color: tc($color);
+  }
+  @if ($fwe) {
+    font-weight: fw($fwe);
+  }
+  @if ($lhe) {
+    line-height: $lhe;
+  }
+}
+
+@mixin appearance(
+  $cursor: pointer,
+  $property: all,
+  $time: 0.2s,
+  $borrad: spacing(0.4),
+  $bg: null
+) {
+  cursor: $cursor;
+  transition: $property $time;
+  border-radius: $borrad;
+  background: $bg;
 }

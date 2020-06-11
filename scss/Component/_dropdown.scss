@@ -1,74 +1,56 @@
-.header__location-select {
-  position: relative;
+.select-selected {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-  .select-selected {
-    color: tc("text-1");
-    font-size: 1.3rem;
-    padding-left: spacing(2);
-    background: url(../../img/dropdown-icon.png) no-repeat right spacing(1.8)
-        center,
-      url(../../img/location-header.png) no-repeat left center;
-    cursor: pointer;
+.select-items {
+  max-height: spacing(30);
+  border-radius: spacing(0.4);
+  background: bc("white");
+  overflow-y: scroll;
+
+  // for firefox
+  scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
+  scrollbar-width: thin;
+
+  .same-as-selected {
+    background-color: bc("location");
+    color: tc("white");
+  }
+
+  div {
+    @include appearance($borrad: null);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    min-width: 160px;
-  }
 
-  .select-items {
-    position: absolute;
-    font-size: 1.3rem;
-    max-height: spacing(30);
-    overflow-y: scroll;
-    top: 155%;
-    left: 0;
-    right: 0;
-    border-radius: 4px;
-    background: bc("white");
-
-    // for firefox
-    scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
-    scrollbar-width: thin;
-
-    .same-as-selected {
+    &:hover {
       background-color: bc("location");
       color: tc("white");
     }
+  }
 
-    div {
-      padding: 0 spacing(2);
-      transition: 0.2s all;
-      cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+  // for chrome
+  &::-webkit-scrollbar {
+    width: spacing(0.5);
+  }
 
-      &:hover {
-        background-color: bc("location");
-        color: tc("white");
-      }
-    }
+  &::-webkit-scrollbar-track-piece {
+    background: bc("scroll-bg");
+    border-radius: 0 spacing(0.4) spacing(0.4) 0;
+  }
 
-    // for chrome
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
+  &::-webkit-scrollbar-thumb {
+    background: bc("scroll-thumb");
+    border-radius: 0 spacing(0.4) spacing(0.4) 0;
+  }
 
-    &::-webkit-scrollbar-track-piece {
-      background: bc("scroll-bg");
-      border-radius: 0 4px 4px 0;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 0 4px 4px 0;
-      background: bc("scroll-thumb");
-    }
-
-    /*hide the items when the select box is closed:*/
-    &.select-hide {
-      display: none;
-    }
+  /*hide the items when the select box is closed:*/
+  &.select-hide {
+    display: none;
   }
 }

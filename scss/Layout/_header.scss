@@ -1,15 +1,17 @@
 .header {
-  position: fixed;
-  padding: 0 spacing(2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  top: 0;
-  width: 100%;
-  height: spacing(6);
-  z-index: 99;
+  @include fixed(top 0);
+  @include flexbox($justify: space-between, $align: center);
+  @include size(100%, spacing(6));
+  @include box-shadow(0, 0, 1.5, 0, rgba(0, 0, 0, 0.3));
+  @include margin-padding($p-amount: 0 spacing(2));
+
   background-color: rgba(255, 255, 255, 0.95);
-  @include box-shadow(0, 0, spacing(1.5), 0, rgba(0, 0, 0, 0.3));
+  transition: 0.2s all;
+  z-index: z("header");
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
 
   &__logo {
     img {
@@ -18,15 +20,11 @@
   }
 
   &__middle {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    @include absolute(left 50%, $transX: -50%);
 
     a {
+      @include font("subtitle", "primary", "fwMedium");
       margin-right: spacing(2);
-      color: tc("primary");
-      font-size: 1.3rem;
-      font-weight: fw("fwMedium");
       transition: 0.2s all;
 
       &:hover {
@@ -36,7 +34,29 @@
   }
 
   &__right {
-    display: flex;
+    @include flexbox();
     line-height: spacing(3);
+
+    .header__location-select {
+      position: relative;
+
+      .select-selected {
+        @include font("subtitle", "text-1");
+        padding-left: spacing(2);
+        min-width: spacing(16);
+        background: url(../../img/dropdown-icon.png) no-repeat right
+            spacing(1.8) center,
+          url(../../img/location-header.png) no-repeat left center;
+      }
+
+      .select-items {
+        @include absolute(top 155% left 0 right 0);
+        font-size: fs("subtitle");
+
+        div {
+          padding: 0 spacing(2);
+        }
+      }
+    }
   }
 }

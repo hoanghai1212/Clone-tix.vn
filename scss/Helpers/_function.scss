@@ -7,6 +7,14 @@
   @return "";
 }
 
+@function bdc($color) {
+  @if map-has-key($map: $borderColors, $key: $color) {
+    @return map-get($map: $borderColors, $key: $color);
+  }
+  @warn ("{$color} color doesn't exist");
+  @return "";
+}
+
 @function tc($color) {
   @if map-has-key($map: $txtColors, $key: $color) {
     @return map-get($map: $txtColors, $key: $color);
@@ -18,6 +26,7 @@
 @function spacing($num) {
   @return $num * $spacing;
 }
+
 @function fs($font) {
   @if map-has-key($map: $fontSizes, $key: $font) {
     @return map-get($map: $fontSizes, $key: $font);
@@ -32,4 +41,13 @@
   }
   @warn ("{$weight} color doesn't exist");
   @return "";
+}
+
+@function z($name) {
+  @if index($z-indexes, $name) {
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+    @return null;
+  }
 }

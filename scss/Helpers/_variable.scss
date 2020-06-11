@@ -5,13 +5,22 @@ $bgColors: (
   "secondary": #222222,
   "label-p": #00ac4d,
   "label-c": #fb4226,
+  "dark-orange": #ce3017,
   "time": #9b9b9b,
   "whisper": #e9e9e9,
   "location": #60c5ef,
   "white": #ffffff,
+  "black": #000000,
   "scroll-bg": #e8e3e3,
   "scroll-thumb": #c4c0c0,
   "buy-btn": #4a4a4a,
+  "speech-red": #b30000,
+  "rating": rgba(12, 27, 54, 0.8),
+);
+
+//-----COLORS BORDER------
+$borderColors: (
+  "rating": #1f2e46,
 );
 //-----COLORS TEXT------
 
@@ -30,16 +39,17 @@ $txtColors: (
   "megags": #e5a813,
   "lotte": #ca4137,
   "white": #ffffff,
+  "tab-active": #fa5238,
 );
 //-------FONT SIZE-------
 $fontSizes: (
   "body1": 10px,
-  "body2": 12px,
-  "subtitle": 14px,
-  "h6": 16px,
-  "h5": 18px,
-  "h4": 20px,
-  "h3": 30px,
+  /*used*/ "body2": 12px,
+  /*used*/ "subtitle": 13px,
+  /*used*/ "h6": 14px,
+  /*used*/ "h5": 16px,
+  /*used*/ "h4": 18px,
+  /*used*/ "h3": 24px,
   "h2": 40px,
   "h1": 44px,
 );
@@ -69,3 +79,6 @@ $breakpoints: (
     max-width: 576px,
   ),
 );
+
+// Z-Indexes
+$z-indexes: ("header", "slick", "play-btn", "quick-buy");

@@ -7,10 +7,23 @@
     margin-right: spacing(0.8);
   }
   & span {
-    font-size: 1.3rem;
-    color: tc("text-1");
-    border-right: 1px solid bc("whisper");
-    margin-right: spacing(1.1);
-    padding-right: spacing(1.1);
+    @include font("subtitle", "text-1");
+    @include margin-padding(right, spacing(1.1), right, spacing(1.1));
+    border-right: spacing(0.1) solid bc("whisper");
+  }
+}
+
+.play-btn {
+  @include centerAbsolute();
+  @include appearance($borrad: null);
+  z-index: z("play-btn");
+  opacity: 0;
+
+  & img {
+    transition: all 0.2s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
