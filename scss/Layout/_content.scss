@@ -1,12 +1,5 @@
 .content {
   @include margin-padding(all, auto, top, spacing(7.5));
-  max-width: spacing(94);
+  @include container;
 }
 
-.blockBreak {
-  max-width: spacing(94);
-  height: spacing(12);
-  img {
-    @include size(100%);
-  }
-}

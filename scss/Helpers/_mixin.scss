@@ -156,3 +156,37 @@
   border-radius: $borrad;
   background: $bg;
 }
+
+
+@mixin container($m-w: spacing(94)) {
+  max-width: $m-w;
+}
+
+@mixin blockHeader {
+    background: url(../../img/back-news.png) no-repeat top center;
+    background-size: contain;
+    padding-top: spacing(12);
+}
+
+@mixin custom-scrollbar {
+  overflow-y: auto;
+    overflow-x: hidden;
+  // for firefox
+  scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
+  scrollbar-width: thin;
+
+  // for chrome
+  &::-webkit-scrollbar {
+    width: spacing(0.5);
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background: bc("scroll-bg");
+    border-radius: 0 spacing(0.4) spacing(0.4) 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: bc("scroll-thumb");
+    border-radius: spacing(0.4);
+  }
+}

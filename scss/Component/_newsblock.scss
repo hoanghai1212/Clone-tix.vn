@@ -1,6 +1,31 @@
 .newsBlock {
-    max-width: spacing(94);
-    padding-top: spacing(12);
-    background: url(../../img/back-news.png) no-repeat top center;
-    background-size: contain;
+    @include blockHeader;
+    @include flexCenter;
+    flex-direction: column;
+    .tab {
+        @include flexCenter();
+        overflow: hidden;
+    
+        button {
+          border: none;
+          outline: none;
+          background: none;
+          @include appearance($borrad: null);
+          @include font("h4", "primary");
+          @include margin-padding(
+            all,
+            0 spacing(0.5),
+            all,
+            spacing(1) spacing(1.5)
+          );
+    
+          &:hover {
+            font-size: fs("h3");
+          }
+    
+          &.active {
+            @include font("h3", "tab-active");
+          }
+        }
+      }
 }

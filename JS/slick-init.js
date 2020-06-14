@@ -8,10 +8,7 @@ $(document).ready(function ()
         autoplaySpeed: 5000,
 
     });
-});
 
-$(document).ready(function ()
-{
     $('.nowShowing__carousel').slick({
         infinity: true,
    
@@ -20,7 +17,5 @@ $(document).ready(function ()
     $('.comingSoon__carousel').slick({
         infinity: true,
     });
-    
 });
-
 

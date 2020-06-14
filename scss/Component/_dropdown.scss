@@ -7,14 +7,17 @@
 }
 
 .select-items {
+  @include custom-scrollbar;
   max-height: spacing(30);
   border-radius: spacing(0.4);
   background: bc("white");
-  overflow-y: scroll;
 
-  // for firefox
-  scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
-  scrollbar-width: thin;
+
+
+  /*hide the items when the select box is closed:*/
+  &.select-hide {
+    display: none;
+  }
 
   .same-as-selected {
     background-color: bc("location");
@@ -32,25 +35,5 @@
       background-color: bc("location");
       color: tc("white");
     }
-  }
-
-  // for chrome
-  &::-webkit-scrollbar {
-    width: spacing(0.5);
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background: bc("scroll-bg");
-    border-radius: 0 spacing(0.4) spacing(0.4) 0;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: bc("scroll-thumb");
-    border-radius: 0 spacing(0.4) spacing(0.4) 0;
-  }
-
-  /*hide the items when the select box is closed:*/
-  &.select-hide {
-    display: none;
   }
 }

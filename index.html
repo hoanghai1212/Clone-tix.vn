@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="./css/main.css" />
   </head>
+
   <body>
     <header class="header">
       <div class="header__left">
@@ -28,7 +29,7 @@
       </div>
       <div class="header__middle">
         <a href="/#filmBlock">Lịch Chiếu</a>
-        <a href="#">Cụm Rạp</a>
+        <a href="/#cinemaBlock">Cụm Rạp</a>
         <a href="#">Tin Tức</a>
         <a href="#">Ứng Dụng</a>
       </div>
@@ -89,19 +90,27 @@
         <!-- Tab links -->
         <div class="tab">
           <button
-            class="filmBlock__tablinks active"
-            onclick="openFilm(event, 'nowShowing', 'filmBlock__tabcontent', 'filmBlock__tablinks', '.film__carousel')"
-            id="defaultOpen"
+            class="filmBlock__tablinks defaultOpen"
+            data-content="filmBlock__tabcontent"
+            data-link="filmBlock__tablinks"
+            data-carousel="film__carousel"
+            onclick="toggleTab(event, 'nowShowing')"
           >
             Đang Chiếu
           </button>
-          <button class="filmBlock__tablinks" onclick="openFilm(event, 'comingSoon','filmBlock__tabcontent', 'filmBlock__tablinks', '.film__carousel')">
+          <button
+            class="filmBlock__tablinks"
+            data-content="filmBlock__tabcontent"
+            data-link="filmBlock__tablinks"
+            data-carousel="film__carousel"
+            onclick="toggleTab(event, 'comingSoon')"
+          >
             Sắp Chiếu
           </button>
         </div>
 
         <!-- Tab content -->
-        <div id="nowShowing" class="filmBlock__tabcontent active">
+        <div id="nowShowing" class="filmBlock__tabcontent">
           <div class="nowShowing__carousel film__carousel"></div>
         </div>
 
@@ -111,29 +120,380 @@
       </div>
 
       <!-- CINEMA BLOCK -->
-      <div class="cinemaBlock">
+      <div class="cinemaBlock" id="cinemaBlock">
+        <!-- Tab cinema -->
+        <div class="tab">
+          <!-- CGV TAB -->
+          <div
+            class="cinemaBlock__cinema-list defaultOpen"
+            data-content="cinemaBlock__cinema-detail"
+            data-link="cinemaBlock__cinema-list"
+            onclick="toggleTab(event, 'cgvCinema')"
+          >
+            <img src="./img/cgv.png" alt="cgv" />
+          </div>
+
+          <!-- BHD TAB -->
+          <div
+            class="cinemaBlock__cinema-list"
+            data-content="cinemaBlock__cinema-detail"
+            data-link="cinemaBlock__cinema-list"
+            onclick="toggleTab(event, 'bhdCinema')"
+          >
+            <img src="./img/bhd.png" alt="bhd" />
+          </div>
+        </div>
+
+        <!-- Tab cinema detail -->
+
+        <!-- CGV TAB => CONTENT -->
+        <div id="cgvCinema" class="cinemaBlock__cinema-detail">
+          <div
+            class="cinemaBlock__cinema-info defaultOpenChild"
+            data-content="cinemaBlock__film-time"
+            data-link="cinemaBlock__cinema-info"
+            onclick="toggleTab(event, 'cgvTD')"
+          >
+            <img src="./img/cgv-cinema.jpg" alt="cgv" />
+            <div class="cinemaBlock__wrap">
+              <span
+                ><span class="cinemaBlock__cgv">CGV</span> - Thảo Điền
+                Pearl</span
+              >
+              <p>
+                Tầng 2, Thảo Điền Mall, 12 Quốc Hương, Phường Thảo Điền, Quận 2,
+                TP. Hồ Chí Minh
+              </p>
+              <a href="#">[chi tiết]</a>
+            </div>
+          </div>
+
+          <div
+            class="cinemaBlock__cinema-info"
+            data-content="cinemaBlock__film-time"
+            data-link="cinemaBlock__cinema-info"
+            onclick="toggleTab(event, 'cgvSatra')"
+          >
+            <img src="./img/cgv-cinema.jpg" alt="cgv" />
+            <div class="cinemaBlock__wrap">
+              <span
+                ><span class="cinemaBlock__cgv">CGV</span> - Satra Củ Chi</span
+              >
+              <p>
+                Tầng 3, TTTM Satra Củ Chi, Số 1239, Tỉnh Lộ 8, Ấp Thạnh An, Xã
+                Trung An, Huyện Củ Chi, TP.HCM
+              </p>
+              <a href="#">[chi tiết]</a>
+            </div>
+          </div>
+
+          <div
+            class="cinemaBlock__cinema-info"
+            data-content="cinemaBlock__film-time"
+            data-link="cinemaBlock__cinema-info"
+            onclick="toggleTab(event, 'cgvAeon-TP')"
+          >
+            <img src="./img/cgv-cinema.jpg" alt="cgv" />
+            <div class="cinemaBlock__wrap">
+              <span
+                ><span class="cinemaBlock__cgv">CGV</span> - Aeon Tân Phú</span
+              >
+              <p>
+                Lầu 3, Aeon Mall 30 Bờ Bao Tân Thắng, P. Sơn Kỳ Quận Tân Phú TP.
+                Hồ Chí Minh
+              </p>
+              <a href="#">[chi tiết]</a>
+            </div>
+          </div>
+
+          <div
+            class="cinemaBlock__cinema-info"
+            data-content="cinemaBlock__film-time"
+            data-link="cinemaBlock__cinema-info"
+            onclick="toggleTab(event, 'cgvAeon-BT')"
+          >
+            <img src="./img/cgv-cinema.jpg" alt="cgv" />
+            <div class="cinemaBlock__wrap">
+              <span
+                ><span class="cinemaBlock__cgv">CGV</span> - Aeon Bình Tân</span
+              >
+              <p>
+                Tầng 3, Trung tâm thương mại Aeon Mall Bình Tân, Số 1 đường số
+                17A, khu phố 11, phường Bình Trị Đông B, quận Bình Tân, TPHCM
+              </p>
+              <a href="#">[chi tiết]</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="cgvTD" class="cinemaBlock__film-time">
+          <p class="cinemaBlock__empty">Không có suất chiếu</p>
+        </div>
+
+        <div id="cgvSatra" class="cinemaBlock__film-time">
+          <div
+            class="cinemaBlock__film-time-item"
+            onclick="hideAll(event, 'cinemaBlock__hide-on-click')"
+          >
+            <img src="./img/ke-truc-dem.png" alt="ke-truc-dem" />
+            <div class="cinemaBlock__wrap">
+              <div class="orange-label">C18</div>
+              <span>Kẻ Trực Đêm - The Night Clerk</span>
+              <p>91 phút - TIX 6.6 - IMDb 0</p>
+            </div>
+            <div class="cinemaBlock__hide-on-click" aria-hidden="false">
+              <p>2D Digital</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+              </div>
+
+              <p>3D Digital</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="cinemaBlock__film-time-item"
+            onclick="hideAll(event, 'cinemaBlock__hide-on-click')"
+          >
+            <img src="./img/sky-tour.png" alt="sky" />
+            <div class="cinemaBlock__wrap">
+              <div class="green-label">P</div>
+              <span>Sky Tour Movie - Sơn Tùng M-TP</span>
+              <p>94 phút - TIX 8.2 - IMDb 0</p>
+            </div>
+            <div class="cinemaBlock__hide-on-click" aria-hidden="false">
+              <p>2D Digital | STARIUM</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>11:00</span> ~ 12:34</a>
+                <a href="/"><span>13:00</span> ~ 14:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+                <a href="/"><span>17:05</span> ~ 18:39</a>
+                <a href="/"><span>19:00</span> ~ 20:34</a>
+                <a href="/"><span>21:00</span> ~ 22:34</a>
+              </div>
+
+              <p>2D Digital</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>11:00</span> ~ 12:34</a>
+                <a href="/"><span>13:00</span> ~ 14:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+                <a href="/"><span>17:05</span> ~ 18:39</a>
+                <a href="/"><span>19:00</span> ~ 20:34</a>
+                <a href="/"><span>21:00</span> ~ 22:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+                <a href="/"><span>17:05</span> ~ 18:39</a>
+                <a href="/"><span>19:00</span> ~ 20:34</a>
+                <a href="/"><span>21:00</span> ~ 22:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+                <a href="/"><span>17:05</span> ~ 18:39</a>
+                <a href="/"><span>19:00</span> ~ 20:34</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="cgvAeon-TP" class="cinemaBlock__film-time">
+          <p class="cinemaBlock__empty">Không có suất chiếu</p>
+        </div>
+
+        <div id="cgvAeon-BT" class="cinemaBlock__film-time">
+          <p class="cinemaBlock__empty">Không có suất chiếu</p>
+        </div>
+
+        <!-- =========================================================== -->
+        <!-- BHD SECTION => CONTENT-->
+        <div id="bhdCinema" class="cinemaBlock__cinema-detail">
+          <div
+            class="cinemaBlock__cinema-info defaultOpenChild"
+            data-content="cinemaBlock__film-time"
+            data-link="cinemaBlock__cinema-info"
+            onclick="toggleTab(event, 'bhd-bitexco')"
+          >
+            <img src="./img/bhd-star.jpg" alt="bhd" />
+            <div class="cinemaBlock__wrap">
+              <span><span class="cinemaBlock__bhd">BHD</span> - Bitexco</span>
+              <p>L3-Bitexco Icon 68, 2 Hải Triều, Q.1</p>
+              <a href="#">[chi tiết]</a>
+            </div>
+          </div>
+
+          <div
+            class="cinemaBlock__cinema-info"
+            data-content="cinemaBlock__film-time"
+            data-link="cinemaBlock__cinema-info"
+            onclick="toggleTab(event, 'bhd-vincom')"
+          >
+            <img src="./img/bhd-star.jpg" alt="bhd" />
+            <div class="cinemaBlock__wrap">
+              <span><span class="cinemaBlock__bhd">BHD</span> - Vincom</span>
+              <p>L5-Megamall, 159 XL Hà Nội, Q.2</p>
+              <a href="#">[chi tiết]</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="bhd-bitexco" class="cinemaBlock__film-time">
+          <div
+            class="cinemaBlock__film-time-item"
+            onclick="hideAll(event, 'cinemaBlock__hide-on-click')"
+          >
+            <img src="./img/ke-truc-dem.png" alt="ke-truc-dem" />
+            <div class="cinemaBlock__wrap">
+              <div class="orange-label">C18</div>
+              <span>Kẻ Trực Đêm - The Night Clerk</span>
+              <p>91 phút - TIX 6.6 - IMDb 0</p>
+            </div>
+            <div class="cinemaBlock__hide-on-click" aria-hidden="false">
+              <p>2D Digital</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+                <a href="/"><span>17:30</span> ~ 19:01</a>
+                <a href="/"><span>21:30</span> ~ 23:01</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="cinemaBlock__film-time-item"
+            onclick="hideAll(event, 'cinemaBlock__hide-on-click')"
+          >
+            <img src="./img/sky-tour.png" alt="sky" />
+            <div class="cinemaBlock__wrap">
+              <div class="green-label">P</div>
+              <span>Sky Tour Movie - Sơn Tùng M-TP</span>
+              <p>94 phút - TIX 8.2 - IMDb 0</p>
+            </div>
+            <div class="cinemaBlock__hide-on-click" aria-hidden="false">
+              <p>2D Digital | STARIUM</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>11:00</span> ~ 12:34</a>
+                <a href="/"><span>13:00</span> ~ 14:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+                <a href="/"><span>17:05</span> ~ 18:39</a>
+                <a href="/"><span>19:00</span> ~ 20:34</a>
+                <a href="/"><span>21:00</span> ~ 22:34</a>
+              </div>
+
+              <p>2D Digital</p>
+              <div class="cinemaBlock__session">
+                <a href="/"><span>11:00</span> ~ 12:34</a>
+                <a href="/"><span>13:00</span> ~ 14:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+                <a href="/"><span>17:05</span> ~ 18:39</a>
+                <a href="/"><span>19:00</span> ~ 20:34</a>
+                <a href="/"><span>21:00</span> ~ 22:34</a>
+                <a href="/"><span>15:00</span> ~ 16:34</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="bhd-vincom" class="cinemaBlock__film-time">
+          <p class="cinemaBlock__empty">Không có suất chiếu</p>
+        </div>
+      </div>
+      <!-- NEWS BLOCK -->
+      <div class="newsBlock" id="newsBlock">
         <!-- Tab links -->
         <div class="tab">
-          <button class="cinemaBlock__tablinks active" onclick="openFilm(event, 'cgvCinema','cinemaBlock__tabcontent', 'cinemaBlock__tablinks', '.cinema__carousel')" id="defaultOpen">
-            <img src="./img/cgv.png" alt="cgv">
+          <button
+            class="newsBlock__tablinks defaultOpen"
+            data-content="newsBlock__tabcontent"
+            data-link="newsBlock__tablinks"
+            onclick="toggleTab(event, 'news')"
+          >
+            Điện Ảnh 24h
           </button>
-          <button class="cinemaBlock__tablinks " onclick="openFilm(event, 'cgvCinema','cinemaBlock__tabcontent', 'cinemaBlock__tablinks', '.cinema__carousel' )">
-            <img src="./img/bhd.png" alt="cgv">
+          <button
+            class="newsBlock__tablinks"
+            data-content="newsBlock__tabcontent"
+            data-link="newsBlock__tablinks"
+            onclick="toggleTab(event, 'newsReview')"
+          >
+            Review
+          </button>
+          <button
+            class="newsBlock__tablinks"
+            data-content="newsBlock__tabcontent"
+            data-link="newsBlock__tablinks"
+            onclick="toggleTab(event, 'newsPromotion')"
+          >
+            Khuyến Mãi
           </button>
         </div>
 
         <!-- Tab content -->
-        <div id="cgvCinema" class="cinemaBlock__tabcontent active">
-          <div class="cinema__carousel"></div>
+        <div id="news" class="newsBlock__tabcontent">
+          <div class="newsBlock__news-item">
+            <img
+              src="./img/quang-tuan-thuong-tu-ky-tren-phim-truong-de-tap-trung-dien-vai-toi-pham-15906671009175.png"
+              alt=""
+            />
+            <p>
+              Quẩy cùng sói 'nguyên chất 100%' có suất chiếu sớm vào 20 và
+              21.06.2020
+            </p>
+            <p>
+              Trong những năm gần đây, các bộ phim hoạt hình về động vật đã và
+              đang nhận được sự quan tâm, yêu mến của đông đảo khán giả. Không
+              chỉ các bé thiếu nhi mà cả người lớn, các bậc phụ huynh cũng phát
+              cuồng vì độ dễ thương của dàn
+            </p>
+            <div>
+              <a href="/"><img src="./img/like.png" alt="like" />1</a>
+              <a href="/"><img src="./img/comment.png" alt="comment" />0</a>
+            </div>
+          </div>
+          <div class="newsBlock__news-item">
+            <img
+              src="./img/david-fincher-bac-thay-su-dung-visual-effects-15900519940266.png"
+              alt=""
+            />
+            <p>
+              Cùng ôn lại 'Tình đầu' với phim điện ảnh kinh điển của chị đẹp Son
+              Ye-jin được Thái Lan làm lại
+            </p>
+            <p>
+              Mùa hè 2020 đánh dấu sự bùng nổ của hàng loạt phim điện ảnh quay
+              trở lại “chữa lành” những tâm hồn đang “khát” phim. Cơn Mưa Tình
+              Đầu hứa hẹn sẽ mang tới những cảm xúc trong trẻo và thuần khiết về
+              những rung động đầu đời,
+            </p>
+            <div>
+              <a href="/"><img src="./img/like.png" alt="like" />1</a>
+              <a href="/"><img src="./img/comment.png" alt="comment" />0</a>
+            </div>
+          </div>
         </div>
 
-        <div id="bhdCinema" class="cinemaBlock__tabcontent">
-          <div class="cinema__carousel"></div>
+        <div id="newsReview" class="newsBlock__tabcontent">
+          b
+        </div>
+
+        <div id="newsPromotion" class="newsBlock__tabcontent">
+          c
+        </div>
+
+        <div class="newsBlock__load-more">
+          <button>Xem thêm</button>
         </div>
       </div>
-
-      <!-- NEWS BLOCK -->
-      <div class="newsBlock"></div>
     </section>
     <script
       type="text/javascript"
