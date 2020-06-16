@@ -1,31 +1,135 @@
 .newsBlock {
-    @include blockHeader;
-    @include flexCenter;
-    flex-direction: column;
-    .tab {
-        @include flexCenter();
-        overflow: hidden;
-    
-        button {
-          border: none;
-          outline: none;
-          background: none;
-          @include appearance($borrad: null);
-          @include font("h4", "primary");
-          @include margin-padding(
-            all,
-            0 spacing(0.5),
-            all,
-            spacing(1) spacing(1.5)
-          );
-    
-          &:hover {
-            font-size: fs("h3");
-          }
-    
-          &.active {
-            @include font("h3", "tab-active");
-          }
+  @include blockHeader;
+  @include flexCenter;
+  flex-direction: column;
+  margin-bottom: spacing(5);
+  .tab {
+    @include flexCenter();
+    overflow: hidden;
+
+    button {
+      border: none;
+      outline: none;
+      background: none;
+      @include appearance($borrad: null);
+      @include font("h3", "primary");
+      @include margin-padding(
+        all,
+        0 spacing(0.5),
+        all,
+        spacing(1) spacing(1.5)
+      );
+
+      &:hover {
+        font-size: fs("h2");
+      }
+
+      &.active {
+        @include font("h2", "tab-active");
+      }
+    }
+  }
+
+  &__news-container {
+    @include flexbox($justify: space-evenly, $wrap: wrap);
+
+    .item-1,
+    .item-2 {
+      width: 50%;
+    }
+
+    .item-3,
+    .item-4,
+    .item-wrapper {
+      width: 33%;
+    }
+
+    .item-5,
+    .item-6,
+    .item-7,
+    .item-8 {
+      @include flexCenter;
+      align-items: flex-start;
+      margin-bottom: 0;
+
+      & > img {
+        @include size(spacing(5));
+        margin: 0 spacing(1.2) spacing(1) 0;
+      }
+
+      .newsBlock__news-title {
+        @include font("h6", "primary", $lhe: spacing(2));
+        opacity: 0.7;
+      }
+
+      & > div,
+      .newsBlock__news-quote {
+        display: none;
+      }
+    }
+
+    .item-wrapper {
+      padding-top: spacing(1);
+    }
+  }
+
+  &__news-item {
+    padding: 0 spacing(0.75);
+    margin-bottom: spacing(2);
+
+    & > img {
+      width: 100%;
+      margin: spacing(1) 0;
+      @include appearance();
+    }
+
+    & > div {
+      display: inline-table;
+
+      a {
+        @include font("body2", "text-1");
+        margin-right: spacing(2.5);
+        display: inline-flex;
+        vertical-align: top;
+
+        img {
+          width: 18px;
+          margin-right: spacing(1);
         }
       }
+    }
+  }
+
+  &__news-title {
+    /*! autoprefixer: off */
+    @include font("h5", "primary", $lhe: spacing(2));
+    margin-bottom: spacing(0.5);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &__news-quote {
+    @include font("subtitle", "text-2", $lhe: spacing(1.9));
+    @include margin-padding(bottom, spacing(1.5), right, spacing(0.5));
+    text-align: justify;
+    height: spacing(5.5);
+    overflow: hidden;
+  }
+
+  &__load-more {
+    button {
+      @include font("h6", "text-3", "fwRegular");
+      border: spacing(0.1) solid bdc("loadmore");
+      padding: spacing(0.7) spacing(2.5);
+      @include appearance($bg: 0 0);
+
+      &:hover {
+        color: tc("white");
+        background-color: bc("label-c");
+        border-color: bdc("loadmore-hover");
+      }
+    }
+  }
 }

@@ -8,7 +8,7 @@
       outline: none;
       background: none;
       @include appearance($borrad: null);
-      @include font("h4", "primary");
+      @include font("h3", "primary");
       @include margin-padding(
         all,
         0 spacing(0.5),
@@ -17,11 +17,11 @@
       );
 
       &:hover {
-        font-size: fs("h3");
+        font-size: fs("h2");
       }
 
       &.active {
-        @include font("h3", "tab-active");
+        @include font("h2", "tab-active");
       }
     }
   }

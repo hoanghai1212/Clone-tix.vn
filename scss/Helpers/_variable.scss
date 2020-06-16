@@ -16,7 +16,7 @@ $bgColors: (
   "buy-btn": #4a4a4a,
   "speech-red": #b30000,
   "rating": rgba(12, 27, 54, 0.8),
-  "showtime" : rgba(246, 246, 246, 0.5),
+  "showtime": rgba(246, 246, 246, 0.5),
 );
 
 //-----COLORS BORDER------
@@ -24,6 +24,8 @@ $borderColors: (
   "rating": #1f2e46,
   "tab": rgba(238, 238, 238, 0.88),
   "showtime": #e4e4e4,
+  "loadmore": #949494,
+  "loadmore-hover": #fb4226,
 );
 //-----COLORS TEXT------
 
@@ -52,8 +54,8 @@ $fontSizes: (
   /*used*/ "h6": 14px,
   /*used*/ "h5": 16px,
   /*used*/ "h4": 18px,
-  /*used*/ "h3": 24px,
-  "h2": 40px,
+  /*used*/ "h3": 20px,
+  /*used*/ "h2": 24px,
   "h1": 44px,
 );
 
@@ -85,4 +87,3 @@ $breakpoints: (
 
 // Z-Indexes
 $z-indexes: ("header", "slick", "play-btn", "quick-buy");
-

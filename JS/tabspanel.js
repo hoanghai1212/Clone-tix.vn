@@ -55,32 +55,36 @@ for (let el of defaultOpen)
 }
 
 
+
 // toggle open/close element
 const hideAll = function (evt, elmtClass)
 {
     var target = evt.currentTarget.querySelector(`.${elmtClass}`);
     var flag = target.getAttribute("aria-hidden");
 
-    if (flag === "true")
-    {
-        target.style.maxHeight = 700 + "px";
-        target.style.animationName = "expand";
-        target.style.animationDuration = "0.8s";
-        target.setAttribute("aria-hidden", "false");
-    }
-    else
+
+    if (flag !== "true")
     {
         target.style.maxHeight = 0;
         target.style.animationName = "collapse";
-        target.style.animationDuration = "0.4s";
+        target.style.animationDuration = "0.3s";
         target.setAttribute("aria-hidden", "true");
     }
-
+    if (flag === "true")
+    {
+        target.style.maxHeight = 500 + "px";
+        target.style.animationName = "expand";
+        target.style.animationDuration = "0.6s";
+        target.setAttribute("aria-hidden", "false");
+    }
+    //clear animation after toggle
     target.addEventListener('animationend', () =>
     {
         target.style.animationName = null;
         target.style.animationDuration = null;
     })
+
+
 }
 // end here
 
