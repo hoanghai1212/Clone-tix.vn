@@ -114,12 +114,14 @@ COMMENT KEYWORD to find:
 
 // Contain: Film Block, Cinema Block, News Block
 .content {
-  @include margin-padding(all, auto, top, spacing(7.5));
-  @include container;
+  padding-top: spacing(7.5);
+  @include flexbox(flex, center, center, column);
 }
 
 // FILM BLOCK STYLE
 .filmBlock {
+  @include container;
+
   &__tab {
     @include flexCenter();
     overflow: hidden;
@@ -299,6 +301,8 @@ COMMENT KEYWORD to find:
 
 // CINEMA BLOCK STYLE
 .cinemaBlock {
+  @include container;
+
   @include blockHeader;
   @include flexbox($wrap: nowrap);
 
@@ -468,6 +472,8 @@ COMMENT KEYWORD to find:
 .newsBlock {
   @include blockHeader;
   @include flexCenter;
+  @include container;
+
   flex-direction: column;
 
   &__tab {
@@ -601,3 +607,66 @@ COMMENT KEYWORD to find:
   }
 }
 // END of NEWS BLOCK STYLE
+
+// APP BLOCK STYLE
+.appBlock {
+  @include flexCenter();
+  padding: spacing(12) 0 spacing(8) 0;
+  background: url(../../img/backapp.jpg);
+  background-size: contain;
+  width: 100%;
+
+  &__wrapper {
+    @include container();
+    @include flexbox(flex, flex-start, center);
+  }
+
+  &__intro {
+    padding: spacing(6) spacing(1.5) 0;
+    width: 50%;
+
+    &-big {
+      @include font("h1", "white", "fwBold", spacing(5.5));
+      margin-bottom: spacing(2.5);
+    }
+
+    &-medium {
+      @include font("h5", "white", "fwRegular", 1.42);
+      margin-bottom: spacing(2.5);
+    }
+
+    &-small {
+      @include font("h6", "white", "fwRegular", 1.42);
+      padding-top: spacing(1);
+
+      a {
+        color: tc("white");
+        border-bottom: spacing(0.1) solid bdc("white");
+      }
+    }
+  }
+  &__phone {
+    position: relative;
+    width: 50%;
+
+    & > img {
+      padding: 0 27.5%;
+      width: 100%;
+    }
+
+    &-slides {
+      @include absolute(top 0 left 0);
+      width: 100%;
+      padding: 1.5% 28.8%;
+
+      & > img {
+        width: 100%;
+      }
+
+      .slick-list {
+        border-radius: spacing(2);
+      }
+    }
+  }
+}
+// END of APP BLOCK STYLE

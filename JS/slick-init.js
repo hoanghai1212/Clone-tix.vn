@@ -11,11 +11,19 @@ $(document).ready(function ()
 
     $('.nowShowing__carousel').slick({
         infinity: true,
-   
+
     });
 
     $('.comingSoon__carousel').slick({
         infinity: true,
+    });
+
+    $('.appBlock__phone-slides').slick({
+        infinity: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 1800,
+
     });
 });
 
