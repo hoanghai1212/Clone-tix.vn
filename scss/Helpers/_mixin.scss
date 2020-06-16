@@ -157,20 +157,20 @@
   background: $bg;
 }
 
-
 @mixin container($m-w: spacing(94)) {
   max-width: $m-w;
 }
 
 @mixin blockHeader {
-    background: url(../../img/back-news.png) no-repeat top center;
-    background-size: contain;
-    padding-top: spacing(12);
+  background: url(../../img/back-news.png) no-repeat top center;
+  background-size: contain;
+  padding-top: spacing(12);
+  padding-bottom: spacing(4);
 }
 
 @mixin custom-scrollbar {
   overflow-y: auto;
-    overflow-x: hidden;
+  overflow-x: hidden;
   // for firefox
   scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
   scrollbar-width: thin;
@@ -190,5 +190,3 @@
     border-radius: spacing(0.4);
   }
 }
-
-

@@ -27,3 +27,17 @@
     }
   }
 }
+
+.loadmore-btn {
+  @include font("subtitle", "text-3", "fwMedium");
+  @include appearance($bg: 0 0);
+  text-transform: uppercase;
+  border: spacing(0.1) solid bdc("loadmore");
+  padding: spacing(1) spacing(2.5);
+
+  &:hover {
+    color: tc("white");
+    background-color: bc("label-c");
+    border-color: bdc("loadmore-hover");
+  }
+}
