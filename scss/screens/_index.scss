@@ -195,17 +195,6 @@ COMMENT KEYWORD to find:
     .filmBlock__slide {
       @include flexbox($justify: flex-start, $wrap: wrap);
     }
-
-    .comingSoon__carousel {
-      .filmBlock__slide {
-        .filmBlock__film {
-          width: 50%;
-          img {
-            max-height: unset;
-          }
-        }
-      }
-    }
   }
   &__film {
     cursor: pointer;
@@ -257,7 +246,7 @@ COMMENT KEYWORD to find:
     }
 
     &-showtime {
-      @include absolute(bottom spacing(1.2) right spacing(1.2));
+      @include absolute(bottom spacing(1) right spacing(0.8));
       @include font("h5", "white", $lhe: 1.44);
       background-color: bc("rating");
       border: spacing(0.1) solid bdc("rating");
@@ -339,6 +328,16 @@ COMMENT KEYWORD to find:
 
   // *************RESPONSIVE HERE***************
   @include screen(lg) {
+    .comingSoon__carousel {
+      .filmBlock__slide {
+        .filmBlock__film {
+          width: 50%;
+          img {
+            max-height: unset;
+          }
+        }
+      }
+    }
     &__film {
       position: relative;
       width: 100%;
@@ -864,6 +863,18 @@ COMMENT KEYWORD to find:
       &-small {
         padding: spacing(1) 0;
       }
+    }
+  }
+
+  @include screen(sm) {
+    .slick-list {
+      border-radius: spacing(2.5);
+    }
+  }
+
+  @include screen(custom, max, 400) {
+    .slick-list {
+      border-radius: spacing(1.5);
     }
   }
 }

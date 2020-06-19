@@ -145,89 +145,97 @@ var sessionList = [
 
 const createSelectBox = (rootID, data) =>
 {
-    let bodyHTML = "";
     const root = document.getElementById(rootID);
-    const dataL = data.length;
-    let optionItem2 = "";
-
-    bodyHTML += `
-        <div class="select-selected">${data[0].text}</div>
-    `;
-
-    for (let j = 0; j < dataL; j++)
+    if (root)
     {
-        optionItem2 += `
-            <div data-id="${data[j].value}">${data[j].text}</div>
+
+        let bodyHTML = "";
+        const dataL = data.length;
+        let optionItem2 = "";
+
+        bodyHTML += `
+            <div class="select-selected">${data[0].text}</div>
+        `;
+
+        for (let j = 0; j < dataL; j++)
+        {
+            optionItem2 += `
+                <div data-id="${data[j].value}">${data[j].text}</div>
+            `
+        }
+
+        bodyHTML += `
+            <div class="select-items select-hide">
+            ${optionItem2}
+            </div>
         `
-    }
 
-    bodyHTML += `
-        <div class="select-items select-hide">
-        ${optionItem2}
-        </div>
-    `
+        root.innerHTML = bodyHTML;
 
-    root.innerHTML = bodyHTML;
+        const selectedItem = root.children[0];
+        const optionList = root.children[1]
+        const optionItem = optionList.children;
 
-    const selectedItem = root.children[0];
-    const optionList = root.children[1]
-    const optionItem = optionList.children;
-
-    for (let i = 0; i < optionItem.length; i++)
-    {
-        optionItem[i].addEventListener("click", function (e)
+        for (let i = 0; i < optionItem.length; i++)
         {
-
-            /*when an item is clicked, update the selected item:*/
-            selectedItem.innerText = this.innerText;
-            /*Get the current element that contain class="same-as-selected" */
-            const currentSelected = this.parentNode.getElementsByClassName("same-as-selected");
-            /*if currentSelected define => remove class from current selected */
-            if (currentSelected[0])
+            optionItem[i].addEventListener("click", function (e)
             {
-                currentSelected[0].removeAttribute("class");
-            }
-            /*Set class same-as-selected to clicked option */
-            this.setAttribute("class", "same-as-selected");
+
+                /*when an item is clicked, update the selected item:*/
+                selectedItem.innerText = this.innerText;
+                /*Get the current element that contain class="same-as-selected" */
+                const currentSelected = this.parentNode.getElementsByClassName("same-as-selected");
+                /*if currentSelected define => remove class from current selected */
+                if (currentSelected[0])
+                {
+                    currentSelected[0].removeAttribute("class");
+                }
+                /*Set class same-as-selected to clicked option */
+                this.setAttribute("class", "same-as-selected");
+            });
+        }
+
+        selectedItem.addEventListener("click", function (e)
+        {
+            /*when the select box is clicked, close any other select boxes,
+            and open/close the current select box:*/
+            e.stopPropagation();
+            closeAllSelect(this);
+            optionList.classList.toggle("select-hide");
         });
-    }
 
-    selectedItem.addEventListener("click", function (e)
-    {
-        /*when the select box is clicked, close any other select boxes,
-        and open/close the current select box:*/
-        e.stopPropagation();
-        closeAllSelect(this);
-        optionList.classList.toggle("select-hide");
-    });
-
-    function closeAllSelect(elmnt)
-    {
-        /* A function that will close all select boxes in the document,
-        except the current select box: */
-        const arrNo = [];
-        const selectItemsList = document.getElementsByClassName("select-items");
-        const selectedItemList = document.getElementsByClassName("select-selected");
-
-
-        for (let i = 0; i < selectedItemList.length; i++)
+        function closeAllSelect(elmnt)
         {
-            if (elmnt == selectedItemList[i])
+            /* A function that will close all select boxes in the document,
+            except the current select box: */
+            const arrNo = [];
+            const selectItemsList = document.getElementsByClassName("select-items");
+            const selectedItemList = document.getElementsByClassName("select-selected");
+
+
+            for (let i = 0; i < selectedItemList.length; i++)
             {
-                arrNo.push(i)
+                if (elmnt == selectedItemList[i])
+                {
+                    arrNo.push(i)
+                }
+            }
+            for (let i = 0; i < selectItemsList.length; i++)
+            {
+                if (arrNo.indexOf(i))
+                {
+                    selectItemsList[i].classList.add("select-hide");
+                }
             }
         }
-        for (let i = 0; i < selectItemsList.length; i++)
-        {
-            if (arrNo.indexOf(i))
-            {
-                selectItemsList[i].classList.add("select-hide");
-            }
-        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+
+    } else 
+    {
+        return false;
     }
-    /*if the user clicks anywhere outside the select box,
-    then close all select boxes:*/
-    document.addEventListener("click", closeAllSelect);
 
 }
 

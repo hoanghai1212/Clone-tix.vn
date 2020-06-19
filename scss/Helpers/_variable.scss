@@ -21,6 +21,11 @@ $bgColors: (
   "boxshadow": rgba(0, 0, 0, 0.3),
   "modal": rgba(0, 0, 0, 0.4),
   "modal-boxshadow": rgba(0, 0, 0, 0.5),
+  "login_close-btn": #081630,
+  "login_wrapper1": rgba(20, 50, 93, 0.9),
+  "login_wrapper2": rgba(8, 22, 48, 0.9),
+  "login_boxshadow": rgba(0, 0, 0, 0.45),
+  "detail": #0a2029,
 );
 
 //-----COLORS BORDER------
@@ -34,6 +39,7 @@ $borderColors: (
   "footer": #4a4a4a,
   "modal": rgba(0, 0, 0, 0.2),
   "modal-location": #ebebec,
+  "login_close-btn": #455570,
 );
 //-----COLORS TEXT------
 
@@ -53,6 +59,7 @@ $txtColors: (
   "lotte": #ca4137,
   "white": #ffffff,
   "tab-active": #fa5238,
+  "detail-info": #e9e9e9,
 );
 //-------FONT SIZE-------
 $fontSizes: (
@@ -66,6 +73,7 @@ $fontSizes: (
   "h2": 24px,
   "h1": 32px,
   "title": 25px,
+  "detail-info": 22px,
 );
 
 //------FONT WEIGHT--------

@@ -1,19 +1,23 @@
 const scrollBtn = document.getElementById("btnScrollTop");
 
-document.addEventListener('scroll', () => 
+if (scrollBtn)
 {
-    if (document.documentElement.scrollTop === 0)
+    document.addEventListener('scroll', () => 
     {
-        scrollBtn.style.visibility = "hidden";
-        scrollBtn.style.opacity = 0;
-    } else
-    {
-        scrollBtn.style.visibility = "visible";
-        scrollBtn.style.opacity = 1;
-    }
-})
+        if (document.documentElement.scrollTop === 0)
+        {
+            scrollBtn.style.visibility = "hidden";
+            scrollBtn.style.opacity = 0;
+        } else
+        {
+            scrollBtn.style.visibility = "visible";
+            scrollBtn.style.opacity = 1;
+        }
+    })
 
-scrollBtn.addEventListener('click', () => document.documentElement.scrollTop = 0);
+    scrollBtn.addEventListener('click', () => document.documentElement.scrollTop = 0);
+}
+
 
 
 const openSideMenuBtn = document.getElementById("sideMenuBtn");
@@ -27,6 +31,15 @@ const closeSideMenu = (el) =>
     {
         sideMenu.classList.toggle("active");
         document.body.style.overflow = "initial";
+    })
+
+    window.addEventListener('click', (event) =>
+    {
+        if (event.target == sideMenu)
+        {
+            sideMenu.classList.toggle("active");
+            document.body.style.overflow = "initial";
+        }
     })
 }
 
@@ -43,3 +56,8 @@ for (let link of sideMenuLink)
     closeSideMenu(link);
 }
 
+
+const toLoginPage = () =>
+{
+    window.location = "./login.html";
+}

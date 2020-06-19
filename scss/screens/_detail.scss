@@ -1,0 +1,83 @@
+.content {
+  &--detail {
+    padding-top: spacing(6);
+    background-color: bc("detail");
+  }
+
+  &__poster {
+    position: relative;
+    width: 100%;
+    &--blur {
+      overflow: hidden;
+      img {
+        filter: blur(15px);
+        margin: spacing(-1.1) 0 spacing(-0.5) spacing(-1);
+        width: calc(100% + 5px);
+      }
+    }
+
+    &--gradient {
+      @include absolute(top 0 left 0);
+      @include size(100%);
+      background: linear-gradient(to top, bc("detail"), transparent 100%);
+    }
+  }
+
+  &__film-intro {
+    @include centerAbsolute();
+    @include flexbox($align: center);
+    width: 100%;
+    max-width: spacing(87);
+
+    &__image {
+      position: relative;
+      width: 25%;
+      img {
+        border-radius: spacing(0.4);
+      }
+
+      &:hover .play-btn {
+        opacity: 1;
+
+        img:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__info {
+      @include flexbox($align: flex-start, $direction: column);
+      width: 41.67%;
+      padding: 0 spacing(1.5);
+      @include font("h6", "detail-info", "fwRegular", $lhe: 1.42);
+
+      .green-label {
+        vertical-align: middle;
+        margin: spacing(-0.5) spacing(0.6) 0 0;
+      }
+
+      h1 {
+        @include font("detail-info", "detail-info", "fwMedium", $lhe: 1.42);
+      }
+
+      button {
+        @include margin-padding(
+          all,
+          spacing(2.5) 0 spacing(2),
+          all,
+          spacing(0.9) spacing(2.4)
+        );
+
+        text-align: center;
+        border: none;
+
+        @include font("h5", "white");
+        @include appearance($bg: bc("label-c"));
+      }
+    }
+
+    &__rating {
+      width: 16.67%;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sky Tour Movie - Sơn Tùng M-TP</title>
+
+    <link rel="icon" href="./img/white-logo.png" />
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__left">
+            <a href="./index.html" class="header__logo"><img src="./img/web-logo.png" alt="logo" /></a>
+        </div>
+        <div class="header__middle">
+            <a href="/#filmBlock">Lịch Chiếu</a>
+            <a href="/#cinemaBlock">Cụm Rạp</a>
+            <a href="/#newsBlock">Tin Tức</a>
+            <a href="/#appBlock">Ứng Dụng</a>
+        </div>
+        <div class="header__right">
+            <div class="login-btn">
+                <img src="./img/icon/avatar.png" alt="user" />
+                <span onclick="toLoginPage()">Đăng Nhập</span>
+            </div>
+
+            <div class="header__location-select" id="location-select"></div>
+
+            <div class="header__side-menu-btn" id="sideMenuBtn">
+                <img src="./img/icon/menu-options.png" alt="menu" />
+            </div>
+
+            <div class="header__side-menu" id="sideMenu">
+                <div class="header__side-menu__wrapper">
+                    <div class="login-btn">
+                        <img src="./img/icon/avatar.png" alt="user" />
+                        <span onclick="toLoginPage()">Đăng Nhập</span>
+
+                        <img src="./img/Icon/next-session.png" alt="close" class="header__side-menu__close-btn"
+                            id="closeSideMenuBtn" />
+                    </div>
+
+                    <a id="sideMenuLink" href="/#filmBlock">Lịch Chiếu</a>
+                    <a id="sideMenuLink" href="/#cinemaBlock">Cụm Rạp</a>
+                    <a id="sideMenuLink" href="/#newsBlock">Tin Tức</a>
+                    <a id="sideMenuLink" href="/#appBlock">Ứng Dụng</a>
+                    <a id="modalBtn">Hồ Chí Minh</a>
+
+                    <div class="modal" id="modalLocation">
+                        <div class="modal-content">
+                            <div class="modal-wrapper" id="modalWrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="content content--detail">
+        <div class="content__poster">
+            <div class="content__poster--blur">
+                <img src="./img/Detail/sky-tour-movie-son-tung-m-tp-15916752617382.jpg" alt="banner" />
+            </div>
+            <div class="content__poster--gradient"></div>
+            <div class="content__film-intro">
+                <div class="content__film-intro__image">
+                    <img src="./img/detail/sky-tour-movie-son-tung-m-tp-15911589815273_215x318.png" alt="sep" />
+                    <div class="play-btn">
+                        <img src="./img/icon/play-video.png" alt="" />
+                    </div>
+                </div>
+                <div class="content__film-intro__info">
+                    <p>12.06.2020</p>
+                    <h1>
+                        <div class="green-label">P</div>Sky Tour Movie - Sơn Tùng M-TP
+                    </h1>
+                    <span>94 phút - 0 IMDb - 2D/Digital</span>
+                    <button>Mua vé</button>
+                </div>
+                <div class="content__film-intro__rating"></div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__row">
+                <div class="footer__tix">
+                    <p class="footer__title">TIX</p>
+                    <a href="#">FAQ</a>
+                    <a href="#">Thỏa thuận sử dụng</a>
+                    <a href="#">Brand Guidelines</a>
+                    <a href="#">Chính sách bảo mật</a>
+                </div>
+                <div class="footer__partner">
+                    <p class="footer__title">ĐỐI TÁC</p>
+
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./img/partner/cgv.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/bhd.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/galaxycine.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/cinestar.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/lotte.png" alt="partner" /></a>
+                    </div>
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./img/partner/megags.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/bt.jpg" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/dongdacinema.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/TOUCH.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/cnx.jpg" alt="partner" /></a>
+                    </div>
+
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./img/partner/STARLIGHT.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/dcine.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/zalopay_icon.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/payoo.jpg" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/VCB.png" alt="partner" /></a>
+                    </div>
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./img/partner/AGRIBANK.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/VIETTINBANK.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/IVB.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/123go.png" alt="partner" /></a>
+                        <a href="#"><img src="./img/partner/laban.png" alt="partner" /></a>
+                    </div>
+                </div>
+                <div class="footer__app-social">
+                    <div class="footer__wrapper">
+                        <p class="footer__title">MOBILE APP</p>
+                        <img src="./img/app/apple-logo.png" alt="ios" />
+                        <img src="./img/app/android-logo.png" alt="adr" />
+                    </div>
+                    <div class="footer__wrapper">
+                        <p class="footer__title">SOCIAL</p>
+                        <img src="./img/social/facebook-logo.png" alt="fb" />
+                        <img src="./img/social/zalo-logo.png" alt="zl" />
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="footer__row">
+                <div class="footer__company-logo">
+                    <img src="./img/zion-logo.jpg" alt="zion" />
+                </div>
+                <div class="footer__company-detail">
+                    <p>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</p>
+                    <p>
+                        Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ
+                        Chí Minh, Việt Nam.
+                    </p>
+                    <p>
+                        Giấy chứng nhận đăng ký kinh doanh số: 0101659783,
+                    </p>
+                    <p>
+                        đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế
+                        hoạch và đầu tư Thành phố Hồ Chí Minh cấp.
+                    </p>
+                    <p>Số Điện Thoại (Hotline): 1900 545 436</p>
+                    <p>Email: <a href="#">support@tix.vn</a></p>
+                </div>
+                <div class="footer__ministry">
+                    <img src="./img/bo-cong-thuong.png" alt="ministry" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="./js/dropdown.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+
+</html>

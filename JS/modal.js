@@ -40,14 +40,16 @@ const modalToggle = (btn, modal) =>
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event)
+    window.addEventListener('click', (event) =>
     {
         if (event.target == modal)
         {
+            console.log(event.target)
+            console.log(modal)
             modal.style.display = "none";
         }
+    })
 
-    }
 
 }
 
