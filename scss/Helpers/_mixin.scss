@@ -159,6 +159,7 @@
 
 @mixin container($m-w: spacing(94)) {
   max-width: $m-w;
+  margin: 0 auto;
 }
 
 @mixin blockHeader {
@@ -188,5 +189,31 @@
   &::-webkit-scrollbar-thumb {
     background: bc("scroll-thumb");
     border-radius: spacing(0.4);
+  }
+}
+
+@mixin screen($size, $type: max, $pixels: br("sm")) {
+  @if $size == "sm" {
+    @media screen and (#{$type}-width: br("sm")) {
+      @content;
+    }
+  } @else if $size == "md" {
+    @media screen and (#{$type}-width: br("md")) {
+      @content;
+    }
+  } @else if $size == "lg" {
+    @media screen and (#{$type}-width: br("lg")) {
+      @content;
+    }
+  } @else if $size == "x-lg" {
+    @media screen and (#{$type}-width: br("x-lg")) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and (#{$type}-width: $pixels + px) {
+      @content;
+    }
+  } @else {
+    @content;
   }
 }

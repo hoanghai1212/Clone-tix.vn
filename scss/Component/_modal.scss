@@ -1,0 +1,37 @@
+.modal {
+  display: none;
+  @include fixed(top 0 left 0);
+  @include size(100%);
+  background-color: bc("modal");
+  z-index: z("modal");
+}
+
+.modal-content {
+  @include size(calc(100vw - 60px), calc(100vh - 60px));
+  @include box-shadow(0, 0.3, 0.9, bc("modal-boxshadow"));
+  margin: spacing(3);
+  border-radius: spacing(0.6);
+  background-color: bc("white");
+  border: spacing(0.1) solid bdc("modal");
+  background-clip: padding-box;
+}
+
+.modal-wrapper {
+  padding: spacing(3.5) spacing(1.5);
+  height: 100%;
+  text-align: center;
+  overflow-y: scroll;
+
+  @include custom-scrollbar();
+
+  div {
+    @include margin-padding(bottom, spacing(0.5), top, spacing(0.4));
+    @include font("h5", "primary");
+    height: spacing(4);
+    border-bottom: spacing(0.1) solid bdc("modal-location");
+  }
+
+  div:last-child {
+    border-bottom: none;
+  }
+}

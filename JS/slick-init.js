@@ -9,14 +9,7 @@ $(document).ready(function ()
 
     });
 
-    $('.nowShowing__carousel').slick({
-        infinity: true,
 
-    });
-
-    $('.comingSoon__carousel').slick({
-        infinity: true,
-    });
 
     $('.appBlock__phone-slides').slick({
         infinity: true,
@@ -27,3 +20,26 @@ $(document).ready(function ()
     });
 });
 
+
+$(window).on('load', function ()
+{
+
+    /* If we are above mobile breakpoint unslick the slider */
+    if ($(window).width() < 993)
+    {
+        /* Do nothing (responsive Slick's setting will unslick the slider) */
+        $('.nowShowing__carousel').slick('unslick');
+        $('.comingSoon__carousel').slick('unslick');
+    }
+    else
+    {
+        $('.nowShowing__carousel').slick({
+            infinity: true,
+        });
+
+        $('.comingSoon__carousel').slick({
+            infinity: true,
+        });
+    }
+
+});

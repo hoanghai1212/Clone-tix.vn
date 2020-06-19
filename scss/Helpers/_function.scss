@@ -35,6 +35,14 @@
   @return "";
 }
 
+@function br($breakpoint) {
+  @if map-has-key($map: $breakpoints, $key: $breakpoint) {
+    @return map-get($map: $breakpoints, $key: $breakpoint);
+  }
+  @warn ("{$breakpoint} doesn't exist");
+  @return "";
+}
+
 @function fw($weight) {
   @if map-has-key($map: $fwArr, $key: $weight) {
     @return map-get($map: $fwArr, $key: $weight);

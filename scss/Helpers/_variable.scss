@@ -19,6 +19,8 @@ $bgColors: (
   "showtime": rgba(246, 246, 246, 0.5),
   "header": rgba(255, 255, 255, 0.95),
   "boxshadow": rgba(0, 0, 0, 0.3),
+  "modal": rgba(0, 0, 0, 0.4),
+  "modal-boxshadow": rgba(0, 0, 0, 0.5),
 );
 
 //-----COLORS BORDER------
@@ -29,6 +31,9 @@ $borderColors: (
   "loadmore": #949494,
   "loadmore-hover": #fb4226,
   "white": #ffffff,
+  "footer": #4a4a4a,
+  "modal": rgba(0, 0, 0, 0.2),
+  "modal-location": #ebebec,
 );
 //-----COLORS TEXT------
 
@@ -51,15 +56,16 @@ $txtColors: (
 );
 //-------FONT SIZE-------
 $fontSizes: (
-  "body1": 10px,
-  /*used*/ "body2": 12px,
-  /*used*/ "subtitle": 13px,
-  /*used*/ "h6": 14px,
-  /*used*/ "h5": 16px,
-  /*used*/ "h4": 18px,
-  /*used*/ "h3": 20px,
-  /*used*/ "h2": 24px,
-  /*used*/ "h1": 32px,
+  "body1": 11px,
+  "body2": 12px,
+  "subtitle": 13px,
+  "h6": 14px,
+  "h5": 16px,
+  "h4": 18px,
+  "h3": 20px,
+  "h2": 24px,
+  "h1": 32px,
+  "title": 25px,
 );
 
 //------FONT WEIGHT--------
@@ -74,19 +80,19 @@ $spacing: 10px;
 
 // BREAKPOINT
 $breakpoints: (
-  "extra-large": (
-    max-width: 1200px,
-  ),
-  "large": (
-    max-width: 992px,
-  ),
-  "medium": (
-    max-width: 768px,
-  ),
-  "small": (
-    max-width: 576px,
-  ),
+  "x-lg": 1200px,
+  "lg": 992px,
+  "md": 768px,
+  "sm": 576px,
 );
 
 // Z-Indexes
-$z-indexes: ("header", "slick", "play-btn", "quick-buy");
+$z-indexes: (
+  "modal",
+  "side-menu",
+  "header",
+  "ScrollTop",
+  "slick",
+  "play-btn",
+  "quick-buy"
+);

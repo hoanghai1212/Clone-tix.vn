@@ -109,13 +109,44 @@ COMMENT KEYWORD to find:
       }
     }
   }
+
+  @include screen(lg) {
+    display: none;
+  }
 }
 // END of CAROUSEL STYLE
 
-// Contain: Film Block, Cinema Block, News Block
+// Contain: Film Block, Cinema Block, News Block, App Block
 .content {
   padding-top: spacing(7.5);
   @include flexbox(flex, center, center, column);
+
+  .btnScrollTop {
+    display: none;
+  }
+
+  @include screen(lg) {
+    display: block;
+
+    .btnScrollTop {
+      @include fixed(bottom 0 right spacing(0.5));
+      display: block;
+      transform: translateY(-50%);
+      z-index: z("ScrollTop");
+      visibility: hidden;
+      opacity: 0;
+
+      @include appearance($borrad: null);
+
+      img {
+        @include size(spacing(2.4));
+      }
+    }
+  }
+
+  @include screen(md) {
+    padding-top: spacing(9);
+  }
 }
 
 // FILM BLOCK STYLE
@@ -163,135 +194,219 @@ COMMENT KEYWORD to find:
 
     .filmBlock__slide {
       @include flexbox($justify: flex-start, $wrap: wrap);
+    }
 
-      .filmBlock__film {
-        cursor: pointer;
-        width: 25%;
-        padding: spacing(2) spacing(1) 0;
+    .comingSoon__carousel {
+      .filmBlock__slide {
+        .filmBlock__film {
+          width: 50%;
+          img {
+            max-height: unset;
+          }
+        }
+      }
+    }
+  }
+  &__film {
+    cursor: pointer;
+    width: 25%;
+    padding: spacing(2) spacing(1) 0;
+
+    &:hover {
+      .filmBlock__film-overlay,
+      .filmBlock__film-overlay .play-btn,
+      .filmBlock__film-title::after {
+        opacity: 1;
+      }
+      .filmBlock__film-info,
+      .filmBlock__film__sneak-show {
+        opacity: 0;
+      }
+    }
+    &-img {
+      position: relative;
+
+      .filmBlock__film-overlay {
+        @include absolute(top 0);
+        @include size(100%);
+        @include appearance();
+        background: linear-gradient(to top, bc("black"), transparent 100%);
+        opacity: 0;
+
+        .play-btn {
+          img {
+            @include size(spacing(6));
+          }
+        }
+      }
+      & > img {
+        width: 100%;
+        border-radius: spacing(0.4);
+        margin-bottom: spacing(1);
+      }
+    }
+
+    &-rating {
+      @include absolute(top spacing(1.2) right spacing(1.2));
+      @include font("h5", "white");
+      width: spacing(5.4);
+      text-align: center;
+      background-color: bc("rating");
+      border: spacing(0.1) solid bdc("rating");
+      padding: spacing(0.2);
+    }
+
+    &-showtime {
+      @include absolute(bottom spacing(1.2) right spacing(1.2));
+      @include font("h5", "white", $lhe: 1.44);
+      background-color: bc("rating");
+      border: spacing(0.1) solid bdc("rating");
+      padding: spacing(0.2);
+      border-radius: spacing(0.4);
+    }
+
+    &-score {
+      transform: scaleY(1.2);
+    }
+
+    &-star {
+      @include flexCenter();
+      margin: spacing(0.4) 0;
+      img {
+        width: spacing(0.8);
+      }
+    }
+
+    &__sneak-show {
+      @include absolute(bottom spacing(1) right spacing(1));
+      @include font("body2", "white", "fwRegular", 1.55);
+      @include box-shadow(0, 0, 1, 0, bc("boxshadow"), true);
+      padding: spacing(0.4) spacing(0.8);
+      @include appearance(
+        $property: opacity,
+        $borrad: spacing(0.6),
+        $bg: bc("label-c")
+      );
+    }
+
+    &__sneak-show--tag,
+    &__block-buster--tag {
+      @include absolute(
+        top spacing(-2) left spacing(-1),
+        $transX: -5%,
+        $transY: -12%
+      );
+      width: 80%;
+      max-width: spacing(15);
+      img {
+        width: 100%;
+      }
+    }
+
+    &-title {
+      transition: all 0.2s;
+      height: spacing(4.2);
+      position: relative;
+
+      h1 {
+        display: inline;
+        font-weight: fw("fwMedium");
+      }
+
+      &::after {
+        content: "MUA VÉ";
+        @include centerAbsolute();
+        @include font("h4", "white");
+        @include appearance(
+          $property: opacity,
+          $bg: linear-gradient(to left, bc("label-c"), bc("dark-orange") 100%)
+        );
+        @include size(100%);
+        @include flexCenter();
+        opacity: 0;
+      }
+      &:hover::after {
+        background: bc("label-c");
+      }
+    }
+
+    &-info {
+      transition: all 0.2s;
+      margin: spacing(0.8) 0 spacing(1.5);
+      @include font("subtitle", "text-2");
+    }
+  }
+
+  // *************RESPONSIVE HERE***************
+  @include screen(lg) {
+    &__film {
+      position: relative;
+      width: 100%;
+      padding: spacing(1);
+
+      &-img {
+        .filmBlock__film-overlay {
+          display: none;
+        }
+        & > img {
+          max-height: spacing(38);
+          margin-bottom: 0;
+        }
+      }
+      &__sneak-show {
+        @include absolute(bottom spacing(1.2) right spacing(1));
+      }
+
+      &-title {
+        @include absolute(bottom spacing(2) left spacing(1.8));
+        height: unset;
+        h1,
+        &::after {
+          display: none;
+        }
+      }
+
+      &-info {
+        display: none;
+      }
+    }
+
+    &__tabcontent {
+      .filmBlock__slide {
+        justify-content: center;
+        -webkit-animation: fadeEffect 1s;
+        animation: fadeEffect 1s;
+
+        .loadmore-btn {
+          margin-bottom: spacing(2.5);
+        }
+      }
+      .filmBlock__slide:nth-child(2),
+      .filmBlock__slide:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  @include screen(md) {
+    &__tab {
+      margin-bottom: spacing(2);
+    }
+  }
+
+  @include screen(sm) {
+    &__tab {
+      margin-bottom: spacing(1);
+
+      button {
+        @include font("h5", "primary");
 
         &:hover {
-          .filmBlock__film-overlay,
-          .filmBlock__film-overlay .play-btn,
-          .filmBlock__film-title::after {
-            opacity: 1;
-          }
-          .filmBlock__film-info,
-          .filmBlock__film__sneak-show {
-            opacity: 0;
-          }
-        }
-        &-img {
-          position: relative;
-
-          .filmBlock__film-overlay {
-            @include absolute(top 0);
-            @include size(100%);
-            @include appearance();
-            background: linear-gradient(to top, bc("black"), transparent 100%);
-            opacity: 0;
-
-            .play-btn {
-              img {
-                @include size(spacing(6));
-              }
-            }
-          }
-          & > img {
-            width: 100%;
-            border-radius: spacing(0.4);
-            margin-bottom: spacing(1);
-          }
+          font-size: fs("h4");
         }
 
-        &-rating {
-          @include absolute(top spacing(1.2) right spacing(1.2));
-          @include font("h5", "white");
-          width: spacing(5.4);
-          text-align: center;
-          background-color: bc("rating");
-          border: spacing(0.1) solid bdc("rating");
-          padding: spacing(0.2);
-        }
-
-        &-showtime {
-          @include absolute(bottom spacing(1.2) right spacing(1.2));
-          @include font("h5", "white", $lhe: 1.44);
-          background-color: bc("rating");
-          border: spacing(0.1) solid bdc("rating");
-          padding: spacing(0.2);
-          border-radius: spacing(0.4);
-        }
-
-        &-score {
-          transform: scaleY(1.2);
-        }
-
-        &-star {
-          @include flexCenter();
-          margin: spacing(0.4) 0;
-          img {
-            width: 15%;
-          }
-        }
-
-        &__sneak-show {
-          @include absolute(bottom spacing(1) right spacing(1));
-          @include font("body2", "white", "fwRegular", 1.55);
-          @include box-shadow(0, 0, 1, 0, bc("boxshadow"), true);
-          padding: spacing(0.4) spacing(0.8);
-          @include appearance(
-            $property: opacity,
-            $borrad: spacing(0.6),
-            $bg: bc("label-c")
-          );
-        }
-
-        &__sneak-show--tag,
-        &__block-buster--tag {
-          @include absolute(
-            top spacing(-2) left spacing(-1),
-            $transX: -5%,
-            $transY: -12%
-          );
-          width: 80%;
-          max-width: spacing(15);
-          img {
-            width: 100%;
-          }
-        }
-
-        &-title {
-          transition: all 0.2s;
-          height: spacing(4.2);
-          position: relative;
-
-          h1 {
-            display: inline;
-            font-weight: fw("fwMedium");
-          }
-
-          &::after {
-            content: "MUA VÉ";
-            @include centerAbsolute();
-            @include font("h4", "white");
-            @include appearance(
-              $property: opacity,
-              $bg:
-                linear-gradient(to left, bc("label-c"), bc("dark-orange") 100%)
-            );
-            @include size(100%);
-            @include flexCenter();
-            opacity: 0;
-          }
-          &:hover::after {
-            background: bc("label-c");
-          }
-        }
-
-        &-info {
-          transition: all 0.2s;
-          margin: spacing(0.8) 0 spacing(1.5);
-          @include font("subtitle", "text-2");
+        &.active {
+          @include font("h4", "tab-active");
         }
       }
     }
@@ -302,7 +417,6 @@ COMMENT KEYWORD to find:
 // CINEMA BLOCK STYLE
 .cinemaBlock {
   @include container;
-
   @include blockHeader;
   @include flexbox($wrap: nowrap);
 
@@ -465,6 +579,10 @@ COMMENT KEYWORD to find:
       }
     }
   }
+
+  @include screen(lg) {
+    display: none;
+  }
 }
 // END of CINEMA BLOCK STYLE
 
@@ -605,7 +723,46 @@ COMMENT KEYWORD to find:
     margin-top: spacing(4);
     margin-bottom: spacing(1.5);
   }
+
+  @include screen(md) {
+    padding-top: spacing(9);
+  }
+  @include screen(sm) {
+    padding-top: spacing(6);
+    &__news-container {
+      .item-1,
+      .item-2,
+      .item-3,
+      .item-4,
+      .item-wrapper {
+        width: 100%;
+      }
+
+      .item-wrapper {
+        padding: 0;
+      }
+    }
+
+    &__tab {
+      flex-wrap: wrap;
+
+      button {
+        @include font("h5", "primary");
+        @include margin-padding(all, 0 spacing(1), all, spacing(1.5) 0);
+        white-space: nowrap;
+
+        &:hover {
+          font-size: fs("h4");
+        }
+
+        &.active {
+          @include font("h4", "tab-active");
+        }
+      }
+    }
+  }
 }
+
 // END of NEWS BLOCK STYLE
 
 // APP BLOCK STYLE
@@ -668,5 +825,235 @@ COMMENT KEYWORD to find:
       }
     }
   }
+
+  // *************RESPONSIVE HERE***************
+  @include screen(lg) {
+    padding: spacing(1) 0 spacing(8) 0;
+
+    &__intro {
+      text-align: center;
+      &-big {
+        font-size: fs("title");
+      }
+      &-medium {
+        font-size: fs("h6");
+      }
+    }
+  }
+
+  @include screen(md) {
+    &__wrapper {
+      flex-direction: column;
+    }
+
+    &__phone {
+      width: 100%;
+
+      &-slides {
+        padding: 2.3% 28.9%;
+
+        .slick-list {
+          border-radius: spacing(3.5);
+        }
+      }
+    }
+
+    &__intro {
+      width: 100%;
+
+      &-small {
+        padding: spacing(1) 0;
+      }
+    }
+  }
 }
 // END of APP BLOCK STYLE
+
+// FOOTER STYLE
+.footer {
+  background: bc("secondary");
+  color: tc("text-3");
+  padding: spacing(2) 0;
+
+  &__container {
+    @include container;
+  }
+
+  &__row {
+    display: flex;
+  }
+  &__title {
+    width: 100%;
+    margin-bottom: spacing(1);
+    @include font("body1", "white");
+  }
+  &__tix {
+    width: 33%;
+    display: flex;
+    flex-flow: row wrap;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    padding: 0 spacing(1.5);
+    a {
+      width: 50%;
+      @include font("body2", "text-3", "fwBold", $lhe: 2.3);
+
+      &:hover {
+        color: tc("white");
+      }
+    }
+  }
+
+  &__partner {
+    width: 33%;
+    padding: 0 spacing(1.5);
+
+    &-row {
+      img {
+        @include size(30px);
+        border-radius: 50%;
+        margin-right: spacing(1.5);
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &-row:nth-of-type(1) {
+      a:nth-of-type(1) {
+        img {
+          background-color: bc("white");
+        }
+      }
+    }
+
+    &-row:nth-of-type(1),
+    &-row:nth-of-type(2),
+    &-row:nth-of-type(3) {
+      margin-bottom: spacing(1.5);
+    }
+  }
+
+  &__app-social {
+    width: 33%;
+    display: flex;
+    text-align: center;
+  }
+
+  &__wrapper {
+    padding: 0 spacing(1.5);
+    width: 50%;
+
+    img {
+      cursor: pointer;
+      height: spacing(3);
+      margin: spacing(0.5);
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: spacing(0.1) solid bdc("footer");
+    margin: spacing(2) 0;
+  }
+
+  &__company-logo {
+    width: 8.33%;
+
+    img {
+      width: spacing(8);
+      border-radius: spacing(0.7);
+    }
+  }
+
+  &__company-detail {
+    width: 75%;
+    padding: 0 spacing(1.5);
+
+    p:nth-of-type(1) {
+      color: tc("white");
+    }
+
+    p {
+      @include font("body2", $lhe: 1.8);
+
+      a {
+        color: tc("secondary");
+      }
+    }
+  }
+
+  &__ministry {
+    width: 16.67%;
+    text-align: right;
+
+    img {
+      cursor: pointer;
+      width: spacing(13);
+    }
+  }
+
+  // *************RESPONSIVE HERE***************
+  @include screen(lg) {
+    &__title {
+      display: none;
+    }
+
+    &__tix {
+      @include flexCenter();
+
+      a {
+        width: auto;
+        margin: spacing(0.5);
+
+        &:nth-child(4) {
+          order: 3;
+        }
+      }
+    }
+
+    &__partner {
+      display: none;
+    }
+
+    &__app-social {
+      justify-content: center;
+    }
+
+    &__wrapper:nth-of-type(1) {
+      display: none;
+    }
+
+    &__company-detail {
+      text-align: center;
+    }
+    &__ministry {
+      text-align: center;
+    }
+  }
+
+  @include screen(md) {
+    &__row {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__tix,
+    &__company-detail,
+    &__ministry,
+    &__wrapper {
+      width: 100%;
+    }
+
+    &__company-logo {
+      width: 100%;
+      text-align: center;
+      img {
+        margin-bottom: spacing(2);
+      }
+    }
+  }
+}
+// END of FOOTER STYLE
