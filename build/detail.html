@@ -13,158 +13,260 @@
 <body>
     <header class="header">
         <div class="header__left">
-            <a href="./index.html" class="header__logo"><img src="./images/web-logo.png" alt="logo" /></a>
+          <a href="./index.html" class="header__logo"><img src="./images/web-logo.png" alt="logo" /></a>
         </div>
         <div class="header__middle">
-            <a href="/#content__film-detail__tab">Lịch Chiếu</a>
-            <a href="/#cinemaBlock">Cụm Rạp</a>
-            <a href="/#newsBlock">Tin Tức</a>
-            <a href="/#appBlock">Ứng Dụng</a>
+          <a href="#filmBlock">Lịch Chiếu</a>
+          <a href="#cinemaBlock">Cụm Rạp</a>
+          <a href="#newsBlock">Tin Tức</a>
+          <a href="#appBlock">Ứng Dụng</a>
         </div>
         <div class="header__right">
-            <div class="login-btn">
+          <div class="login-btn">
+            <img src="./images/icon/avatar.png" alt="user" />
+            <span onclick="toLoginPage()">Đăng Nhập</span>
+          </div>
+    
+          <div class="header__location-select" id="location-select">
+            <div class="select-selected">Hồ Chí Minh</div>
+            <div class="select-items select-hide">
+    
+              <div data-id="HCM">Hồ Chí Minh</div>
+    
+              <div data-id="HNoi">Hà Nội</div>
+    
+              <div data-id="DN">Đà Nẵng</div>
+    
+              <div data-id="HP">Hải Phòng</div>
+    
+              <div data-id="BH">Biên Hòa</div>
+    
+              <div data-id="NT">Nha Trang</div>
+    
+              <div data-id="BD">Bình Dương</div>
+    
+              <div data-id="PT">Phan Thiết</div>
+    
+              <div data-id="HL">Hạ Long</div>
+    
+              <div data-id="CT">Cần Thơ</div>
+    
+              <div data-id="VT">Vũng Tàu</div>
+    
+              <div data-id="QNhon">Quy Nhơn</div>
+    
+              <div data-id="Hue">Huế</div>
+    
+              <div data-id="LX">Long Xuyên</div>
+    
+              <div data-id="TN">Thái Nguyên</div>
+    
+              <div data-id="BMT">Buôn Ma Thuột</div>
+    
+              <div data-id="BG">Bắc Giang</div>
+    
+              <div data-id="BT">Bến Tre</div>
+    
+              <div data-id="VT">Việt Trì</div>
+    
+              <div data-id="NB">Ninh Bình</div>
+    
+              <div data-id="Vinh">Vinh</div>
+    
+              <div data-id="BL">Bảo Lộc</div>
+    
+              <div data-id="DL">Đà Lạt</div>
+    
+              <div data-id="TV">Trà Vinh</div>
+    
+              <div data-id="YB">Yên Bái</div>
+    
+              <div data-id="KG">Kiên Giang</div>
+    
+              <div data-id="VL">Vĩnh Long</div>
+    
+              <div data-id="CM">Cà Mau</div>
+    
+              <div data-id="HG">Hậu Giang</div>
+    
+              <div data-id="TN">Tây Ninh</div>
+    
+              <div data-id="TQ">Tuyên Quang</div>
+    
+              <div data-id="TH">Thanh Hóa</div>
+    
+              <div data-id="ND">Nam Định</div>
+    
+              <div data-id="HD">Hải Dương</div>
+    
+              <div data-id="GL">Gia Lai</div>
+    
+              <div data-id="HT">Hà Tĩnh</div>
+    
+              <div data-id="PY">Phú Yên</div>
+    
+              <div data-id="BL">Bạc Liêu</div>
+    
+              <div data-id="LA">Long An</div>
+    
+              <div data-id="DH">Đồng Hới</div>
+    
+              <div data-id="HNam">Hà Nam</div>
+    
+              <div data-id="BN">Bắc Ninh</div>
+    
+              <div data-id="QT">Quảng Trị</div>
+    
+              <div data-id="KT">Kon Tum</div>
+    
+              <div data-id="ST">Sóc Trăng</div>
+    
+              <div data-id="SL">Sơn La</div>
+    
+              <div data-id="LS">Lạng Sơn</div>
+    
+              <div data-id="QNgai">Quảng Ngãi</div>
+    
+              <div data-id="MT">Mỹ Tho</div>
+    
+              <div data-id="DT">Đồng Tháp</div>
+    
+              <div data-id="HY">Hưng Yên</div>
+    
+            </div>
+          </div>
+    
+          <div class="header__side-menu-btn" id="sideMenuBtn">
+            <img src="./images/icon/menu-options.png" alt="menu" />
+          </div>
+    
+          <div class="header__side-menu" id="sideMenu">
+            <div class="header__side-menu__wrapper">
+              <div class="login-btn">
                 <img src="./images/icon/avatar.png" alt="user" />
                 <span onclick="toLoginPage()">Đăng Nhập</span>
-            </div>
-
-            <div class="header__location-select" id="location-select">
-                <div class="select-selected">Hồ Chí Minh</div>
-                <div class="select-items select-hide">
-
+    
+                <img src="./images/Icon/next-session.png" alt="close" class="header__side-menu__close-btn"
+                  id="closeSideMenuBtn" />
+              </div>
+    
+              <a id="sideMenuLink" href="#filmBlock">Lịch Chiếu</a>
+              <a id="sideMenuLink" href="#cinemaBlock">Cụm Rạp</a>
+              <a id="sideMenuLink" href="#newsBlock">Tin Tức</a>
+              <a id="sideMenuLink" href="#appBlock">Ứng Dụng</a>
+              <a id="modalBtn">Hồ Chí Minh</a>
+    
+              <div class="modal" id="modalLocation" data-target="locationWrapper">
+                <div class="modal-content">
+                  <div class="modal-wrapper" id="locationWrapper">
                     <div data-id="HCM">Hồ Chí Minh</div>
-
+    
                     <div data-id="HNoi">Hà Nội</div>
-
+    
                     <div data-id="DN">Đà Nẵng</div>
-
+    
                     <div data-id="HP">Hải Phòng</div>
-
+    
                     <div data-id="BH">Biên Hòa</div>
-
+    
                     <div data-id="NT">Nha Trang</div>
-
+    
                     <div data-id="BD">Bình Dương</div>
-
+    
                     <div data-id="PT">Phan Thiết</div>
-
+    
                     <div data-id="HL">Hạ Long</div>
-
+    
                     <div data-id="CT">Cần Thơ</div>
-
+    
                     <div data-id="VT">Vũng Tàu</div>
-
+    
                     <div data-id="QNhon">Quy Nhơn</div>
-
+    
                     <div data-id="Hue">Huế</div>
-
+    
                     <div data-id="LX">Long Xuyên</div>
-
+    
                     <div data-id="TN">Thái Nguyên</div>
-
+    
                     <div data-id="BMT">Buôn Ma Thuột</div>
-
+    
                     <div data-id="BG">Bắc Giang</div>
-
+    
                     <div data-id="BT">Bến Tre</div>
-
+    
                     <div data-id="VT">Việt Trì</div>
-
+    
                     <div data-id="NB">Ninh Bình</div>
-
+    
                     <div data-id="Vinh">Vinh</div>
-
+    
                     <div data-id="BL">Bảo Lộc</div>
-
+    
                     <div data-id="DL">Đà Lạt</div>
-
+    
                     <div data-id="TV">Trà Vinh</div>
-
+    
                     <div data-id="YB">Yên Bái</div>
-
+    
                     <div data-id="KG">Kiên Giang</div>
-
+    
                     <div data-id="VL">Vĩnh Long</div>
-
+    
                     <div data-id="CM">Cà Mau</div>
-
+    
                     <div data-id="HG">Hậu Giang</div>
-
+    
                     <div data-id="TN">Tây Ninh</div>
-
+    
                     <div data-id="TQ">Tuyên Quang</div>
-
+    
                     <div data-id="TH">Thanh Hóa</div>
-
+    
                     <div data-id="ND">Nam Định</div>
-
+    
                     <div data-id="HD">Hải Dương</div>
-
+    
                     <div data-id="GL">Gia Lai</div>
-
+    
                     <div data-id="HT">Hà Tĩnh</div>
-
+    
                     <div data-id="PY">Phú Yên</div>
-
+    
                     <div data-id="BL">Bạc Liêu</div>
-
+    
                     <div data-id="LA">Long An</div>
-
+    
                     <div data-id="DH">Đồng Hới</div>
-
+    
                     <div data-id="HNam">Hà Nam</div>
-
+    
                     <div data-id="BN">Bắc Ninh</div>
-
+    
                     <div data-id="QT">Quảng Trị</div>
-
+    
                     <div data-id="KT">Kon Tum</div>
-
+    
                     <div data-id="ST">Sóc Trăng</div>
-
+    
                     <div data-id="SL">Sơn La</div>
-
+    
                     <div data-id="LS">Lạng Sơn</div>
-
+    
                     <div data-id="QNgai">Quảng Ngãi</div>
-
+    
                     <div data-id="MT">Mỹ Tho</div>
-
+    
                     <div data-id="DT">Đồng Tháp</div>
-
+    
                     <div data-id="HY">Hưng Yên</div>
-
+                  </div>
                 </div>
+              </div>
             </div>
-
-            <div class="header__side-menu-btn" id="sideMenuBtn">
-                <img src="./images/icon/menu-options.png" alt="menu" />
-            </div>
-
-            <div class="header__side-menu" id="sideMenu">
-                <div class="header__side-menu__wrapper">
-                    <div class="login-btn">
-                        <img src="./images/icon/avatar.png" alt="user" />
-                        <span onclick="toLoginPage()">Đăng Nhập</span>
-
-                        <img src="./images/Icon/next-session.png" alt="close" class="header__side-menu__close-btn"
-                            id="closeSideMenuBtn" />
-                    </div>
-
-                    <a id="sideMenuLink" href="/#content__film-detail__tab">Lịch Chiếu</a>
-                    <a id="sideMenuLink" href="/#cinemaBlock">Cụm Rạp</a>
-                    <a id="sideMenuLink" href="/#newsBlock">Tin Tức</a>
-                    <a id="sideMenuLink" href="/#appBlock">Ứng Dụng</a>
-                    <a id="modalBtn">Hồ Chí Minh</a>
-
-                    <div class="modal" id="modalLocation">
-                        <div class="modal-content">
-                            <div class="modal-wrapper" id="modalWrapper"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </header>
+      </header>
     <section class="content content--detail">
         <div class="content--detail__poster">
             <div class="content--detail__blur">

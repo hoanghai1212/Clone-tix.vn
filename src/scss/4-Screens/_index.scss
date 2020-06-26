@@ -61,13 +61,13 @@ COMMENT KEYWORD to find:
     .dropdownselectDate,
     .dropdownselectCinema,
     .dropdownselectSession {
-      border-right: spacing(0.1) solid bdc("tab");
+      border-right: spacing(0.1) solid rgba(bc("smoke"),0.88);
     }
 
     .select-selected {
       @include centerAbsolute("top");
       @include truncateText(100%);
-      @include font("h6", "primary");
+      @include font(fs("h6"), tc("black"));
       background: url(../../../build/images/icon/dropdown-icon.png) no-repeat right
         spacing(0.8) center;
       padding: 7%;
@@ -75,10 +75,10 @@ COMMENT KEYWORD to find:
 
     .select-items {
       @include absolute(top 100% left 0);
-      @include box-shadow(0, 0.6, 1.2, 0, rgba(0, 0, 0, 0.1));
+      @include box-shadow(0, 0.6, 1.2, 0, rgba(bc("black"), 0.1));
       font-size: fs("h6");
       min-width: spacing(16);
-      border: spacing(0.1) solid rgba(0, 0, 0, 0.15);
+      border: spacing(0.1) solid rgba(bc("black"), 0.15);
       width: -webkit-max-content;
       width: -moz-max-content;
       width: max-content;
@@ -91,19 +91,16 @@ COMMENT KEYWORD to find:
     &__button {
       button {
         @include centerAbsolute();
+        @include appearance(bc("charcoal"));
+        @include font(fs("h6"), tc("white"));
         padding: spacing(1.2) spacing(2.5);
-        background-color: bc("buy-btn");
         border: none;
-        border-radius: 4px;
-        font-size: 1.4rem;
-        color: tc("white");
-        cursor: pointer;
 
         &.enable {
           background: bc("primary");
 
           &:hover {
-            background: bc("speech-red");
+            background: bc("speech");
           }
         }
       }
@@ -162,7 +159,7 @@ COMMENT KEYWORD to find:
       outline: none;
       background: none;
       @include appearance($borrad: null);
-      @include font("h3", "primary");
+      @include font(fs("h3"), tc("black"));
       @include margin-padding(
         all,
         0 spacing(0.5),
@@ -175,7 +172,7 @@ COMMENT KEYWORD to find:
       }
 
       &.active {
-        @include font("h2", "tab-active");
+        @include font(fs("h2"), tc("sunset"));
       }
     }
   }
@@ -237,19 +234,19 @@ COMMENT KEYWORD to find:
 
     &-rating {
       @include absolute(top spacing(1.2) right spacing(1.2));
-      @include font("h5", "white");
+      @include font(fs("h5"), tc("white"));
       width: spacing(5.4);
       text-align: center;
-      background-color: bc("rating");
-      border: spacing(0.1) solid bdc("rating");
+      background-color: rgba(bc("cyprus"),.8);
+      border: spacing(0.1) solid bc("whale");
       padding: spacing(0.2);
     }
 
     &-showtime {
       @include absolute(bottom spacing(1) right spacing(0.8));
-      @include font("h5", "white", $lhe: 1.44);
-      background-color: bc("rating");
-      border: spacing(0.1) solid bdc("rating");
+      @include font(fs("h5"), tc("white"), $lhe: 1.44);
+      background-color: rgba(bc("cyprus"),.8);
+      border: spacing(0.1) solid bc("whale");
       padding: spacing(0.2);
       border-radius: spacing(0.4);
     }
@@ -268,8 +265,8 @@ COMMENT KEYWORD to find:
 
     &__sneak-show {
       @include absolute(bottom spacing(1) right spacing(1));
-      @include font("body2", "white", "fwRegular", 1.55);
-      @include box-shadow(0, 0, 1, 0, bc("boxshadow"), true);
+      @include font(fs("body2"), tc("white"), "fwRegular", 1.55);
+      @include box-shadow(0, 0, 1, 0, rgba(bc("black"),.3), true);
       padding: spacing(0.4) spacing(0.8);
       @include appearance(
         $property: opacity,
@@ -305,10 +302,10 @@ COMMENT KEYWORD to find:
       &::after {
         content: "MUA VÉ";
         @include centerAbsolute();
-        @include font("h4", "white");
+        @include font(fs("h4"), tc("white"));
         @include appearance(
           $property: opacity,
-          $bg: linear-gradient(to left, bc("primary"), bc("dark-orange") 100%)
+          $bg: linear-gradient(to left, bc("primary"), bc("harley") 100%)
         );
         @include size(100%);
         @include flexCenter();
@@ -322,7 +319,7 @@ COMMENT KEYWORD to find:
     &-info {
       transition: all 0.2s;
       margin: spacing(0.8) 0 spacing(1.5);
-      @include font("subtitle", "text-2");
+      @include font(fs("subtitle"), tc("charcoal"));
     }
   }
 
@@ -398,14 +395,14 @@ COMMENT KEYWORD to find:
       margin-bottom: spacing(1);
 
       button {
-        @include font("h5", "primary");
+        @include font(fs("h5"), tc("black"));
 
         &:hover {
           font-size: fs("h4");
         }
 
         &.active {
-          @include font("h4", "tab-active");
+          @include font(fs("h4"), tc("sunset"));
         }
       }
     }
@@ -424,7 +421,7 @@ COMMENT KEYWORD to find:
     @include flexbox($direction: column, $align: center);
     @include custom-scrollbar;
     @include size(10%, spacing(70.5));
-    border: spacing(0.1) solid bdc("tab");
+    border: spacing(0.1) solid rgba(bc("smoke"),0.88);
     border-right: transparent;
     border-radius: spacing(0.4) 0 0 spacing(0.4);
   }
@@ -443,7 +440,7 @@ COMMENT KEYWORD to find:
       content: "";
       @include absolute(bottom 0 left 50%, $transX: -50%);
       width: 55%;
-      border-bottom: spacing(0.1) solid bdc("tab");
+      border-bottom: spacing(0.1) solid rgba(bc("smoke"),0.88);
     }
     &.active,
     &:hover {
@@ -456,7 +453,7 @@ COMMENT KEYWORD to find:
   &__cinema-detail {
     @include custom-scrollbar;
     @include size(30%, spacing(70.5));
-    border: spacing(0.1) solid bdc("tab");
+    border: spacing(0.1) solid rgba(bc("smoke"),0.88);
     padding: 0 spacing(2);
   }
 
@@ -475,7 +472,7 @@ COMMENT KEYWORD to find:
       content: "";
       @include absolute(bottom 0 left 50%, $transX: -50%);
       width: 100%;
-      border-bottom: spacing(0.1) solid bdc("tab");
+      border-bottom: spacing(0.1) solid rgba(bc("smoke"),0.88);
     }
 
     &.active,
@@ -490,24 +487,24 @@ COMMENT KEYWORD to find:
     padding-left: spacing(1);
 
     & > span {
-      @include font($fsz: "h6", $lhe: 1.4);
+      @include font($fsz: fs("h6"), $lhe: 1.4);
 
       .cinemaBlock__cgv {
-        @include font($color: "cgv");
+        @include font($color: tc("fire"));
       }
 
       .cinemaBlock__bhd {
-        @include font($color: "bhd");
+        @include font($color: tc("atlantis"));
       }
     }
 
     p {
       @include truncateText(100%);
-      @include font("body2", "text-3", "fwRegular", $lhe: 1.4);
+      @include font(fs("body2"), tc("suva"), "fwRegular", $lhe: 1.4);
     }
 
     a {
-      @include font("body2", "secondary", $lhe: 1.4);
+      @include font(fs("body2"), tc("primary"), $lhe: 1.4);
     }
   }
 
@@ -515,7 +512,7 @@ COMMENT KEYWORD to find:
     @include custom-scrollbar;
     @include size(60%, spacing(70.5));
     padding: 0 spacing(2);
-    border: spacing(0.1) solid bdc("tab");
+    border: spacing(0.1) solid rgba(bc("smoke"),0.88);
     border-radius: 0 spacing(0.4) spacing(0.4) 0;
 
     border-left: transparent;
@@ -529,7 +526,7 @@ COMMENT KEYWORD to find:
         content: "";
         @include absolute(bottom 0 left 50%, $transX: -50%);
         width: 100%;
-        border-bottom: spacing(0.1) solid bdc("tab");
+        border-bottom: spacing(0.1) solid rgba(bc("smoke"),0.88);
       }
 
       img {
@@ -540,7 +537,7 @@ COMMENT KEYWORD to find:
   }
 
   &__empty {
-    @include font($fsz: "h6", $lhe: 1.4);
+    @include font($fsz: fs("h6"), $lhe: 1.4);
     padding-top: spacing(3);
     text-align: center;
   }
@@ -548,7 +545,7 @@ COMMENT KEYWORD to find:
   &__hide-on-click {
     overflow-y: hidden;
     p {
-      @include font($fsz: "h5", $lhe: 1.4);
+      @include font($fsz: fs("h5"), $lhe: 1.4);
       padding: spacing(1.5) 0;
       width: 100%;
     }
@@ -559,22 +556,22 @@ COMMENT KEYWORD to find:
     a {
       display: inline-block;
       width: calc(25% - 13px);
-      @include appearance($borrad: spacing(0.7), $bg: bc("showtime"));
+      @include appearance($borrad: spacing(0.7), $bg: rgba(bc("smoke"),0.5));
       @include margin-padding(
         $m-amount: 0 spacing(1) spacing(1) 0,
         $p-amount: spacing(0.5) 0
       );
-      @include font("subtitle", "text-1", "fwMedium", $lhe: 1.4);
+      @include font(fs("subtitle"), tc("nobel"), "fwMedium", $lhe: 1.4);
       text-align: center;
-      border: spacing(0.1) solid bdc("showtime");
+      border: spacing(0.1) solid bc("gainsboro");
 
       span {
-        @include font("h4", "start-time");
+        @include font(fs("h4"), tc("salem"));
       }
 
       &:hover {
         span {
-          color: tc("secondary");
+          color: tc("primary");
         }
       }
     }
@@ -603,7 +600,7 @@ COMMENT KEYWORD to find:
       outline: none;
       background: none;
       @include appearance($borrad: null);
-      @include font("h3", "primary");
+      @include font(fs("h3"), tc("black"));
       @include margin-padding(
         all,
         0 spacing(0.5),
@@ -616,7 +613,7 @@ COMMENT KEYWORD to find:
       }
 
       &.active {
-        @include font("h2", "tab-active");
+        @include font(fs("h2"), tc("sunset"));
       }
     }
   }
@@ -654,11 +651,11 @@ COMMENT KEYWORD to find:
       }
 
       .newsBlock__news-title {
-        @include font("h6", "primary", $lhe: spacing(2));
+        @include font(fs("h6"), tc("black"), $lhe: spacing(2));
         opacity: 0.7;
 
         &:hover {
-          color: tc("secondary");
+          color: tc("primary");
         }
       }
 
@@ -684,12 +681,12 @@ COMMENT KEYWORD to find:
 
     & > div {
       a {
-        @include font("body2", "text-1");
+        @include font(fs("body2"), tc("nobel"));
         display: inline-flex;
         margin-right: spacing(2.5);
 
         img {
-          width: 18px;
+          width: spacing(1.8);
           margin-right: spacing(1);
         }
       }
@@ -698,7 +695,7 @@ COMMENT KEYWORD to find:
 
   &__news-title {
     /*! autoprefixer: off */
-    @include font("h5", "primary", $lhe: spacing(2));
+    @include font(fs("h5"), tc("black"), $lhe: spacing(2));
     @include appearance();
     margin-bottom: spacing(0.5);
     overflow: hidden;
@@ -707,12 +704,12 @@ COMMENT KEYWORD to find:
     -webkit-box-orient: vertical;
 
     &:hover {
-      color: tc("secondary");
+      color: tc("primary");
     }
   }
 
   &__news-quote {
-    @include font("subtitle", "text-2", $lhe: spacing(1.9));
+    @include font(fs("subtitle"), tc("charcoal"), $lhe: spacing(1.9));
     @include margin-padding(bottom, spacing(1.5), right, spacing(0.5));
     text-align: justify;
     height: spacing(5.5);
@@ -747,7 +744,7 @@ COMMENT KEYWORD to find:
       flex-wrap: wrap;
 
       button {
-        @include font("h5", "primary");
+        @include font(fs("h5"), tc("black"));
         @include margin-padding(all, 0 spacing(1), all, spacing(1.5) 0);
         white-space: nowrap;
 
@@ -756,7 +753,7 @@ COMMENT KEYWORD to find:
         }
 
         &.active {
-          @include font("h4", "tab-active");
+          @include font(fs("h4"), tc("sunset"));
         }
       }
     }
@@ -783,22 +780,22 @@ COMMENT KEYWORD to find:
     width: 50%;
 
     &-big {
-      @include font("h1", "white", "fwBold", spacing(5.5));
+      @include font(fs("h1"), tc("white"), "fwBold", spacing(5.5));
       margin-bottom: spacing(2.5);
     }
 
     &-medium {
-      @include font("h5", "white", "fwRegular", 1.42);
+      @include font(fs("h5"), tc("white"), "fwRegular", 1.42);
       margin-bottom: spacing(2.5);
     }
 
     &-small {
-      @include font("h6", "white", "fwRegular", 1.42);
+      @include font(fs("h6"), tc("white"), "fwRegular", 1.42);
       padding-top: spacing(1);
 
       a {
         color: tc("white");
-        border-bottom: spacing(0.1) solid bdc("white");
+        border-bottom: spacing(0.1) solid bc("white");
       }
     }
   }
@@ -884,7 +881,7 @@ COMMENT KEYWORD to find:
 // FOOTER STYLE
 .footer {
   background: bc("secondary");
-  color: tc("text-3");
+  color: tc("suva");
   padding: spacing(2) 0;
 
   &__container {
@@ -897,7 +894,7 @@ COMMENT KEYWORD to find:
   &__title {
     width: 100%;
     margin-bottom: spacing(1);
-    @include font("body1", "white");
+    @include font(fs("body1"), tc("white"));
   }
   &__tix {
     width: 33%;
@@ -909,7 +906,7 @@ COMMENT KEYWORD to find:
     padding: 0 spacing(1.5);
     a {
       width: 50%;
-      @include font("body2", "text-3", "fwBold", $lhe: 2.3);
+      @include font(fs("body2"), tc("suva"), "fwBold", $lhe: 2.3);
 
       &:hover {
         color: tc("white");
@@ -923,7 +920,7 @@ COMMENT KEYWORD to find:
 
     &-row {
       img {
-        @include size(30px);
+        @include size(spacing(3));
         border-radius: 50%;
         margin-right: spacing(1.5);
 
@@ -967,7 +964,7 @@ COMMENT KEYWORD to find:
 
   hr {
     border: none;
-    border-top: spacing(0.1) solid bdc("footer");
+    border-top: spacing(0.1) solid bc("charcoal");
     margin: spacing(2) 0;
   }
 
@@ -989,10 +986,10 @@ COMMENT KEYWORD to find:
     }
 
     p {
-      @include font("body2", $lhe: 1.8);
+      @include font(fs("body2"), $lhe: 1.8);
 
       a {
-        color: tc("secondary");
+        color: tc("primary");
       }
     }
   }

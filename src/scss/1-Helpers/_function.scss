@@ -1,4 +1,5 @@
-// get color from bg color array
+//Get $color from $bgColors array
+
 @function bc($color) {
   @if map-has-key($map: $bgColors, $key: $color) {
     @return map-get($map: $bgColors, $key: $color);
@@ -7,13 +8,8 @@
   @return "";
 }
 
-@function bdc($color) {
-  @if map-has-key($map: $borderColors, $key: $color) {
-    @return map-get($map: $borderColors, $key: $color);
-  }
-  @warn ("{$color} color doesn't exist");
-  @return "";
-}
+
+//Get $color from $txtColors array
 
 @function tc($color) {
   @if map-has-key($map: $txtColors, $key: $color) {
@@ -23,17 +19,26 @@
   @return "";
 }
 
+
+//Return calculated spacing
+
 @function spacing($num) {
   @return $num * $spacing;
 }
 
-@function fs($font) {
-  @if map-has-key($map: $fontSizes, $key: $font) {
-    @return map-get($map: $fontSizes, $key: $font);
+
+//Get $fontsize from $fontSizes array
+
+@function fs($fontsize) {
+  @if map-has-key($map: $fontSizes, $key: $fontsize) {
+    @return map-get($map: $fontSizes, $key: $fontsize);
   }
   @warn ("{$font} color doesn't exist");
   @return "";
 }
+
+
+//Get $breakpoint from $breakpoints array
 
 @function br($breakpoint) {
   @if map-has-key($map: $breakpoints, $key: $breakpoint) {
@@ -43,6 +48,9 @@
   @return "";
 }
 
+
+//Get $weight from $fwArr array
+
 @function fw($weight) {
   @if map-has-key($map: $fwArr, $key: $weight) {
     @return map-get($map: $fwArr, $key: $weight);
@@ -50,6 +58,9 @@
   @warn ("{$weight} color doesn't exist");
   @return "";
 }
+
+
+//Auto generate z-index of element in $z-indexes list
 
 @function z($name) {
   @if index($z-indexes, $name) {

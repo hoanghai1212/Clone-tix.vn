@@ -2,17 +2,17 @@
   display: none;
   @include fixed(top 0 left 0);
   @include size(100%);
-  background-color: bc("modal");
+  background-color: rgba(bc("white"),.4);
   z-index: z("modal");
 }
 
 .modal-content {
   @include size(calc(100vw - 60px), calc(100vh - 60px));
-  @include box-shadow(0, 0.3, 0.9, bc("modal-boxshadow"));
+  @include box-shadow(0, 0.3, 0.9, rgba(bc("white"),.5));
   margin: spacing(3);
   border-radius: spacing(0.6);
   background-color: bc("white");
-  border: spacing(0.1) solid bdc("modal");
+  border: spacing(0.1) solid rgba($color: bc("black"), $alpha: 0.2);
   background-clip: padding-box;
 }
 
@@ -26,9 +26,9 @@
 
   div {
     @include margin-padding(bottom, spacing(0.5), top, spacing(0.4));
-    @include font("h5", "primary");
+    @include font(fs("h5"), tc("black"));
     height: spacing(4);
-    border-bottom: spacing(0.1) solid bdc("modal-location");
+    border-bottom: spacing(0.1) solid bc("lilac");
   }
 
   div:last-child {

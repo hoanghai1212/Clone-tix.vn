@@ -10,10 +10,10 @@
     padding: spacing(4) spacing(3.2) spacing(3);
     background-image: linear-gradient(
       to bottom,
-      bc("login_wrapper1"),
-      bc("login_wrapper2")
+      rgba(bc("midnight"),0.9),
+      rgba(bc("cyprus"),0.9)
     );
-    @include box-shadow(0, 0, 1, 0, bc("login_boxshadow"));
+    @include box-shadow(0, 0, 1, 0, rgba(bc("black"),0.45));
     text-align: center;
     color: tc("white");
     border-radius: spacing(0.6);
@@ -31,7 +31,7 @@
   }
 
   &__title {
-    @include font("h6", "white", "fwRegular", $lhe: 1.42);
+    @include font(fs("h6"), tc("white"), "fwRegular", $lhe: 1.42);
   }
 
   &__login-btns {
@@ -49,8 +49,8 @@
   &__close-btn {
     @include absolute(top spacing(-1.8) right spacing(-1.8));
     @include size(spacing(3.6));
-    @include box-shadow(0, 0.2, 1, 0, bc("modal-boxshadow"));
-    @include appearance(pointer, null, null, 50%, bc("login_close-btn"));
+    @include box-shadow(0, 0.2, 1, 0, rgba(bc("black"),.5));
+    @include appearance(pointer, null, null, 50%, bc("cyprus"));
     @include flexCenter();
 
     &::before,
@@ -58,7 +58,7 @@
       content: "";
       position: absolute;
       height: spacing(1.6);
-      border-left: spacing(0.2) solid bdc("login_close-btn");
+      border-left: spacing(0.2) solid bc("astronaut");
     }
 
     &::before {

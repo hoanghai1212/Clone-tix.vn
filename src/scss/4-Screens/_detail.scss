@@ -1,6 +1,6 @@
 .content--detail {
   padding-top: spacing(6);
-  background-color: bc("detail");
+  background-color: bc("cyprus");
 
   &__poster {
     position: relative;
@@ -10,13 +10,13 @@
   &__gradient {
     @include absolute(top 0 left 0);
     @include size(100%);
-    background: linear-gradient(to top, bc("detail"), transparent 100%);
+    background: linear-gradient(to top, bc("cyprus"), transparent 100%);
   }
 
   &__blur {
     overflow: hidden;
     img {
-      filter: blur(15px);
+      filter: blur(spacing(1.5));
       margin: spacing(-1.1) 0 spacing(-0.5) spacing(-1);
       width: calc(100% + 5px);
     }
@@ -49,14 +49,14 @@
     @include flexbox($align: flex-start, $direction: column);
     width: 41.67%;
     padding: 0 spacing(1.5);
-    @include font("h6", "detail-info", "fwRegular", $lhe: 1.42);
+    @include font(fs("h6"), tc("smoke"), "fwRegular", $lhe: 1.42);
     .green-label {
       vertical-align: middle;
       margin: spacing(-0.5) spacing(0.6) 0 0;
     }
 
     h1 {
-      @include font("h2", "detail-info", "fwMedium", $lhe: 1.42);
+      @include font("h2", tc("smoke"), "fwMedium", $lhe: 1.42);
     }
 
     button {
@@ -68,12 +68,12 @@
       );
 
       @include appearance($bg: bc("primary"));
-      @include font("h5", "white");
+      @include font(fs("h5"), tc("white"));
       text-align: center;
       border: none;
 
       &:hover {
-        background: bc("detail-button-hover");
+        background: bc("harley");
       }
     }
   }
@@ -92,15 +92,15 @@
       @include size(spacing(13));
       transform: rotate(-88deg);
       circle {
-        fill: bc("modal");
-        stroke: bc("detail-progress-track");
+        fill: rgba(bc("black"),.4);
+        stroke: bc("eclipse");
         stroke-width: spacing(0.8);
         stroke-linecap: square;
       }
 
       circle:nth-child(2) {
         fill: transparent;
-        stroke: bc("detail-progress-thumb");
+        stroke: bc("lima");
         stroke-dasharray: 375;
         stroke-dashoffset: calc(375 - (375 * 87) / 100);
       }
@@ -109,7 +109,7 @@
 
   &__point {
     @include centerAbsolute;
-    @include font("detail-progress", "white", "fwRegular");
+    @include font(fs("detail-progress"), tc("white"), "fwRegular");
   }
 
   &__star {
@@ -123,7 +123,7 @@
   }
 
   &__comment-amount {
-    @include font("h6", "detail-info");
+    @include font(fs("h6"), tc("smoke"));
     margin-top: spacing(1);
   }
 
@@ -137,7 +137,7 @@
         outline: none;
         background: none;
         @include appearance($borrad: null);
-        @include font("h4", "white");
+        @include font("h4", tc("white"));
         @include margin-padding(
           all,
           0 spacing(0.5),
@@ -150,14 +150,14 @@
         }
   
         &.active {
-          @include font("h3", "tab-active");
+          @include font(fs("h3"), tc("sunset"));
         }
       }
     }
   }
 
   &__tabcontent {
-    min-width: 870px;
+    min-width: spacing(87);
     
   }
 
@@ -170,7 +170,7 @@
 
 
       img {
-        width: 50px;
+        width: spacing(5);
       }
 
       p{

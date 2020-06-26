@@ -2,9 +2,9 @@
   @include fixed(top 0);
   @include flexbox($justify: space-between, $align: center);
   @include size(100%, spacing(6));
-  @include box-shadow(0, 0, 1.5, 0, $color: bc("boxshadow"));
+  @include box-shadow(0, 0, 1.5, 0, $color: rgba(bc("black"),.3));
   padding-left: spacing(2);
-  background-color: bc("header");
+  background-color: rgba(bc("white"), 0.95);
   transition: 0.2s all;
   z-index: z("header");
 
@@ -22,12 +22,12 @@
     @include absolute(left 50%, $transX: -50%);
 
     a {
-      @include font("subtitle", "primary", "fwMedium");
+      @include font(fs("subtitle"), tc("black"), "fwMedium");
       margin-right: spacing(2);
       transition: 0.2s all;
 
       &:hover {
-        color: tc("secondary");
+        color: tc("primary");
       }
     }
   }
@@ -40,7 +40,7 @@
       position: relative;
 
       .select-selected {
-        @include font("subtitle", "text-1");
+        @include font(fs("subtitle"), tc("nobel"));
         padding-left: spacing(2);
         min-width: spacing(16);
         background: url(../../../build/images/icon/dropdown-icon.png) no-repeat right
@@ -139,7 +139,7 @@
           }
 
           span {
-            @include font("h6", "primary", "fwRegular");
+            @include font(fs("h6"), tc("black"), "fwRegular");
             @include margin-padding(all, 0, all, 0);
             margin-left: spacing(0.4);
             border: none;
@@ -154,7 +154,7 @@
 
         a {
           padding: spacing(2);
-          @include font("h4", "primary", "fwRegular");
+          @include font(fs("h4"), tc("black"), "fwRegular");
         }
       }
     }

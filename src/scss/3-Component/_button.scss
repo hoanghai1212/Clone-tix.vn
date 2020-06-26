@@ -9,9 +9,9 @@
     margin-right: spacing(0.8);
   }
   & span {
-    @include font("subtitle", "text-1");
+    @include font(fs("subtitle"), tc("nobel"));
     @include margin-padding(right, spacing(1.1), right, spacing(1.1));
-    border-right: spacing(0.1) solid bc("whisper");
+    border-right: spacing(0.1) solid bc("smoke");
   }
 }
 
@@ -31,22 +31,22 @@
 }
 
 .loadmore-btn {
-  @include font("subtitle", "text-3", "fwMedium");
+  @include font(fs("subtitle"), tc("suva"), "fwMedium");
   @include appearance($bg: 0 0);
   text-transform: uppercase;
-  border: spacing(0.1) solid bdc("loadmore");
+  border: spacing(0.1) solid bc("suva");
   padding: spacing(1) spacing(2.5);
 
   &:hover {
     color: tc("white");
     background-color: bc("primary");
-    border-color: bdc("loadmore-hover");
+    border-color: bc("primary");
   }
 }
 
 .download-now {
   @include appearance($bg: bc("primary"));
-  @include font("h5", "white", "fwBold", 1.4);
+  @include font(fs("h5"), tc("white"), "fwBold", 1.4);
   padding: spacing(1) spacing(2);
   border: none;
 }

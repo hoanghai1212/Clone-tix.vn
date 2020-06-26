@@ -25,41 +25,46 @@ const handleScrollTopBtn = function ()
 /* Script for side menu on responsive */
 const handleSideMenuToggle = function ()
 {
-    const openSideMenuBtn = document.getElementById("sideMenuBtn");
-    const closeSideMenuBtn = document.getElementById("closeSideMenuBtn");
     const sideMenu = document.getElementById("sideMenu");
-    const sideMenuLink = document.querySelectorAll("#sideMenuLink");
-
-    const closeSideMenu = (el) =>
+    if (sideMenu)
     {
-        el.addEventListener('click', () =>
-        {
-            sideMenu.classList.toggle("active");
-            document.body.style.overflow = "initial";
-        })
 
-        window.addEventListener('click', (event) =>
+
+        const openSideMenuBtn = document.getElementById("sideMenuBtn");
+        const closeSideMenuBtn = document.getElementById("closeSideMenuBtn");
+        const sideMenuLink = document.querySelectorAll("#sideMenuLink");
+
+        const closeSideMenu = (el) =>
         {
-            if (event.target === sideMenu)
+            el.addEventListener('click', () =>
             {
                 sideMenu.classList.toggle("active");
                 document.body.style.overflow = "initial";
-            }
-        })
-    }
+            })
+
+            window.addEventListener('click', (event) =>
+            {
+                if (event.target === sideMenu)
+                {
+                    sideMenu.classList.toggle("active");
+                    document.body.style.overflow = "initial";
+                }
+            })
+        }
 
 
-    openSideMenuBtn.addEventListener("click", () =>
-    {
-        sideMenu.classList.toggle("active");
-        document.body.style.overflow = "hidden";
-    });
+        openSideMenuBtn.addEventListener("click", () =>
+        {
+            sideMenu.classList.toggle("active");
+            document.body.style.overflow = "hidden";
+        });
 
-    closeSideMenu(closeSideMenuBtn);
+        closeSideMenu(closeSideMenuBtn);
 
-    for (let link of sideMenuLink)
-    {
-        closeSideMenu(link);
+        for (let link of sideMenuLink)
+        {
+            closeSideMenu(link);
+        }
     }
 }
 
@@ -105,40 +110,45 @@ const handleHideAll = function (evt, elmtClass)
 /* Script for modal */
 const handleModalToggle = (btn, modal) =>
 {
+
     // Get the modal
     var modal = document.querySelector(modal);
-
-    // Get the button that opens the modal
-    var btn = document.querySelector(btn);
-
-    //Get the location element
-    var locationWrapper = document.querySelector(`#${modal.dataset.target}`);
-    var location = locationWrapper.children;
-
-    // When the user clicks on the button, open the modal
-    btn.addEventListener('click', () =>
+    if (modal)
     {
-        modal.style.display = "block";
-    })
 
-    // When the user clicks on location, close the modal, change btn text to chosing option
-    for (let el of location)
-    {
-        el.addEventListener('click', () =>
+
+        // Get the button that opens the modal
+        var btn = document.querySelector(btn);
+
+        //Get the location element
+        var locationWrapper = document.querySelector(`#${modal.dataset.target}`);
+        var location = locationWrapper.children;
+
+        // When the user clicks on the button, open the modal
+        btn.addEventListener('click', () =>
         {
-            btn.innerText = el.innerText;
-            modal.style.display = "none";
+            modal.style.display = "block";
+        })
+
+        // When the user clicks on location, close the modal, change btn text to chosing option
+        for (let el of location)
+        {
+            el.addEventListener('click', () =>
+            {
+                btn.innerText = el.innerText;
+                modal.style.display = "none";
+            })
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener('click', (event) =>
+        {
+            if (event.target === modal)
+            {
+                modal.style.display = "none";
+            }
         })
     }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.addEventListener('click', (event) =>
-    {
-        if (event.target === modal)
-        {
-            modal.style.display = "none";
-        }
-    })
 }
 
 /* Script for tab panel carousel */
@@ -442,63 +452,65 @@ var coming_filmData = {
 
 function createSlide(root, filmData)
 {
-    var htmlContent = "";
-    document.getElementById(root).children[0].innerHTML = htmlContent;
-    var closeDIV = "</div>"
-    var showNumber = 8;
-    var readMore = false;
-
-    if (window.innerWidth < 993)
+    if (document.getElementById(root))
     {
-        showNumber = 4;
-        readMore = true;
-    }
+        var htmlContent = "";
+        document.getElementById(root).children[0].innerHTML = htmlContent;
+        var closeDIV = "</div>"
+        var showNumber = 8;
+        var readMore = false;
 
-
-    for (let i = 0; i < Math.ceil(filmData.data.length / showNumber); i++)
-    {
-        htmlContent += `<div class="filmBlock__slide" id="${filmData.name}__slide-${i}">`
-
-        var filmSet = filmData.data.slice(i * showNumber, showNumber * (i + 1));
-
-        for (let j = 0; j < filmSet.length; j++)
+        if (window.innerWidth < 993)
         {
-            var htmlRating = '';
-            var htmlSneakShow = '';
-            var htmlBlockBuster = '';
-            var htmlShowTime = '';
-            var htmlReadMore = '';
-            var htmlImg = '';
-            var label = 'orange';
+            showNumber = 4;
+            readMore = true;
+        }
 
-            if (window.innerWidth < 993 && filmSet[j].img_src_992)
+
+        for (let i = 0; i < Math.ceil(filmData.data.length / showNumber); i++)
+        {
+            htmlContent += `<div class="filmBlock__slide" id="${filmData.name}__slide-${i}">`
+
+            var filmSet = filmData.data.slice(i * showNumber, showNumber * (i + 1));
+
+            for (let j = 0; j < filmSet.length; j++)
             {
-                htmlImg += `
+                var htmlRating = '';
+                var htmlSneakShow = '';
+                var htmlBlockBuster = '';
+                var htmlShowTime = '';
+                var htmlReadMore = '';
+                var htmlImg = '';
+                var label = 'orange';
+
+                if (window.innerWidth < 993 && filmSet[j].img_src_992)
+                {
+                    htmlImg += `
                     <img src=${filmSet[j].img_src_992} alt="" />
                 `
-            } else
-            {
-                htmlImg += `
+                } else
+                {
+                    htmlImg += `
                 <img src=${filmSet[j].img_src} alt="" />
                 `
-            }
+                }
 
-            if (readMore && i < Math.ceil(filmData.data.length / showNumber) - 1)
-            {
-                htmlReadMore += `
+                if (readMore && i < Math.ceil(filmData.data.length / showNumber) - 1)
+                {
+                    htmlReadMore += `
                 <button class="loadmore-btn" id="${filmData.name}-loadmore" data-target="${filmData.name}__slide-${i + 1}">Xem thêm</button>
                 `
-            }
+                }
 
-            if (filmSet[j].age_label === "P")
-            {
-                var label = 'green';
+                if (filmSet[j].age_label === "P")
+                {
+                    var label = 'green';
 
-            }
+                }
 
-            if (filmSet[j].sneak_show)
-            {
-                htmlSneakShow += `
+                if (filmSet[j].sneak_show)
+                {
+                    htmlSneakShow += `
               <span class="filmBlock__film__sneak-show">
                 Suất Chiếu Sớm
               </span>
@@ -507,62 +519,62 @@ function createSlide(root, filmData)
                 <img src="../../../build/images/icon/pre-order.png" alt="booking" />
               </div>
         `
-            }
+                }
 
-            if (filmSet[j].block_buster)
-            {
-                htmlBlockBuster += `
+                if (filmSet[j].block_buster)
+                {
+                    htmlBlockBuster += `
               <div class="filmBlock__film__block-buster--tag">
                 <img src="../../../build/images/icon/block-buster.png" alt="booking" />
               </div>
         `
-            }
+                }
 
 
-            if (filmSet[j].score)
-            {
+                if (filmSet[j].score)
+                {
 
-                htmlRating += `
+                    htmlRating += `
                 <span class="filmBlock__film-rating">
                 <p class="filmBlock__film-score">${filmSet[j].score}</p>
                 <p class="filmBlock__film-star">
                      `
-                var starPoint = Math.floor(filmSet[j].score) / 2;
-                for (let k = 0; k < starPoint; k++)
-                {
-                    htmlRating += `
+                    var starPoint = Math.floor(filmSet[j].score) / 2;
+                    for (let k = 0; k < starPoint; k++)
+                    {
+                        htmlRating += `
                         <img src="../../../build/images/icon/star1.png" alt="" />
                         `
 
-                    if (starPoint > Math.floor(starPoint) && (k === Math.floor(starPoint) - 1))
-                    {
-                        htmlRating += `
+                        if (starPoint > Math.floor(starPoint) && (k === Math.floor(starPoint) - 1))
+                        {
+                            htmlRating += `
                             <img src="../../../build/images/icon/star1.2.png" alt="" />
                             </p>
                             </span>
                             `
-                        break;
-                    } else if (k === Math.floor(starPoint) - 1)
-                    {
-                        htmlRating += `
+                            break;
+                        } else if (k === Math.floor(starPoint) - 1)
+                        {
+                            htmlRating += `
             
                             </p>
                             </span>
                 `
+                        }
                     }
-                }
 
-            }
-            if (filmSet[j].show_time)
-            {
-                htmlShowTime += `
+                }
+                if (filmSet[j].show_time)
+                {
+                    htmlShowTime += `
         <span class="filmBlock__film-showtime">
             ${filmSet[j].show_time}
         </span>
         `;
-            }
+                }
 
-            htmlContent += `
+                htmlContent += `
         <div class="filmBlock__film">
             <div class="filmBlock__film-img">
                 ${htmlImg}
@@ -587,11 +599,12 @@ function createSlide(root, filmData)
     `
 
 
+            }
+            htmlContent += htmlReadMore;
+            htmlContent += closeDIV;
         }
-        htmlContent += htmlReadMore;
-        htmlContent += closeDIV;
-    }
-    document.getElementById(root).children[0].innerHTML = htmlContent;
+        document.getElementById(root).children[0].innerHTML = htmlContent;
+    } else return false;
 }
 
 const loadMoreToggle = (btnList) =>
@@ -617,42 +630,48 @@ for (let el of defaultOpen)
 
 window.onresize = function ()
 {
+
     var comingCarousel = $('.comingSoon__carousel');
     var nowShowingCarousel = $('.nowShowing__carousel');
-    createSlide("nowShowing", now_filmData);
-    createSlide("comingSoon", coming_filmData);
-    const unslick = function ()
+    document.querySelector(".comingSoon__carousel")
+
+
+    if (document.querySelector(".comingSoon__carousel") || document.querySelector(".nowShowing__carousel"))
     {
-        if (comingCarousel.hasClass('slick-initialized'))
+        createSlide("nowShowing", now_filmData);
+        createSlide("comingSoon", coming_filmData);
+        const unslick = function ()
         {
-            comingCarousel.slick("unslick");
+            if (comingCarousel.hasClass('slick-initialized'))
+            {
+                comingCarousel.slick("unslick");
+            }
+
+            if (nowShowingCarousel.hasClass('slick-initialized'))
+            {
+                nowShowingCarousel.slick("unslick");
+            }
         }
 
-        if (nowShowingCarousel.hasClass('slick-initialized'))
+        if ($(window).width() > 992)
         {
-            nowShowingCarousel.slick("unslick");
+
+            unslick();
+            $('.comingSoon__carousel').slick({
+                infinity: true,
+            });
+            $('.nowShowing__carousel').slick({
+                infinity: true,
+            });
+        } else
+        {
+            unslick();
+            loadMoreToggle(document.querySelectorAll("#nowShowing-loadmore"));
+            loadMoreToggle(document.querySelectorAll("#coming-loadmore"));
         }
-    }
-
-    if ($(window).width() > 992)
-    {
-
-        unslick();
-        $('.comingSoon__carousel').slick({
-            infinity: true,
-        });
-        $('.nowShowing__carousel').slick({
-            infinity: true,
-        });
-    } else
-    {
-        unslick();
-        loadMoreToggle(document.querySelectorAll("#nowShowing-loadmore"));
-        loadMoreToggle(document.querySelectorAll("#coming-loadmore"));
     }
 
 }
-
 /* End of Script for tab panel carousel */
 
 
@@ -740,7 +759,7 @@ $(document).ready(function ()
 
     loadMoreToggle(document.querySelectorAll("#nowShowing-loadmore"));
     loadMoreToggle(document.querySelectorAll("#coming-loadmore"));
-    
+
     handleModalToggle("#modalBtn", "#modalLocation");
     handleSideMenuToggle();
     handleScrollTopBtn();

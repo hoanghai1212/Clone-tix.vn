@@ -131,10 +131,10 @@
 
 @mixin font($fsz: null, $color: null, $fwe: null, $lhe: null) {
   @if ($fsz) {
-    font-size: fs($fsz);
+    font-size:  $fsz;
   }
   @if ($color) {
-    color: tc($color);
+    color: $color;
   }
   @if ($fwe) {
     font-weight: fw($fwe);
@@ -173,7 +173,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   // for firefox
-  scrollbar-color: bc("scroll-thumb") bc("scroll-bg");
+  scrollbar-color: bc("silver") bc("gainsboro");
   scrollbar-width: thin;
 
   // for chrome
@@ -182,12 +182,12 @@
   }
 
   &::-webkit-scrollbar-track-piece {
-    background: bc("scroll-bg");
+    background: bc("gainsboro");
     border-radius: 0 spacing(0.4) spacing(0.4) 0;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: bc("scroll-thumb");
+    background: bc("silver");
     border-radius: spacing(0.4);
   }
 }

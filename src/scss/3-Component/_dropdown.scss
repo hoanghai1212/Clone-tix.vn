@@ -18,7 +18,7 @@
   }
 
   .same-as-selected {
-    background-color: bc("location");
+    background-color: bc("turquoise");
     color: tc("white");
   }
 
@@ -30,7 +30,7 @@
     user-select: none;
 
     &:hover {
-      background-color: bc("location");
+      background-color: bc("turquoise");
       color: tc("white");
     }
   }

@@ -6,7 +6,7 @@
     $m-amount: spacing(0.1) spacing(0.7) 0 spacing(0.1),
     $p-amount: 0 spacing(0.5)
   );
-  @include font("h6", "white", $lhe: spacing(2.2));
+  @include font(fs("h6"), tc("white"), $lhe: spacing(2.2));
   min-width: spacing(3.3);
 }
 
@@ -15,5 +15,5 @@
 }
 
 .green-label {
-  @include appearance(null, null, null, $bg: bc("label-p"));
+  @include appearance(null, null, null, $bg: bc("pigment"));
 }
