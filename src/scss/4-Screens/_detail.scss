@@ -1,0 +1,190 @@
+.content--detail {
+  padding-top: spacing(6);
+  background-color: bc("detail");
+
+  &__poster {
+    position: relative;
+    width: 100%;
+  }
+
+  &__gradient {
+    @include absolute(top 0 left 0);
+    @include size(100%);
+    background: linear-gradient(to top, bc("detail"), transparent 100%);
+  }
+
+  &__blur {
+    overflow: hidden;
+    img {
+      filter: blur(15px);
+      margin: spacing(-1.1) 0 spacing(-0.5) spacing(-1);
+      width: calc(100% + 5px);
+    }
+  }
+
+  &__film-intro {
+    @include centerAbsolute();
+    @include flexbox($align: center);
+    width: 100%;
+    max-width: spacing(87);
+  }
+
+  &__image {
+    position: relative;
+    width: 25%;
+    img {
+      border-radius: spacing(0.4);
+    }
+
+    &:hover .play-btn {
+      opacity: 1;
+
+      img:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__info {
+    @include flexbox($align: flex-start, $direction: column);
+    width: 41.67%;
+    padding: 0 spacing(1.5);
+    @include font("h6", "detail-info", "fwRegular", $lhe: 1.42);
+    .green-label {
+      vertical-align: middle;
+      margin: spacing(-0.5) spacing(0.6) 0 0;
+    }
+
+    h1 {
+      @include font("h2", "detail-info", "fwMedium", $lhe: 1.42);
+    }
+
+    button {
+      @include margin-padding(
+        all,
+        spacing(2.5) 0 spacing(2),
+        all,
+        spacing(0.9) spacing(2.4)
+      );
+
+      @include appearance($bg: bc("primary"));
+      @include font("h5", "white");
+      text-align: center;
+      border: none;
+
+      &:hover {
+        background: bc("detail-button-hover");
+      }
+    }
+  }
+
+  &__rating {
+    width: 33.33%;
+    text-align: center;
+    @include flexbox(flex, $justify: flex-end);
+  }
+
+  &__box {
+    position: relative;
+    width: 100%;
+
+    svg {
+      @include size(spacing(13));
+      transform: rotate(-88deg);
+      circle {
+        fill: bc("modal");
+        stroke: bc("detail-progress-track");
+        stroke-width: spacing(0.8);
+        stroke-linecap: square;
+      }
+
+      circle:nth-child(2) {
+        fill: transparent;
+        stroke: bc("detail-progress-thumb");
+        stroke-dasharray: 375;
+        stroke-dashoffset: calc(375 - (375 * 87) / 100);
+      }
+    }
+  }
+
+  &__point {
+    @include centerAbsolute;
+    @include font("detail-progress", "white", "fwRegular");
+  }
+
+  &__star {
+    margin-top: spacing(1);
+
+    img {
+      width: spacing(2.5);
+      margin-right: spacing(-0.2);
+      vertical-align: middle;
+    }
+  }
+
+  &__comment-amount {
+    @include font("h6", "detail-info");
+    margin-top: spacing(1);
+  }
+
+  &__film-detail {
+    & > .tab {
+      @include flexCenter();
+      overflow: hidden;
+  
+      button {
+        border: none;
+        outline: none;
+        background: none;
+        @include appearance($borrad: null);
+        @include font("h4", "white");
+        @include margin-padding(
+          all,
+          0 spacing(0.5),
+          all,
+          spacing(1) spacing(1.5)
+        );
+  
+        &:hover {
+          font-size: fs("h3");
+        }
+  
+        &.active {
+          @include font("h3", "tab-active");
+        }
+      }
+    }
+  }
+
+  &__tabcontent {
+    min-width: 870px;
+    
+  }
+
+  &__container {
+    @include flexCenter();
+
+    & > .tab {
+      background: #fff;
+      width: 28%;
+
+
+      img {
+        width: 50px;
+      }
+
+      p{
+      }
+    }
+  }
+
+  &__cinema-list {
+    display: flex;
+    padding: spacing(2);
+  }
+
+  &__cinema-detail {
+    width: 72%;
+    background: #fff;
+  }
+}

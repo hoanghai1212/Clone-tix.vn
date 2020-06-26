@@ -1,0 +1,19 @@
+.orange-label,
+.green-label {
+  display: inline-block;
+  text-align: center;
+  @include margin-padding(
+    $m-amount: spacing(0.1) spacing(0.7) 0 spacing(0.1),
+    $p-amount: 0 spacing(0.5)
+  );
+  @include font("h6", "white", $lhe: spacing(2.2));
+  min-width: spacing(3.3);
+}
+
+.orange-label {
+  @include appearance(null, null, null, $bg: bc("primary"));
+}
+
+.green-label {
+  @include appearance(null, null, null, $bg: bc("label-p"));
+}

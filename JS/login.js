@@ -1,4 +1,0 @@
-const backToHome = () =>
-{
-    window.location = "/";
-}

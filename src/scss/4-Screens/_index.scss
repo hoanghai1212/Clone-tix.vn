@@ -1,0 +1,1071 @@
+/*
+COMMENT KEYWORD to find: 
+// CAROUSEL STYLE
+// Contain: Film Block, Cinema Block, News Block
+// FILM BLOCK STYLE
+// CINEMA BLOCK STYLE
+// NEWS BLOCK STYLE
+*/
+
+// CAROUSEL STYLE
+.carousel {
+  position: relative;
+  text-align: center;
+  margin-top: spacing(6);
+
+  .carousel__wrapper {
+    a {
+      position: relative;
+
+      & > img {
+        width: 100%;
+      }
+
+      &:hover .play-btn {
+        opacity: 1;
+      }
+    }
+
+    .carousel__linear-bg {
+      @include size(100%);
+      @include absolute(top 0);
+      background: linear-gradient(to top, #000, transparent 20%);
+    }
+  }
+
+  .quick-buy {
+    @include absolute(bottom 0 left 50%, $transX: -50%, $transY: 50%);
+    @include size(100%, spacing(8));
+    @include box-shadow(0, 0, 1, 0, rgba(0, 0, 0, 0.3));
+    @include flexbox(flex, center);
+    @include container();
+    z-index: z("quick-buy");
+    border-radius: spacing(0.5);
+    background: bc("white");
+    text-align: left;
+
+    .dropdownselectFilm {
+      position: relative;
+      @include size(30%, 50%);
+    }
+
+    .dropdownselectDate,
+    .dropdownselectCinema,
+    .dropdownselectSession,
+    &__button {
+      position: relative;
+      @include size(calc(70% / 4), 50%);
+    }
+
+    .dropdownselectFilm,
+    .dropdownselectDate,
+    .dropdownselectCinema,
+    .dropdownselectSession {
+      border-right: spacing(0.1) solid bdc("tab");
+    }
+
+    .select-selected {
+      @include centerAbsolute("top");
+      @include truncateText(100%);
+      @include font("h6", "primary");
+      background: url(../../../build/images/icon/dropdown-icon.png) no-repeat right
+        spacing(0.8) center;
+      padding: 7%;
+    }
+
+    .select-items {
+      @include absolute(top 100% left 0);
+      @include box-shadow(0, 0.6, 1.2, 0, rgba(0, 0, 0, 0.1));
+      font-size: fs("h6");
+      min-width: spacing(16);
+      border: spacing(0.1) solid rgba(0, 0, 0, 0.15);
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+
+      div {
+        padding: spacing(0.3) spacing(2);
+      }
+    }
+
+    &__button {
+      button {
+        @include centerAbsolute();
+        padding: spacing(1.2) spacing(2.5);
+        background-color: bc("buy-btn");
+        border: none;
+        border-radius: 4px;
+        font-size: 1.4rem;
+        color: tc("white");
+        cursor: pointer;
+
+        &.enable {
+          background: bc("primary");
+
+          &:hover {
+            background: bc("speech-red");
+          }
+        }
+      }
+    }
+  }
+
+  @include screen(lg) {
+    display: none;
+  }
+}
+// END of CAROUSEL STYLE
+
+// Contain: Film Block, Cinema Block, News Block, App Block
+.content {
+  padding-top: spacing(7.5);
+  @include flexbox(flex, center, center, column);
+
+  .btnScrollTop {
+    display: none;
+  }
+
+  @include screen(lg) {
+    display: block;
+
+    .btnScrollTop {
+      @include fixed(bottom 0 right spacing(0.5));
+      display: block;
+      transform: translateY(-50%);
+      z-index: z("ScrollTop");
+      visibility: hidden;
+      opacity: 0;
+
+      @include appearance($borrad: null);
+
+      img {
+        @include size(spacing(2.4));
+      }
+    }
+  }
+
+  @include screen(md) {
+    padding-top: spacing(9);
+  }
+}
+
+// FILM BLOCK STYLE
+.filmBlock {
+  @include container;
+
+  &__tab {
+    @include flexCenter();
+    overflow: hidden;
+
+    button {
+      border: none;
+      outline: none;
+      background: none;
+      @include appearance($borrad: null);
+      @include font("h3", "primary");
+      @include margin-padding(
+        all,
+        0 spacing(0.5),
+        all,
+        spacing(1) spacing(1.5)
+      );
+
+      &:hover {
+        font-size: fs("h2");
+      }
+
+      &.active {
+        @include font("h2", "tab-active");
+      }
+    }
+  }
+
+  &__tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+
+    .slick-prev {
+      @include absolute(top 50% left spacing(-7));
+    }
+
+    .slick-next {
+      @include absolute(top 50% right spacing(-7));
+    }
+
+    .filmBlock__slide {
+      @include flexbox($justify: flex-start, $wrap: wrap);
+    }
+  }
+  &__film {
+    cursor: pointer;
+    width: 25%;
+    padding: spacing(2) spacing(1) 0;
+
+    &:hover {
+      .filmBlock__film-overlay,
+      .filmBlock__film-overlay .play-btn,
+      .filmBlock__film-title::after {
+        opacity: 1;
+      }
+      .filmBlock__film-info,
+      .filmBlock__film__sneak-show {
+        opacity: 0;
+      }
+    }
+    &-img {
+      position: relative;
+
+      .filmBlock__film-overlay {
+        @include absolute(top 0);
+        @include size(100%);
+        @include appearance();
+        background: linear-gradient(to top, bc("black"), transparent 100%);
+        opacity: 0;
+
+        .play-btn {
+          img {
+            @include size(spacing(6));
+          }
+        }
+      }
+      & > img {
+        width: 100%;
+        border-radius: spacing(0.4);
+        margin-bottom: spacing(1);
+      }
+    }
+
+    &-rating {
+      @include absolute(top spacing(1.2) right spacing(1.2));
+      @include font("h5", "white");
+      width: spacing(5.4);
+      text-align: center;
+      background-color: bc("rating");
+      border: spacing(0.1) solid bdc("rating");
+      padding: spacing(0.2);
+    }
+
+    &-showtime {
+      @include absolute(bottom spacing(1) right spacing(0.8));
+      @include font("h5", "white", $lhe: 1.44);
+      background-color: bc("rating");
+      border: spacing(0.1) solid bdc("rating");
+      padding: spacing(0.2);
+      border-radius: spacing(0.4);
+    }
+
+    &-score {
+      transform: scaleY(1.2);
+    }
+
+    &-star {
+      @include flexCenter();
+      margin: spacing(0.4) 0;
+      img {
+        width: spacing(0.8);
+      }
+    }
+
+    &__sneak-show {
+      @include absolute(bottom spacing(1) right spacing(1));
+      @include font("body2", "white", "fwRegular", 1.55);
+      @include box-shadow(0, 0, 1, 0, bc("boxshadow"), true);
+      padding: spacing(0.4) spacing(0.8);
+      @include appearance(
+        $property: opacity,
+        $borrad: spacing(0.6),
+        $bg: bc("primary")
+      );
+    }
+
+    &__sneak-show--tag,
+    &__block-buster--tag {
+      @include absolute(
+        top spacing(-2) left spacing(-1),
+        $transX: -5%,
+        $transY: -12%
+      );
+      width: 80%;
+      max-width: spacing(15);
+      img {
+        width: 100%;
+      }
+    }
+
+    &-title {
+      transition: all 0.2s;
+      height: spacing(4.2);
+      position: relative;
+
+      h1 {
+        display: inline;
+        font-weight: fw("fwMedium");
+      }
+
+      &::after {
+        content: "MUA VÉ";
+        @include centerAbsolute();
+        @include font("h4", "white");
+        @include appearance(
+          $property: opacity,
+          $bg: linear-gradient(to left, bc("primary"), bc("dark-orange") 100%)
+        );
+        @include size(100%);
+        @include flexCenter();
+        opacity: 0;
+      }
+      &:hover::after {
+        background: bc("primary");
+      }
+    }
+
+    &-info {
+      transition: all 0.2s;
+      margin: spacing(0.8) 0 spacing(1.5);
+      @include font("subtitle", "text-2");
+    }
+  }
+
+  // *************RESPONSIVE HERE***************
+  @include screen(lg) {
+    .comingSoon__carousel {
+      .filmBlock__slide {
+        .filmBlock__film {
+          width: 50%;
+          img {
+            max-height: unset;
+          }
+        }
+      }
+    }
+    &__film {
+      position: relative;
+      width: 100%;
+      padding: spacing(1);
+
+      &-img {
+        .filmBlock__film-overlay {
+          display: none;
+        }
+        & > img {
+          max-height: spacing(38);
+          margin-bottom: 0;
+        }
+      }
+      &__sneak-show {
+        @include absolute(bottom spacing(1.2) right spacing(1));
+      }
+
+      &-title {
+        @include absolute(bottom spacing(2) left spacing(1.8));
+        height: unset;
+        h1,
+        &::after {
+          display: none;
+        }
+      }
+
+      &-info {
+        display: none;
+      }
+    }
+
+    &__tabcontent {
+      .filmBlock__slide {
+        justify-content: center;
+        -webkit-animation: fadeEffect 1s;
+        animation: fadeEffect 1s;
+
+        .loadmore-btn {
+          margin-bottom: spacing(2.5);
+        }
+      }
+      .filmBlock__slide:nth-child(2),
+      .filmBlock__slide:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  @include screen(md) {
+    &__tab {
+      margin-bottom: spacing(2);
+    }
+  }
+
+  @include screen(sm) {
+    &__tab {
+      margin-bottom: spacing(1);
+
+      button {
+        @include font("h5", "primary");
+
+        &:hover {
+          font-size: fs("h4");
+        }
+
+        &.active {
+          @include font("h4", "tab-active");
+        }
+      }
+    }
+  }
+}
+// END of FILM BLOCK STYLE
+
+// CINEMA BLOCK STYLE
+.cinemaBlock {
+  @include container;
+  @include blockHeader;
+  @include flexbox($wrap: nowrap);
+  min-width: spacing(94);
+
+  .tab {
+    @include flexbox($direction: column, $align: center);
+    @include custom-scrollbar;
+    @include size(10%, spacing(70.5));
+    border: spacing(0.1) solid bdc("tab");
+    border-right: transparent;
+    border-radius: spacing(0.4) 0 0 spacing(0.4);
+  }
+
+  &__cinema-list {
+    @include flexCenter();
+    position: relative;
+    padding: spacing(2);
+    cursor: pointer;
+
+    img {
+      @include size(spacing(5));
+      opacity: 0.5;
+    }
+    &::after {
+      content: "";
+      @include absolute(bottom 0 left 50%, $transX: -50%);
+      width: 55%;
+      border-bottom: spacing(0.1) solid bdc("tab");
+    }
+    &.active,
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__cinema-detail {
+    @include custom-scrollbar;
+    @include size(30%, spacing(70.5));
+    border: spacing(0.1) solid bdc("tab");
+    padding: 0 spacing(2);
+  }
+
+  &__cinema-info {
+    @include appearance($borrad: null);
+    @include flexbox($align: flex-start);
+    position: relative;
+    padding: spacing(2) 0;
+    opacity: 0.5;
+
+    img {
+      @include size(spacing(5));
+    }
+
+    &::after {
+      content: "";
+      @include absolute(bottom 0 left 50%, $transX: -50%);
+      width: 100%;
+      border-bottom: spacing(0.1) solid bdc("tab");
+    }
+
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__wrap {
+    cursor: pointer;
+    width: calc(100% - 50px);
+    padding-left: spacing(1);
+
+    & > span {
+      @include font($fsz: "h6", $lhe: 1.4);
+
+      .cinemaBlock__cgv {
+        @include font($color: "cgv");
+      }
+
+      .cinemaBlock__bhd {
+        @include font($color: "bhd");
+      }
+    }
+
+    p {
+      @include truncateText(100%);
+      @include font("body2", "text-3", "fwRegular", $lhe: 1.4);
+    }
+
+    a {
+      @include font("body2", "secondary", $lhe: 1.4);
+    }
+  }
+
+  &__film-time {
+    @include custom-scrollbar;
+    @include size(60%, spacing(70.5));
+    padding: 0 spacing(2);
+    border: spacing(0.1) solid bdc("tab");
+    border-radius: 0 spacing(0.4) spacing(0.4) 0;
+
+    border-left: transparent;
+
+    &-item {
+      @include flexbox($align: center, $wrap: wrap);
+      position: relative;
+      padding: spacing(2) 0;
+
+      &::after {
+        content: "";
+        @include absolute(bottom 0 left 50%, $transX: -50%);
+        width: 100%;
+        border-bottom: spacing(0.1) solid bdc("tab");
+      }
+
+      img {
+        @include size(spacing(5));
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__empty {
+    @include font($fsz: "h6", $lhe: 1.4);
+    padding-top: spacing(3);
+    text-align: center;
+  }
+
+  &__hide-on-click {
+    overflow-y: hidden;
+    p {
+      @include font($fsz: "h5", $lhe: 1.4);
+      padding: spacing(1.5) 0;
+      width: 100%;
+    }
+  }
+
+  &__session {
+    width: 100%;
+    a {
+      display: inline-block;
+      width: calc(25% - 13px);
+      @include appearance($borrad: spacing(0.7), $bg: bc("showtime"));
+      @include margin-padding(
+        $m-amount: 0 spacing(1) spacing(1) 0,
+        $p-amount: spacing(0.5) 0
+      );
+      @include font("subtitle", "text-1", "fwMedium", $lhe: 1.4);
+      text-align: center;
+      border: spacing(0.1) solid bdc("showtime");
+
+      span {
+        @include font("h4", "start-time");
+      }
+
+      &:hover {
+        span {
+          color: tc("secondary");
+        }
+      }
+    }
+  }
+
+  @include screen(lg) {
+    display: none;
+  }
+}
+// END of CINEMA BLOCK STYLE
+
+// NEWS BLOCK STYLE
+.newsBlock {
+  @include blockHeader;
+  @include flexCenter;
+  @include container;
+
+  flex-direction: column;
+
+  &__tab {
+    @include flexCenter();
+    overflow: hidden;
+
+    button {
+      border: none;
+      outline: none;
+      background: none;
+      @include appearance($borrad: null);
+      @include font("h3", "primary");
+      @include margin-padding(
+        all,
+        0 spacing(0.5),
+        all,
+        spacing(1) spacing(1.5)
+      );
+
+      &:hover {
+        font-size: fs("h2");
+      }
+
+      &.active {
+        @include font("h2", "tab-active");
+      }
+    }
+  }
+
+  &__tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+  }
+
+  &__news-container {
+    @include flexbox($justify: space-evenly, $wrap: wrap);
+
+    .item-1,
+    .item-2 {
+      width: 50%;
+    }
+
+    .item-3,
+    .item-4,
+    .item-wrapper {
+      width: 33%;
+    }
+
+    .item-5,
+    .item-6,
+    .item-7,
+    .item-8 {
+      @include flexCenter;
+      align-items: flex-start;
+      margin-bottom: 0;
+
+      & > img {
+        @include size(spacing(5));
+        margin: 0 spacing(1.2) spacing(1) 0;
+      }
+
+      .newsBlock__news-title {
+        @include font("h6", "primary", $lhe: spacing(2));
+        opacity: 0.7;
+
+        &:hover {
+          color: tc("secondary");
+        }
+      }
+
+      & > div,
+      .newsBlock__news-quote {
+        display: none;
+      }
+    }
+
+    .item-wrapper {
+      padding-top: spacing(1);
+    }
+  }
+
+  &__news-item {
+    @include margin-padding(bottom, spacing(1), all, 0 spacing(0.75));
+
+    & > img {
+      @include appearance();
+      width: 100%;
+      margin: spacing(1) 0;
+    }
+
+    & > div {
+      a {
+        @include font("body2", "text-1");
+        display: inline-flex;
+        margin-right: spacing(2.5);
+
+        img {
+          width: 18px;
+          margin-right: spacing(1);
+        }
+      }
+    }
+  }
+
+  &__news-title {
+    /*! autoprefixer: off */
+    @include font("h5", "primary", $lhe: spacing(2));
+    @include appearance();
+    margin-bottom: spacing(0.5);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    &:hover {
+      color: tc("secondary");
+    }
+  }
+
+  &__news-quote {
+    @include font("subtitle", "text-2", $lhe: spacing(1.9));
+    @include margin-padding(bottom, spacing(1.5), right, spacing(0.5));
+    text-align: justify;
+    height: spacing(5.5);
+    overflow: hidden;
+  }
+
+  &__load-more {
+    margin-top: spacing(4);
+    margin-bottom: spacing(1.5);
+  }
+
+  @include screen(md) {
+    padding-top: spacing(9);
+  }
+  @include screen(sm) {
+    padding-top: spacing(6);
+    &__news-container {
+      .item-1,
+      .item-2,
+      .item-3,
+      .item-4,
+      .item-wrapper {
+        width: 100%;
+      }
+
+      .item-wrapper {
+        padding: 0;
+      }
+    }
+
+    &__tab {
+      flex-wrap: wrap;
+
+      button {
+        @include font("h5", "primary");
+        @include margin-padding(all, 0 spacing(1), all, spacing(1.5) 0);
+        white-space: nowrap;
+
+        &:hover {
+          font-size: fs("h4");
+        }
+
+        &.active {
+          @include font("h4", "tab-active");
+        }
+      }
+    }
+  }
+}
+
+// END of NEWS BLOCK STYLE
+
+// APP BLOCK STYLE
+.appBlock {
+  @include flexCenter();
+  padding: spacing(12) 0 spacing(8) 0;
+  background: url(../../../build/images/backapp.jpg);
+  background-size: contain;
+  width: 100%;
+
+  &__wrapper {
+    @include container();
+    @include flexbox(flex, flex-start, center);
+  }
+
+  &__intro {
+    padding: spacing(6) spacing(1.5) 0;
+    width: 50%;
+
+    &-big {
+      @include font("h1", "white", "fwBold", spacing(5.5));
+      margin-bottom: spacing(2.5);
+    }
+
+    &-medium {
+      @include font("h5", "white", "fwRegular", 1.42);
+      margin-bottom: spacing(2.5);
+    }
+
+    &-small {
+      @include font("h6", "white", "fwRegular", 1.42);
+      padding-top: spacing(1);
+
+      a {
+        color: tc("white");
+        border-bottom: spacing(0.1) solid bdc("white");
+      }
+    }
+  }
+  &__phone {
+    position: relative;
+    width: 50%;
+
+    & > img {
+      padding: 0 27.5%;
+      width: 100%;
+    }
+
+    &-slides {
+      @include absolute(top 0 left 0);
+      width: 100%;
+      padding: 1.5% 28.8%;
+
+      & > img {
+        width: 100%;
+      }
+
+      .slick-list {
+        border-radius: spacing(2);
+      }
+    }
+  }
+
+  // *************RESPONSIVE HERE***************
+  @include screen(lg) {
+    padding: spacing(1) 0 spacing(8) 0;
+
+    &__intro {
+      text-align: center;
+      &-big {
+        font-size: fs("title");
+      }
+      &-medium {
+        font-size: fs("h6");
+      }
+    }
+  }
+
+  @include screen(md) {
+    &__wrapper {
+      flex-direction: column;
+    }
+
+    &__phone {
+      width: 100%;
+
+      &-slides {
+        padding: 2.3% 28.9%;
+
+        .slick-list {
+          border-radius: spacing(3.5);
+        }
+      }
+    }
+
+    &__intro {
+      width: 100%;
+
+      &-small {
+        padding: spacing(1) 0;
+      }
+    }
+  }
+
+  @include screen(sm) {
+    .slick-list {
+      border-radius: spacing(2.5);
+    }
+  }
+
+  @include screen(custom, max, 400) {
+    .slick-list {
+      border-radius: spacing(1.5);
+    }
+  }
+}
+// END of APP BLOCK STYLE
+
+// FOOTER STYLE
+.footer {
+  background: bc("secondary");
+  color: tc("text-3");
+  padding: spacing(2) 0;
+
+  &__container {
+    @include container;
+  }
+
+  &__row {
+    display: flex;
+  }
+  &__title {
+    width: 100%;
+    margin-bottom: spacing(1);
+    @include font("body1", "white");
+  }
+  &__tix {
+    width: 33%;
+    display: flex;
+    flex-flow: row wrap;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    padding: 0 spacing(1.5);
+    a {
+      width: 50%;
+      @include font("body2", "text-3", "fwBold", $lhe: 2.3);
+
+      &:hover {
+        color: tc("white");
+      }
+    }
+  }
+
+  &__partner {
+    width: 33%;
+    padding: 0 spacing(1.5);
+
+    &-row {
+      img {
+        @include size(30px);
+        border-radius: 50%;
+        margin-right: spacing(1.5);
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &-row:nth-of-type(1) {
+      a:nth-of-type(1) {
+        img {
+          background-color: bc("white");
+        }
+      }
+    }
+
+    &-row:nth-of-type(1),
+    &-row:nth-of-type(2),
+    &-row:nth-of-type(3) {
+      margin-bottom: spacing(1.5);
+    }
+  }
+
+  &__app-social {
+    width: 33%;
+    display: flex;
+    text-align: center;
+  }
+
+  &__wrapper {
+    padding: 0 spacing(1.5);
+    width: 50%;
+
+    img {
+      cursor: pointer;
+      height: spacing(3);
+      margin: spacing(0.5);
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: spacing(0.1) solid bdc("footer");
+    margin: spacing(2) 0;
+  }
+
+  &__company-logo {
+    width: 8.33%;
+
+    img {
+      width: spacing(8);
+      border-radius: spacing(0.7);
+    }
+  }
+
+  &__company-detail {
+    width: 75%;
+    padding: 0 spacing(1.5);
+
+    p:nth-of-type(1) {
+      color: tc("white");
+    }
+
+    p {
+      @include font("body2", $lhe: 1.8);
+
+      a {
+        color: tc("secondary");
+      }
+    }
+  }
+
+  &__ministry {
+    width: 16.67%;
+    text-align: right;
+
+    img {
+      cursor: pointer;
+      width: spacing(13);
+    }
+  }
+
+  // *************RESPONSIVE HERE***************
+  @include screen(lg) {
+    &__title {
+      display: none;
+    }
+
+    &__tix {
+      @include flexCenter();
+
+      a {
+        width: auto;
+        margin: spacing(0.5);
+
+        &:nth-child(4) {
+          order: 3;
+        }
+      }
+    }
+
+    &__partner {
+      display: none;
+    }
+
+    &__app-social {
+      justify-content: center;
+    }
+
+    &__wrapper:nth-of-type(1) {
+      display: none;
+    }
+
+    &__company-detail {
+      text-align: center;
+    }
+    &__ministry {
+      text-align: center;
+    }
+  }
+
+  @include screen(md) {
+    &__row {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__tix,
+    &__company-detail,
+    &__ministry,
+    &__wrapper {
+      width: 100%;
+    }
+
+    &__company-logo {
+      width: 100%;
+      text-align: center;
+      img {
+        margin-bottom: spacing(2);
+      }
+    }
+  }
+}
+// END of FOOTER STYLE

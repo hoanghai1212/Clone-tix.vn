@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sky Tour Movie - Sơn Tùng M-TP</title>
+
+    <link rel="icon" href="./images/white-logo.png" />
+    <link rel="stylesheet" href="./styles/main.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__left">
+            <a href="./index.html" class="header__logo"><img src="./images/web-logo.png" alt="logo" /></a>
+        </div>
+        <div class="header__middle">
+            <a href="/#content__film-detail__tab">Lịch Chiếu</a>
+            <a href="/#cinemaBlock">Cụm Rạp</a>
+            <a href="/#newsBlock">Tin Tức</a>
+            <a href="/#appBlock">Ứng Dụng</a>
+        </div>
+        <div class="header__right">
+            <div class="login-btn">
+                <img src="./images/icon/avatar.png" alt="user" />
+                <span onclick="toLoginPage()">Đăng Nhập</span>
+            </div>
+
+            <div class="header__location-select" id="location-select">
+                <div class="select-selected">Hồ Chí Minh</div>
+                <div class="select-items select-hide">
+
+                    <div data-id="HCM">Hồ Chí Minh</div>
+
+                    <div data-id="HNoi">Hà Nội</div>
+
+                    <div data-id="DN">Đà Nẵng</div>
+
+                    <div data-id="HP">Hải Phòng</div>
+
+                    <div data-id="BH">Biên Hòa</div>
+
+                    <div data-id="NT">Nha Trang</div>
+
+                    <div data-id="BD">Bình Dương</div>
+
+                    <div data-id="PT">Phan Thiết</div>
+
+                    <div data-id="HL">Hạ Long</div>
+
+                    <div data-id="CT">Cần Thơ</div>
+
+                    <div data-id="VT">Vũng Tàu</div>
+
+                    <div data-id="QNhon">Quy Nhơn</div>
+
+                    <div data-id="Hue">Huế</div>
+
+                    <div data-id="LX">Long Xuyên</div>
+
+                    <div data-id="TN">Thái Nguyên</div>
+
+                    <div data-id="BMT">Buôn Ma Thuột</div>
+
+                    <div data-id="BG">Bắc Giang</div>
+
+                    <div data-id="BT">Bến Tre</div>
+
+                    <div data-id="VT">Việt Trì</div>
+
+                    <div data-id="NB">Ninh Bình</div>
+
+                    <div data-id="Vinh">Vinh</div>
+
+                    <div data-id="BL">Bảo Lộc</div>
+
+                    <div data-id="DL">Đà Lạt</div>
+
+                    <div data-id="TV">Trà Vinh</div>
+
+                    <div data-id="YB">Yên Bái</div>
+
+                    <div data-id="KG">Kiên Giang</div>
+
+                    <div data-id="VL">Vĩnh Long</div>
+
+                    <div data-id="CM">Cà Mau</div>
+
+                    <div data-id="HG">Hậu Giang</div>
+
+                    <div data-id="TN">Tây Ninh</div>
+
+                    <div data-id="TQ">Tuyên Quang</div>
+
+                    <div data-id="TH">Thanh Hóa</div>
+
+                    <div data-id="ND">Nam Định</div>
+
+                    <div data-id="HD">Hải Dương</div>
+
+                    <div data-id="GL">Gia Lai</div>
+
+                    <div data-id="HT">Hà Tĩnh</div>
+
+                    <div data-id="PY">Phú Yên</div>
+
+                    <div data-id="BL">Bạc Liêu</div>
+
+                    <div data-id="LA">Long An</div>
+
+                    <div data-id="DH">Đồng Hới</div>
+
+                    <div data-id="HNam">Hà Nam</div>
+
+                    <div data-id="BN">Bắc Ninh</div>
+
+                    <div data-id="QT">Quảng Trị</div>
+
+                    <div data-id="KT">Kon Tum</div>
+
+                    <div data-id="ST">Sóc Trăng</div>
+
+                    <div data-id="SL">Sơn La</div>
+
+                    <div data-id="LS">Lạng Sơn</div>
+
+                    <div data-id="QNgai">Quảng Ngãi</div>
+
+                    <div data-id="MT">Mỹ Tho</div>
+
+                    <div data-id="DT">Đồng Tháp</div>
+
+                    <div data-id="HY">Hưng Yên</div>
+
+                </div>
+            </div>
+
+            <div class="header__side-menu-btn" id="sideMenuBtn">
+                <img src="./images/icon/menu-options.png" alt="menu" />
+            </div>
+
+            <div class="header__side-menu" id="sideMenu">
+                <div class="header__side-menu__wrapper">
+                    <div class="login-btn">
+                        <img src="./images/icon/avatar.png" alt="user" />
+                        <span onclick="toLoginPage()">Đăng Nhập</span>
+
+                        <img src="./images/Icon/next-session.png" alt="close" class="header__side-menu__close-btn"
+                            id="closeSideMenuBtn" />
+                    </div>
+
+                    <a id="sideMenuLink" href="/#content__film-detail__tab">Lịch Chiếu</a>
+                    <a id="sideMenuLink" href="/#cinemaBlock">Cụm Rạp</a>
+                    <a id="sideMenuLink" href="/#newsBlock">Tin Tức</a>
+                    <a id="sideMenuLink" href="/#appBlock">Ứng Dụng</a>
+                    <a id="modalBtn">Hồ Chí Minh</a>
+
+                    <div class="modal" id="modalLocation">
+                        <div class="modal-content">
+                            <div class="modal-wrapper" id="modalWrapper"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="content content--detail">
+        <div class="content--detail__poster">
+            <div class="content--detail__blur">
+                <img src="./images/Detail/soi-100-100-wolf-p-15927180593840.png" alt="banner" />
+            </div>
+            <div class="content--detail__gradient"></div>
+            <div class="content--detail__film-intro">
+                <div class="content--detail__image">
+                    <img src="./images/detail/wofl-100.png" alt="sep" />
+                    <div class="play-btn">
+                        <img src="./images/icon/play-video.png" alt="" />
+                    </div>
+                </div>
+                <div class="content--detail__info">
+                    <p>26.06.2020</p>
+                    <h1>
+                        <div class="green-label">P</div>SÓI 100% - 100% WOLF -
+                    </h1>
+                    <span>94 phút - 0 IMDb - 2D/Digital</span>
+                    <button>Mua vé</button>
+                </div>
+                <div class="content--detail__rating">
+                    <div>
+                        <div class="content--detail__box">
+                            <svg>
+                                <circle cx="50%" cy="50%" r="61px"></circle>
+                                <circle cx="50%" cy="50%" r="61px"></circle>
+                            </svg>
+                            <div class="content--detail__point">8.7</div>
+                        </div>
+                        <div class="content--detail__star">
+                            <img src="./images/icon/star1.png" alt="">
+                            <img src="./images/icon/star1.png" alt="">
+                            <img src="./images/icon/star1.png" alt="">
+                            <img src="./images/icon/star1.png" alt="">
+                            <img src="./images/icon/star1.2.png" alt="">
+                        </div>
+                        <div class="content--detail__comment-amount">
+                            52 người đánh giá
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content--detail__film-detail">
+            <!-- Tab links -->
+            <div class="tab">
+                <button class="content--detail__tablinks defaultOpen" data-content="content--detail__tabcontent"
+                    data-link="content--detail__tablinks" onclick="toggleTab(event, 'showTimes')">
+                    Lịch chiếu
+                </button>
+
+                <button class="content--detail__tablinks" data-content="content--detail__tabcontent"
+                    data-link="content--detail__tablinks" onclick="toggleTab(event, 'infomation')">
+                    Thông tin
+                </button>
+
+                <button class="content--detail__tablinks" data-content="content--detail__tabcontent"
+                    data-link="content--detail__tablinks" onclick="toggleTab(event, 'reviews')">
+                    Đánh giá
+                </button>
+            </div>
+
+            <!-- Tab content -->
+            <div id="showTimes" class="content--detail__tabcontent">
+                <div class="content--detail__container">
+                    <div class="tab">
+                        <!-- CGV TAB -->
+                        <div class="content--detail__cinema-list defaultOpen"
+                            data-content="content--detail__cinema-detail" data-link="content--detail__cinema-list"
+                            onclick="toggleTab(event, 'cgvCinema')">
+                            <img src="./images/cgv.png" alt="cgv" />
+                            <div class="content--detail__cinema-info">
+                                <p>CGV</p>
+                                <p>x3 vé CGV 79k/vé</p>
+                            </div>
+
+                        </div>
+
+                        <!-- BHD TAB -->
+                        <div class="content--detail__cinema-list" data-content="content--detail__cinema-detail"
+                            data-link="content--detail__cinema-list" onclick="toggleTab(event, 'bhdCinema')">
+                            <img src="./images/bhd.png" alt="bhd" />
+
+                            <div class="content--detail__cinema-info">
+                                <p>BHD Star Cineplex</p>
+                                <p>x3 vé BHD Star 59k/vé</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cgvCinema" class="content--detail__cinema-detail">â
+                    </div>
+                    <div id="bhdCinema" class="content--detail__cinema-detail">
+                    </div>
+                </div>
+            </div>
+
+            <div id="infomation" class="content--detail__tabcontent">b
+            </div>
+
+            <div id="reviews" class="content--detail__tabcontent">c
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__row">
+                <div class="footer__tix">
+                    <p class="footer__title">TIX</p>
+                    <a href="#">FAQ</a>
+                    <a href="#">Thỏa thuận sử dụng</a>
+                    <a href="#">Brand Guidelines</a>
+                    <a href="#">Chính sách bảo mật</a>
+                </div>
+                <div class="footer__partner">
+                    <p class="footer__title">ĐỐI TÁC</p>
+
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./images/partner/cgv.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/bhd.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/galaxycine.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/cinestar.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/lotte.png" alt="partner" /></a>
+                    </div>
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./images/partner/megags.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/bt.jpg" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/dongdacinema.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/TOUCH.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/cnx.jpg" alt="partner" /></a>
+                    </div>
+
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./images/partner/STARLIGHT.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/dcine.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/zalopay_icon.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/payoo.jpg" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/VCB.png" alt="partner" /></a>
+                    </div>
+                    <div class="footer__partner-row">
+                        <a href="#"><img src="./images/partner/AGRIBANK.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/VIETTINBANK.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/IVB.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/123go.png" alt="partner" /></a>
+                        <a href="#"><img src="./images/partner/laban.png" alt="partner" /></a>
+                    </div>
+                </div>
+                <div class="footer__app-social">
+                    <div class="footer__wrapper">
+                        <p class="footer__title">MOBILE APP</p>
+                        <img src="./images/app/apple-logo.png" alt="ios" />
+                        <img src="./images/app/android-logo.png" alt="adr" />
+                    </div>
+                    <div class="footer__wrapper">
+                        <p class="footer__title">SOCIAL</p>
+                        <img src="./images/social/facebook-logo.png" alt="fb" />
+                        <img src="./images/social/zalo-logo.png" alt="zl" />
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="footer__row">
+                <div class="footer__company-logo">
+                    <img src="./images/zion-logo.jpg" alt="zion" />
+                </div>
+                <div class="footer__company-detail">
+                    <p>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</p>
+                    <p>
+                        Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ
+                        Chí Minh, Việt Nam.
+                    </p>
+                    <p>
+                        Giấy chứng nhận đăng ký kinh doanh số: 0101659783,
+                    </p>
+                    <p>
+                        đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế
+                        hoạch và đầu tư Thành phố Hồ Chí Minh cấp.
+                    </p>
+                    <p>Số Điện Thoại (Hotline): 1900 545 436</p>
+                    <p>Email: <a href="#">support@tix.vn</a></p>
+                </div>
+                <div class="footer__ministry">
+                    <img src="./images/bo-cong-thuong.png" alt="ministry" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.0/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="../src/scripts/app.js"></script>
+</body>
+
+</html>
