@@ -85,7 +85,7 @@ html {
 .slick-next {
   width: 50px;
   height: 100px;
-  z-index: 3;
+  z-index: 4;
   background-size: contain;
   color: transparent;
   background-color: transparent;
@@ -101,7 +101,7 @@ html {
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 4;
   border: none;
 }
 
@@ -130,7 +130,7 @@ html {
   padding-left: 20px;
   background-color: rgba(255, 255, 255, 0.95);
   transition: 0.2s all;
-  z-index: 5;
+  z-index: 6;
 }
 
 .header:hover {
@@ -231,7 +231,7 @@ html {
     height: 100%;
     background-color: transparent;
     pointer-events: none;
-    z-index: 6;
+    z-index: 7;
     overflow: hidden;
     transition: all 0.4s;
   }
@@ -400,6 +400,7 @@ html {
 
 .select-items::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 .select-items::-webkit-scrollbar-track-piece {
@@ -440,7 +441,7 @@ html {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
-  z-index: 7;
+  z-index: 8;
 }
 
 .modal-content {
@@ -467,6 +468,7 @@ html {
 
 .modal-wrapper::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 .modal-wrapper::-webkit-scrollbar-track-piece {
@@ -644,7 +646,7 @@ COMMENT KEYWORD to find:
     position: fixed;
     display: block;
     transform: translateY(-50%);
-    z-index: 4;
+    z-index: 5;
     visibility: hidden;
     opacity: 0;
     cursor: pointer;
@@ -974,6 +976,7 @@ COMMENT KEYWORD to find:
 
 .cinemaBlock .tab::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 .cinemaBlock .tab::-webkit-scrollbar-track-piece {
@@ -1028,6 +1031,7 @@ COMMENT KEYWORD to find:
 
 .cinemaBlock__cinema-detail::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 .cinemaBlock__cinema-detail::-webkit-scrollbar-track-piece {
@@ -1120,6 +1124,7 @@ COMMENT KEYWORD to find:
 
 .cinemaBlock__film-time::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 .cinemaBlock__film-time::-webkit-scrollbar-track-piece {
@@ -1884,6 +1889,7 @@ COMMENT KEYWORD to find:
 
 .content--detail__image img {
   border-radius: 4px;
+  width: 100%;
 }
 
 .content--detail__image:hover .play-btn {
@@ -1912,7 +1918,7 @@ COMMENT KEYWORD to find:
 }
 
 .content--detail__info h1 {
-  font-size: "h2";
+  font-size: 24px;
   color: #e9e9e9;
   font-weight: 400;
   line-height: 1.42;
@@ -1993,60 +1999,298 @@ COMMENT KEYWORD to find:
   margin-top: 10px;
 }
 
-.content--detail__film-detail > .tab {
+.content--detail__film-detail {
+  transform: translate(0, -70px);
+  width: 870px;
+  max-width: 870px;
+}
+
+.content--detail__tab-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  margin-bottom: 40px;
 }
 
-.content--detail__film-detail > .tab button {
-  border: none;
-  outline: none;
-  background: none;
+.content--detail__tablinks {
   cursor: pointer;
   transition: all 0.2s;
-  font-size: "h4";
+  font-size: 18px;
   color: #ffffff;
   margin: 0 5px;
   padding: 10px 15px;
+  letter-spacing: -1px;
 }
 
-.content--detail__film-detail > .tab button:hover {
+.content--detail__tablinks:hover {
   font-size: 20px;
 }
 
-.content--detail__film-detail > .tab button.active {
+.content--detail__tablinks.active {
   font-size: 20px;
   color: #fa5238;
 }
 
-.content--detail__tabcontent {
-  min-width: 870px;
-}
-
-.content--detail__container {
+.content--detail__cinema-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.content--detail__container > .tab {
-  background: #fff;
-  width: 28%;
-}
-
-.content--detail__container > .tab img {
-  width: 50px;
-}
-
 .content--detail__cinema-list {
+  background: #ffffff;
+  width: 28%;
+  min-height: 713px;
+  border-radius: 4px 0 0 4px;
+  border-right: 1px solid rgba(233, 233, 233, 0.8);
+}
+
+.content--detail__cinema-item {
   display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+  position: relative;
   padding: 20px;
+  opacity: 0.5;
+}
+
+.content--detail__cinema-item::after {
+  content: "";
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  border-bottom: 1px solid rgba(233, 233, 233, 0.5);
+}
+
+.content--detail__cinema-item.active {
+  opacity: 1;
+}
+
+.content--detail__cinema-item.active .content--detail__cinema-tooltip {
+  display: block;
+}
+
+.content--detail__cinema-item.active .content--detail__cinema-promotion img:hover ~ .content--detail__cinema-tooltip {
+  z-index: 3;
+  opacity: 1;
+}
+
+.content--detail__cinema-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.content--detail__cinema-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content--detail__cinema-info p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.content--detail__cinema-promotion {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.content--detail__cinema-promotion span {
+  font-size: 12px;
+  color: #fb4226;
+}
+
+.content--detail__cinema-promotion img {
+  width: 13px;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.content--detail__cinema-tooltip {
+  top: -25px;
+  right: -130px;
+  left: 15%;
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #ffffff, #e9e9e9);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  z-index: -1;
+  display: none;
+  opacity: 0;
+}
+
+.content--detail__cinema-tooltip::after {
+  content: "";
+  top: 10%;
+  left: -8px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-right: 8px solid #f7f7f7;
+  filter: drop-shadow(-5px 0 4px rgba(0, 0, 0, 0.3));
+}
+
+.content--detail__cinema-tooltip p {
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.content--detail__cinema-tooltip ul {
+  padding-inline-start: 15px;
+}
+
+.content--detail__cinema-tooltip ul li {
+  list-style-type: disc;
+  font-size: 14px;
+  color: #000000;
+  line-height: 1.42;
+  margin-bottom: 6px;
 }
 
 .content--detail__cinema-detail {
   width: 72%;
-  background: #fff;
+  background: #ffffff;
+  min-height: 713px;
+  border-radius: 0 4px 4px 0;
+}
+
+.content--detail__day-wrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #c4c0c0 #e8e3e3;
+  scrollbar-width: thin;
+  overflow-x: scroll;
+}
+
+.content--detail__day-wrapper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.content--detail__day-wrapper::-webkit-scrollbar-track-piece {
+  background: #e8e3e3;
+  border-radius: 0 4px 4px 0;
+}
+
+.content--detail__day-wrapper::-webkit-scrollbar-thumb {
+  background: #c4c0c0;
+  border-radius: 4px;
+}
+
+.content--detail__day-list {
+  display: flex;
+  padding: 16px 0;
+  justify-content: space-evenly;
+  width: 195%;
+}
+
+.content--detail__day {
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.content--detail__day span {
+  font-size: 20px;
+}
+
+.content--detail__day.active {
+  color: #fb4226;
+}
+
+.content--detail__day.disable {
+  pointer-events: none;
+  color: #9b9b9b;
+}
+
+.content--detail__showtime-wrapper {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #c4c0c0 #e8e3e3;
+  scrollbar-width: thin;
+}
+
+.content--detail__showtime-wrapper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.content--detail__showtime-wrapper::-webkit-scrollbar-track-piece {
+  background: #e8e3e3;
+  border-radius: 0 4px 4px 0;
+}
+
+.content--detail__showtime-wrapper::-webkit-scrollbar-thumb {
+  background: #c4c0c0;
+  border-radius: 4px;
+}
+
+.content--detail__showtime-list {
+  height: 635px;
+  min-height: 635px;
+}
+
+.content--detail__showtime-item {
+  padding: 20px 20px 10px;
+  position: relative;
+}
+
+.content--detail__showtime-item img {
+  width: 50px;
+  height: 50px;
+}
+
+.content--detail__showtime-item::after {
+  content: "";
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  border-bottom: 1px solid rgba(233, 233, 233, 0.5);
+}
+
+.content--detail__showtime-item .cinemaBlock__wrap {
+  display: inline-block;
+}
+
+.content--detail__showtime-item .cinemaBlock__wrap div {
+  display: flex;
+}
+
+.content--detail__showtime-item .cinemaBlock__wrap span {
+  font-size: 16px;
+}
+
+.content--detail__showtime-item .cinemaBlock__wrap p {
+  width: fit-content;
+  max-width: 88%;
+  font-size: 13px;
+}
+
+.content--detail__showtime-item .cinemaBlock__wrap a {
+  margin-left: 1px;
+}
+
+.content--detail__showtime-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /*# sourceMappingURL=main.css.map */

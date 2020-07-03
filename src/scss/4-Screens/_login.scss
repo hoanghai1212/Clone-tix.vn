@@ -31,7 +31,7 @@
   }
 
   &__title {
-    @include font(fs("h6"), tc("white"), "fwRegular", $lhe: 1.42);
+    @include font(fs("h6"), tc("white"), fw("fwRegular"), $lhe: 1.42);
   }
 
   &__login-btns {

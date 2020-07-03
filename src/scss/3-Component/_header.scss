@@ -22,7 +22,7 @@
     @include absolute(left 50%, $transX: -50%);
 
     a {
-      @include font(fs("subtitle"), tc("black"), "fwMedium");
+      @include font(fs("subtitle"), tc("black"), fw("fwMedium"));
       margin-right: spacing(2);
       transition: 0.2s all;
 
@@ -139,7 +139,7 @@
           }
 
           span {
-            @include font(fs("h6"), tc("black"), "fwRegular");
+            @include font(fs("h6"), tc("black"), fw("fwRegular"));
             @include margin-padding(all, 0, all, 0);
             margin-left: spacing(0.4);
             border: none;
@@ -154,7 +154,7 @@
 
         a {
           padding: spacing(2);
-          @include font(fs("h4"), tc("black"), "fwRegular");
+          @include font(fs("h4"), tc("black"), fw("fwRegular"));
         }
       }
     }

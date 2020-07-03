@@ -265,7 +265,7 @@ COMMENT KEYWORD to find:
 
     &__sneak-show {
       @include absolute(bottom spacing(1) right spacing(1));
-      @include font(fs("body2"), tc("white"), "fwRegular", 1.55);
+      @include font(fs("body2"), tc("white"), fw("fwRegular"), 1.55);
       @include box-shadow(0, 0, 1, 0, rgba(bc("black"),.3), true);
       padding: spacing(0.4) spacing(0.8);
       @include appearance(
@@ -500,7 +500,7 @@ COMMENT KEYWORD to find:
 
     p {
       @include truncateText(100%);
-      @include font(fs("body2"), tc("suva"), "fwRegular", $lhe: 1.4);
+      @include font(fs("body2"), tc("suva"), fw("fwRegular"), $lhe: 1.4);
     }
 
     a {
@@ -561,7 +561,7 @@ COMMENT KEYWORD to find:
         $m-amount: 0 spacing(1) spacing(1) 0,
         $p-amount: spacing(0.5) 0
       );
-      @include font(fs("subtitle"), tc("nobel"), "fwMedium", $lhe: 1.4);
+      @include font(fs("subtitle"), tc("nobel"), fw("fwMedium"), $lhe: 1.4);
       text-align: center;
       border: spacing(0.1) solid bc("gainsboro");
 
@@ -780,17 +780,17 @@ COMMENT KEYWORD to find:
     width: 50%;
 
     &-big {
-      @include font(fs("h1"), tc("white"), "fwBold", spacing(5.5));
+      @include font(fs("h1"), tc("white"), fw("fwBold"), spacing(5.5));
       margin-bottom: spacing(2.5);
     }
 
     &-medium {
-      @include font(fs("h5"), tc("white"), "fwRegular", 1.42);
+      @include font(fs("h5"), tc("white"), fw("fwRegular"), 1.42);
       margin-bottom: spacing(2.5);
     }
 
     &-small {
-      @include font(fs("h6"), tc("white"), "fwRegular", 1.42);
+      @include font(fs("h6"), tc("white"), fw("fwRegular"), 1.42);
       padding-top: spacing(1);
 
       a {
@@ -906,7 +906,7 @@ COMMENT KEYWORD to find:
     padding: 0 spacing(1.5);
     a {
       width: 50%;
-      @include font(fs("body2"), tc("suva"), "fwBold", $lhe: 2.3);
+      @include font(fs("body2"), tc("suva"), fw("fwBold"), $lhe: 2.3);
 
       &:hover {
         color: tc("white");

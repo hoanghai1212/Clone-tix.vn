@@ -80,6 +80,7 @@ const backToHome = () =>
 const handleHideAll = function (evt, elmtClass)
 {
     var target = evt.currentTarget.querySelector(`.${elmtClass}`);
+    
     var flag = target.getAttribute("aria-hidden");
 
 
@@ -190,133 +191,130 @@ function toggleTab(evt, tabID)
 }
 
 var now_filmData = {
-    name: "nowShowing",
-    data: [
-        {
-            id: 1,
-            img_src: "../../../build/images/tran-chien-midway.png",
-            img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
-            score: 8,
-            sneak_show: false,
-            block_buster: true,
-            age_label: "C16",
-            film_name: "Trận Chiến Midway",
-            film_info: "138 phút - 6.9 IMDb"
+    data: [{
+        id: 1,
+        img_src: "../../../build/images/tran-chien-midway.png",
+        img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
+        score: 8,
+        sneak_show: false,
+        block_buster: true,
+        age_label: "C16",
+        film_name: "Trận Chiến Midway",
+        film_info: "138 phút - 6.9 IMDb"
 
-        },
-        {
-            id: 2,
-            img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
-            img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
-            score: 7.6,
-            sneak_show: true,
-            block_buster: false,
-            age_label: "P",
-            film_name: "Sky Tour Movie - Sơn Tùng M-TP",
-            film_info: "94 phút"
+    },
+    {
+        id: 2,
+        img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
+        img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
+        score: 7.6,
+        sneak_show: true,
+        block_buster: false,
+        age_label: "P",
+        film_name: "Sky Tour Movie - Sơn Tùng M-TP",
+        film_info: "94 phút"
 
-        },
-        {
-            id: 3,
-            img_src: "../../../build/images/tran-chien-midway.png",
-            img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
-            score: 8,
-            sneak_show: false,
-            block_buster: false,
-            age_label: "C16",
-            film_name: "Trận Chiến Midway",
-            film_info: "138 phút - 6.9 IMDb"
+    },
+    {
+        id: 3,
+        img_src: "../../../build/images/tran-chien-midway.png",
+        img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
+        score: 8,
+        sneak_show: false,
+        block_buster: false,
+        age_label: "C16",
+        film_name: "Trận Chiến Midway",
+        film_info: "138 phút - 6.9 IMDb"
 
-        },
-        {
-            id: 4,
-            img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
-            img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
-            score: 7.6,
-            sneak_show: true,
-            block_buster: false,
-            age_label: "P",
-            film_name: "Sky Tour Movie - Sơn Tùng M-TP",
-            film_info: "94 phút"
+    },
+    {
+        id: 4,
+        img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
+        img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
+        score: 7.6,
+        sneak_show: true,
+        block_buster: false,
+        age_label: "P",
+        film_name: "Sky Tour Movie - Sơn Tùng M-TP",
+        film_info: "94 phút"
 
-        },
-        {
-            id: 5,
-            img_src: "../../../build/images/tran-chien-midway.png",
-            img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
-            score: 8,
-            sneak_show: false,
-            block_buster: false,
-            age_label: "C16",
-            film_name: "Trận Chiến Midway",
-            film_info: "138 phút - 6.9 IMDb"
+    },
+    {
+        id: 5,
+        img_src: "../../../build/images/tran-chien-midway.png",
+        img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
+        score: 8,
+        sneak_show: false,
+        block_buster: false,
+        age_label: "C16",
+        film_name: "Trận Chiến Midway",
+        film_info: "138 phút - 6.9 IMDb"
 
-        },
-        {
-            id: 6,
-            img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
-            img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
-            score: 7.6,
-            sneak_show: true,
-            block_buster: false,
-            age_label: "P",
-            film_name: "Sky Tour Movie - Sơn Tùng M-TP",
-            film_info: "94 phút"
+    },
+    {
+        id: 6,
+        img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
+        img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
+        score: 7.6,
+        sneak_show: true,
+        block_buster: false,
+        age_label: "P",
+        film_name: "Sky Tour Movie - Sơn Tùng M-TP",
+        film_info: "94 phút"
 
-        },
-        {
-            id: 7,
-            img_src: "../../../build/images/tran-chien-midway.png",
-            img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
-            score: 8,
-            sneak_show: false,
-            block_buster: false,
-            age_label: "C16",
-            film_name: "Trận Chiến Midway",
-            film_info: "138 phút - 6.9 IMDb"
+    },
+    {
+        id: 7,
+        img_src: "../../../build/images/tran-chien-midway.png",
+        img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
+        score: 8,
+        sneak_show: false,
+        block_buster: false,
+        age_label: "C16",
+        film_name: "Trận Chiến Midway",
+        film_info: "138 phút - 6.9 IMDb"
 
-        },
-        {
-            id: 8,
-            img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
-            img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
-            score: 7.6,
-            sneak_show: true,
-            block_buster: false,
-            age_label: "P",
-            film_name: "Sky Tour Movie - Sơn Tùng M-TP",
-            film_info: "94 phút"
+    },
+    {
+        id: 8,
+        img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
+        img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
+        score: 7.6,
+        sneak_show: true,
+        block_buster: false,
+        age_label: "P",
+        film_name: "Sky Tour Movie - Sơn Tùng M-TP",
+        film_info: "94 phút"
 
-        },
-        {
-            id: 9,
-            img_src: "../../../build/images/tran-chien-midway.png",
-            img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
-            score: 8,
-            sneak_show: false,
-            block_buster: false,
-            age_label: "C16",
-            film_name: "Trận Chiến Midway",
-            film_info: "138 phút - 6.9 IMDb"
+    },
+    {
+        id: 9,
+        img_src: "../../../build/images/tran-chien-midway.png",
+        img_src_992: "../../../build/images/truyen-thuyet-ve-quan-tien-the-legend-of-quan-tien-15901234502313_540x225.png",
+        score: 8,
+        sneak_show: false,
+        block_buster: false,
+        age_label: "C16",
+        film_name: "Trận Chiến Midway",
+        film_info: "138 phút - 6.9 IMDb"
 
-        },
-        {
-            id: 10,
-            img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
-            img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
-            score: 7.6,
-            sneak_show: true,
-            block_buster: false,
-            age_label: "P",
-            film_name: "Sky Tour Movie - Sơn Tùng M-TP",
-            film_info: "94 phút"
+    },
+    {
+        id: 10,
+        img_src: "../../../build/images/sky-tour-movie-son-tung-m-tp.png",
+        img_src_992: "../../../build/images/sky-tour-movie-son-tung-m-tp-responsive992_540x225.jpg",
+        score: 7.6,
+        sneak_show: true,
+        block_buster: false,
+        age_label: "P",
+        film_name: "Sky Tour Movie - Sơn Tùng M-TP",
+        film_info: "94 phút"
 
-        }
+    }
     ]
 };
 
 var coming_filmData = {
-    name: "coming",
     data: [
         {
             id: 1,
@@ -469,7 +467,7 @@ function createSlide(root, filmData)
 
         for (let i = 0; i < Math.ceil(filmData.data.length / showNumber); i++)
         {
-            htmlContent += `<div class="filmBlock__slide" id="${filmData.name}__slide-${i}">`
+            htmlContent += `<div class="filmBlock__slide" id="${root}__slide-${i}">`
 
             var filmSet = filmData.data.slice(i * showNumber, showNumber * (i + 1));
 
@@ -498,7 +496,7 @@ function createSlide(root, filmData)
                 if (readMore && i < Math.ceil(filmData.data.length / showNumber) - 1)
                 {
                     htmlReadMore += `
-                <button class="loadmore-btn" id="${filmData.name}-loadmore" data-target="${filmData.name}__slide-${i + 1}">Xem thêm</button>
+                <button class="loadmore-btn" id="${root}-loadmore" data-target="${root}__slide-${i + 1}">Xem thêm</button>
                 `
                 }
 
@@ -758,7 +756,7 @@ $(document).ready(function ()
     createSlide("comingSoon", coming_filmData);
 
     loadMoreToggle(document.querySelectorAll("#nowShowing-loadmore"));
-    loadMoreToggle(document.querySelectorAll("#coming-loadmore"));
+    loadMoreToggle(document.querySelectorAll("#comingSoon-loadmore"));
 
     handleModalToggle("#modalBtn", "#modalLocation");
     handleSideMenuToggle();
