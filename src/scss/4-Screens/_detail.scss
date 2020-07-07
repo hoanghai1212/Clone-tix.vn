@@ -1,3 +1,22 @@
+.header--detail {
+  &__go-home {
+    display: none;
+    img {
+      @include size(spacing(1.5));
+    }
+
+    @include screen(md) {
+      display: block;
+    }
+  }
+
+  .header__logo {
+    @include screen(md) {
+      @include centerAbsolute();
+    }
+  }
+}
+
 .content--detail {
   padding-top: spacing(6);
   background-color: bc("cyprus");
@@ -20,6 +39,25 @@
       filter: blur(spacing(1.5));
       margin: spacing(-1.1) 0 spacing(-0.5) spacing(-1);
       width: calc(100% + 5px);
+
+      @include screen(md) {
+        filter: none;
+        margin: 0;
+      }
+    }
+
+    .play-btn {
+      display: none;
+      top: 40%;
+      @include screen(md) {
+        display: block;
+        opacity: 1;
+
+        img {
+          opacity: 1;
+          width: spacing(8);
+        }
+      }
     }
   }
 
@@ -28,6 +66,27 @@
     @include flexbox($align: center);
     width: 100%;
     max-width: spacing(87);
+
+    .filmBlock__film-rating {
+      display: none;
+    }
+
+    @include screen(lg) {
+      padding: 0 spacing(3);
+    }
+
+    @include screen(md) {
+      top: 0;
+
+      .filmBlock__film-rating {
+        display: block;
+        border-radius: spacing(0.4);
+      }
+      .filmBlock__film-score {
+        font-size: fs("subtitle");
+        margin: spacing(0.2) 0 spacing(0.6);
+      }
+    }
   }
 
   &__image {
@@ -45,6 +104,10 @@
         opacity: 1;
       }
     }
+
+    @include screen(md) {
+      display: none;
+    }
   }
 
   &__info {
@@ -52,6 +115,7 @@
     width: 41.67%;
     padding: 0 spacing(1.5);
     @include font(fs("h6"), tc("smoke"), fw("fwRegular"), $lhe: 1.42);
+
     .green-label {
       vertical-align: middle;
       margin: spacing(-0.5) spacing(0.6) 0 0;
@@ -78,12 +142,34 @@
         background: bc("harley");
       }
     }
+    @include screen(md) {
+      display: none;
+    }
+  }
+
+  &__info-mobile {
+    display: none;
+    padding: 0 spacing(1.5);
+    p {
+      @include font(fs("h6"), tc("nobel"), $lhe: 1.4);
+
+      &:nth-child(2) {
+        @include font(fs("h3"), tc("smoke"));
+      }
+    }
+
+    @include screen(md) {
+      display: block;
+    }
   }
 
   &__rating {
     width: 33.33%;
     text-align: center;
     @include flexbox(flex, $justify: flex-end);
+    @include screen(md) {
+      display: none;
+    }
   }
 
   &__box {
@@ -106,6 +192,10 @@
         stroke-dasharray: 375;
         stroke-dashoffset: calc(375 - (375 * 87) / 100);
       }
+
+      @include screen(md) {
+        display: none;
+      }
     }
   }
 
@@ -127,17 +217,36 @@
   &__comment-amount {
     @include font(fs("h6"), tc("smoke"));
     margin-top: spacing(1);
+
+    @include screen(md) {
+      display: none;
+    }
   }
 
   &__film-detail {
+    margin: 0 auto;
     transform: translate(0, spacing(-7));
     width: spacing(87);
-    max-width: spacing(87);
+
+    @include screen(lg) {
+      width: auto;
+      transform: unset;
+    }
+
+    @include screen(md) {
+      transform: translate(0);
+      width: 100%;
+    }
   }
 
   &__tab-header {
     @include flexCenter;
     margin-bottom: spacing(4);
+
+    @include screen(md) {
+      padding-top: spacing(2);
+      margin-bottom: spacing(3);
+    }
   }
 
   &__tablinks {
@@ -152,6 +261,14 @@
 
     &.active {
       @include font(fs("h3"), tc("sunset"));
+    }
+
+    @include screen(md) {
+      &,
+      &:hover,
+      &.active {
+        font-size: fs("h5");
+      }
     }
   }
 
@@ -189,7 +306,10 @@
       }
     }
 
-    &.active .content--detail__cinema-promotion img:hover ~ .content--detail__cinema-tooltip {
+    &.active
+      .content--detail__cinema-promotion
+      img:hover
+      ~ .content--detail__cinema-tooltip {
       z-index: z("tooltip");
       opacity: 1;
     }
@@ -214,8 +334,8 @@
     span {
       @include font(fs("body2"), tc("primary"));
     }
-    img {
-      width: spacing(1.3);
+    .exclam {
+      @include size(spacing(1.3));
       margin-right: spacing(0.5);
       vertical-align: top;
     }
@@ -271,6 +391,10 @@
   &__day-wrapper {
     @include custom-scrollbar;
     overflow-x: scroll;
+
+    @include screen(md) {
+      background: bc("white");
+    }
   }
 
   &__day-list {
@@ -278,6 +402,15 @@
     padding: spacing(1.6) 0;
     justify-content: space-evenly;
     width: 195%;
+
+    @include screen(md) {
+      margin: 0 spacing(-4.5);
+      width: 210%;
+    }
+
+    @include screen(sm) {
+      margin: 0 spacing(-2);
+    }
   }
 
   &__day {
@@ -301,19 +434,29 @@
 
   &__showtime-wrapper {
     @include custom-scrollbar;
+
+    @include screen(md) {
+      background: bc("white");
+    }
   }
 
   &__showtime-list {
     height: spacing(63.5);
     min-height: spacing(63.5);
+
+    @include screen(md) {
+      height: auto;
+      padding-bottom: spacing(7);
+    }
   }
 
   &__showtime-item {
     padding: spacing(2) spacing(2) spacing(1);
     position: relative;
-
-    img {
-      @include size(spacing(5));
+    overflow: hidden;
+    @include screen(md) {
+      display: none;
+      max-height: spacing(50);
     }
 
     &::after {
@@ -338,17 +481,287 @@
         width: fit-content;
         max-width: 88%;
         font-size: fs("subtitle");
+        @include screen(md) {
+          max-width: 100%;
+        }
       }
 
       a {
         margin-left: spacing(0.1);
       }
     }
+
+    .cinemaBlock__hide-on-click {
+      p {
+        @include screen(md) {
+          padding: 0;
+          padding-bottom: spacing(0.5);
+        }
+      }
+    }
   }
 
   &__showtime-header {
     @include flexCenter;
+    @include screen(md) {
+      justify-content: space-between;
+      position: relative;
+      padding: spacing(2);
+      scroll-margin-block: spacing(6);
+
+      &.active {
+        .content--detail__cinema-tooltip {
+          display: block;
+        }
+      }
+
+      &.active
+        .content--detail__cinema-promotion
+        img:hover
+        ~ .content--detail__cinema-tooltip {
+        z-index: z("tooltip");
+        opacity: 1;
+      }
+
+      &::after {
+        content: "";
+        @include absolute(bottom 0 left 50%, $transX: -50%);
+        width: calc(100% - 40px);
+        border-bottom: spacing(0.1) solid rgba(bc("smoke"), 0.5);
+      }
+    }
+
+    img:first-child:not(.exclam) {
+      @include size(spacing(5));
+    }
   }
 
-  
+  &__brand-wrapper {
+    display: flex;
+    @include screen(md) {
+      display: flex;
+    }
+  }
+
+  &__cinema-header {
+    @include screen(md) {
+      @include flexCenter();
+      padding-bottom: spacing(2);
+
+      .cinemaBlock__wrap {
+        padding: 0;
+
+        p {
+          font-size: fs("h6");
+        }
+      }
+    }
+  }
+
+  &__icon-right {
+    @include size(spacing(1.6));
+    @include appearance();
+
+    .content--detail__showtime-header.active & {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__info-wrapper {
+    display: flex;
+    @include screen(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__info-left,
+  &__info-right {
+    width: 50%;
+    padding: 0 spacing(1);
+    @include screen(md) {
+      width: 100%;
+    }
+  }
+
+  &__info-row {
+    display: flex;
+    margin-bottom: spacing(1);
+  }
+
+  &__info-title {
+    @include font(fs("h6"), tc("white"));
+    margin-bottom: spacing(1);
+    width: 35%;
+
+    @include screen(md) {
+      color: tc("nobel");
+    }
+  }
+
+  &__info-content {
+    @include font(fs("h6"), tc("smoke"), fw("fwRegular"));
+    margin-bottom: spacing(1);
+    width: 40%;
+
+    &--full {
+      @include font(fs("h6"), tc("smoke"), fw("fwRegular"));
+      margin-bottom: spacing(1);
+      text-align: justify;
+      width: 100%;
+    }
+  }
+
+  &__comment-box {
+    @include flexbox(flex, center, space-between);
+    @include margin-padding(
+      "all",
+      spacing(4) calc(50% - 290px) 0,
+      "all",
+      spacing(1) 2%
+    );
+
+    max-width: spacing(58);
+    height: spacing(6);
+    @include appearance($bg: bc("white"));
+
+    @include screen(sm) {
+      margin: 0 spacing(1.5);
+
+    }
+  }
+
+  &__comment-box-left {
+    @include flexbox(flex, center);
+    img {
+      @include size(spacing(3.6));
+      border-radius: 50%;
+    }
+    span {
+      @include font(fs("h6"), tc("nobel"));
+      margin-left: spacing(0.5);
+    }
+  }
+
+  &__user-comment-list {
+    @include flexbox(flex, center, $direction: column);
+
+    button {
+      margin-top: spacing(3);
+
+      @include screen(lg) {
+        margin-bottom: spacing(4);
+      }
+    }
+  }
+
+  &__user-comment-box {
+    @include appearance($cursor: init, $bg: bc("white"));
+    @include margin-padding(
+      "all",
+      spacing(1.5) calc(50% - 290px) 0,
+      "all",
+      spacing(2) spacing(2) spacing(1.2)
+    );
+    max-width: spacing(58);
+    @include screen(sm) {
+      margin: spacing(2) spacing(1.5) spacing(1.2);
+
+    }
+  }
+
+  &__user-comment-header {
+    @include flexbox(flex, center, space-between);
+  }
+
+  &__user-avatar {
+    @include flexbox(flex);
+    img {
+      @include size(spacing(3.2));
+      border-radius: 50%;
+    }
+  }
+
+  &__user-info {
+    margin-left: spacing(1);
+    letter-spacing: spacing(-0.05);
+
+    p {
+      @include font(fs("h6"), tc("black"));
+      img {
+        @include size(spacing(1.8));
+        vertical-align: middle;
+      }
+    }
+
+    span {
+      color: tc("nobel");
+    }
+  }
+
+  &__user-rating {
+    text-align: center;
+    p {
+      @include font(fs("h5"), tc("atlantis"));
+    }
+
+    div {
+      @include flexbox(flex, $justify: space-around);
+      margin-top: spacing(1);
+      img {
+        @include size(spacing(0.8));
+      }
+    }
+  }
+
+  &__user-comment-body {
+    position: relative;
+    padding: spacing(2) 0;
+    @include font(fs("h6"), tc("charcoal"), fw("fwRegular"), 1.44);
+
+    &::after {
+      content: "";
+      @include absolute(bottom 0 left 50%, $transX: -50%);
+      width: 100%;
+      border-bottom: spacing(0.1) solid rgba(bc("smoke"), 0.5);
+    }
+  }
+
+  &__user-comment-footer {
+    @include flexbox(flex, center);
+    padding-top: spacing(1);
+
+    img {
+      @include size(spacing(1.6));
+      @include appearance;
+    }
+    span {
+      margin-left: spacing(1);
+      @include font(fs("h6"), tc("raven"));
+      cursor: pointer;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.hide-on-mobile {
+  @include screen(md) {
+    display: none;
+  }
+}
+
+.hide-on-desktop {
+  display: none;
+  @include screen(md) {
+    display: block;
+  }
+}
+
+.tab-content {
+  -webkit-animation: fadeEffect 0.7s;
+  animation: fadeEffect 0.7s;
 }

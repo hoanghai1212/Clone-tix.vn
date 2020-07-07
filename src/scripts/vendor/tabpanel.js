@@ -53,7 +53,6 @@ export const TabPanel = () =>
             })
         };
 
-        ClearAll();
         LinkControl();
         DefaultOpen(defaultTab);
     });

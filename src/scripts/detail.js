@@ -1,6 +1,25 @@
 import { TabPanel } from "./vendor/tabpanel.js";
-import { handleHideAll } from "./vendor/utility.js"
+import * as util from "./vendor/utility.js"
 
-handleHideAll();
+
+
+util.createSelectBox("#location-select");
+
+util.handleModalToggle("#modalBtn", "#modalLocation");
+util.handleSideMenuToggle();
+util.handleScrollTopBtn();
+util.handleHideAll();
+
+window.backToHome = () =>
+{
+    util.backToHome();
+};
+
+window.toLoginPage = () =>
+{
+    util.toLoginPage();
+};
+
+
 TabPanel();
 
