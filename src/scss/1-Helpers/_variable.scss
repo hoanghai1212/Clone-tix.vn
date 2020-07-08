@@ -58,6 +58,7 @@ $fontSizes: (
   "h1": 32px,             //used for app block
   "title": 25px,
   "detail-progress": 52px,
+  "countdown": 29px,
 );
 
 
@@ -88,12 +89,13 @@ $breakpoints: (
 //---------Z-Indexes---------
 
 $z-indexes: (
-  "modal",      //8
-  "side-menu",  //7
-  "header",     //6
-  "ScrollTop",  //5
-  "slick",      //4
-  "tooltip",    //3
-  "play-btn",   //2
-  "quick-buy"   //1
+  "modal",      
+  "side-menu",  
+  "header",    
+  "checkout-header",
+  "ScrollTop",  
+  "slick",      
+  "tooltip",    
+  "play-btn",   
+  "quick-buy"   
 );

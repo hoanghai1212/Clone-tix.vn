@@ -1,0 +1,127 @@
+.checkout {
+  @include flexbox();
+
+  &__left {
+    width: 74%;
+  }
+
+  &__header {
+    @include flexbox(flex, center, space-between);
+    @include font(fs("subtitle"), tc("black"));
+    @include box-shadow(0, 0, 1.5, 0, $color: rgba(bc("black"), 0.3));
+    height: spacing(8);
+    padding: 0 spacing(7) 0 spacing(4);
+    z-index: z("checkout-header");
+  }
+
+  &__progress {
+    @include flexCenter();
+
+    p {
+      position: relative;
+      padding: 0 spacing(3);
+      line-height: spacing(8);
+
+      span {
+        margin-right: spacing(0.5);
+        font-size: fs("h4");
+      }
+
+      &.active {
+        color: tc("primary");
+
+        &::before {
+          content: "";
+          @include absolute(top 0 left 50%, -50%, 50%);
+          @include size(calc(100% - 60px), spacing(0.1));
+          background: bc("primary");
+        }
+      }
+    }
+  }
+
+  &__user {
+    @include flexCenter();
+    img {
+      @include size(spacing(3));
+      border-radius: 50%;
+      margin-right: spacing(0.5);
+    }
+
+    span {
+      color: tc("nobel");
+    }
+  }
+
+  &__body {
+    @include flexbox(flex, null, center);
+    height: calc(100vh - 80px);
+  }
+
+  &__left-banner {
+    @include fixed(top spacing(8) left -22%);
+    background: url(../../../build/images/Detail/soi-100-100-wolf-p-15927180593840.png)
+      no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: calc(100% - 80px);
+    width: 26%;
+
+    &-overlay {
+      @include absolute(top 0 left 0 right 0 bottom 0);
+      background: bc("black");
+      opacity: 0.7;
+    }
+  }
+
+  &__seat {
+    width: spacing(90);
+    margin: spacing(3) 0 0 spacing(6);
+
+    &-header {
+      @include flexbox(flex, center, space-between);
+    }
+  }
+
+  &__cinema-info {
+    @include flexCenter();
+
+    img {
+      width: 15%;
+    }
+
+    .cinemaBlock__wrap {
+      span {
+        @include font(fs("h5"), $fwe: fw("fwRegular"));
+      }
+
+      p {
+        font-size: fs("h6");
+      }
+    }
+  }
+
+  &__countdown {
+    width: 10%;
+    white-space: nowrap;
+    text-align: center;
+    p {
+      color: tc("nobel");
+    }
+    span {
+      @include font(fs("countdown"), tc("primary"));
+    }
+  }
+
+  &__seat-screen {
+    text-align: center;
+    margin-top: spacing(2);
+    img {
+      width: spacing(90);
+    }
+  }
+
+  &__right {
+    width: 26%;
+  }
+}
