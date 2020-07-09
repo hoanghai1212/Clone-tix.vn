@@ -74,14 +74,14 @@ export const handleHideAll = () =>
         if (target.classList.contains("clickMyParent"))
         {
             targetToClick = target.parentNode;
-            
+
         }
 
         targetToClick.addEventListener("click", () =>
         {
             if (targetToClick.classList.contains("hideNextElementSibling"))
             {
-                
+
                 targetToClick.classList.toggle("active");
                 targetToClick.scrollIntoView();
 
@@ -306,4 +306,25 @@ export const createSelectBox = (rootID) =>
     {
         return false;
     }
+}
+
+/* Script for validate Email */
+export const validateEmail = (email) =>
+{
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(String(email).toLowerCase()))
+    {
+        return true;
+    }
+    return "không đúng định dạng";
+}
+
+export const validatePhone = (phone) =>
+{
+    const re = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+    if (re.test(phone))
+    {
+        return true;
+    }
+    return "chỉ được chứa số";
 }

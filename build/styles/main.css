@@ -125,7 +125,7 @@ html {
   padding-left: 20px;
   background-color: rgba(255, 255, 255, 0.95);
   transition: 0.2s all;
-  z-index: 7;
+  z-index: 8;
 }
 
 .header:hover {
@@ -226,7 +226,7 @@ html {
     height: 100%;
     background-color: transparent;
     pointer-events: none;
-    z-index: 8;
+    z-index: 9;
     overflow: hidden;
     transition: all 0.4s;
   }
@@ -436,7 +436,7 @@ html {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
-  z-index: 9;
+  z-index: 10;
 }
 
 .modal-content {
@@ -2821,7 +2821,7 @@ img:hover
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
   height: 80px;
   padding: 0 70px 0 40px;
-  z-index: 6;
+  z-index: 7;
 }
 
 .checkout__progress {
@@ -2884,7 +2884,7 @@ img:hover
   left: -22%;
   position: fixed;
   background: url(../../../build/images/Detail/soi-100-100-wolf-p-15927180593840.png) no-repeat;
-  background-position: center;
+  background-position: right;
   background-size: cover;
   min-height: calc(100% - 80px);
   width: 26%;
@@ -2902,7 +2902,7 @@ img:hover
 
 .checkout__seat {
   width: 900px;
-  margin: 30px 0 0 60px;
+  margin: 25px 0 0 60px;
 }
 
 .checkout__seat-header {
@@ -2951,10 +2951,317 @@ img:hover
 }
 
 .checkout__seat-screen img {
-  width: 900px;
+  width: 100%;
+}
+
+.checkout__seat-map {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.checkout__seat-row {
+  display: flex;
+  min-height: 27px;
+}
+
+.checkout__seat-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-width: 35px;
+  user-select: none;
+}
+
+.checkout__seat-wrapper .exit {
+  cursor: pointer;
+  top: 0;
+  position: absolute;
+  transform: translateX(80%) rotate(270deg);
+  width: auto;
+  align-self: normal;
+}
+
+.checkout svg {
+  cursor: pointer;
+  fill: currentColor;
+  width: 27px;
+}
+
+.checkout .seat {
+  color: #3E515D;
+}
+
+.checkout .vip-seat {
+  position: relative;
+  color: #f7b500;
+}
+
+.checkout .vip-seat img {
+  top: 60%;
+  left: 55.5%;
+  position: absolute;
+  transform: translate(-44.5%, -40%) scale(0.9);
+  z-index: 6;
+}
+
+.checkout .left-seat,
+.checkout .right-seat,
+.checkout .couple-seat {
+  color: #b03550;
+  height: 100%;
+}
+
+.checkout .left-seat svg {
+  right: 3px;
+  position: absolute;
+}
+
+.checkout .right-seat svg {
+  left: -3px;
+  position: absolute;
+}
+
+.checkout__seat-rowname {
+  font-size: 14px;
+  color: #000000;
+  width: 55px;
+}
+
+.checkout__seat-rowname span {
+  display: inline-block;
+  width: 10px;
+  text-align: center;
+}
+
+.checkout__seat-legends {
+  margin-top: 50px;
+}
+
+.checkout__seat-legends span {
+  font-size: 12px;
+  color: #9b9b9b;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+.checkout__seat-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout__seat-type-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 21px;
+}
+
+.checkout__seat-type-wrapper svg {
+  width: 14px;
+  height: auto;
+  margin: 0;
+}
+
+.checkout__seat-type-wrapper .selecting-seat {
+  color: #44c020;
+}
+
+.checkout__seat-type-wrapper .selected-seat {
+  display: flex;
+  position: relative;
+  color: #e7eaec;
+}
+
+.checkout__seat-type-wrapper .selected-seat::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  top: 40%;
+  position: absolute;
+  transform: translate(0, -50%);
+  background: url(../../../build/images/Icon/seatnotchoose.png) no-repeat;
+  background-size: contain;
+}
+
+.checkout__seat-type-wrapper .unavailable-seat {
+  color: rgba(16, 34, 53, 0.2);
+}
+
+.checkout__view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.checkout__view-wrapper span {
+  margin-right: 20px;
+}
+
+.checkout__view-wrapper span::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 28px;
+  margin-right: 8px;
+}
+
+.checkout__view-wrapper span.center-seat::before {
+  border-top: 2px dashed #fa7f6c;
+}
+
+.checkout__view-wrapper span.best-seat::before {
+  border-top: 2px solid #fa7f6c;
 }
 
 .checkout__right {
-  width: 26%;
+  top: 0;
+  right: 0;
+  position: fixed;
+  width: 440px;
+  height: 100%;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #c4c0c0 #e8e3e3;
+  scrollbar-width: thin;
+  background: #ffffff;
+}
+
+.checkout__right::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.checkout__right::-webkit-scrollbar-track-piece {
+  background: #e8e3e3;
+  border-radius: 0 4px 4px 0;
+}
+
+.checkout__right::-webkit-scrollbar-thumb {
+  background: #c4c0c0;
+  border-radius: 4px;
+}
+
+.checkout__controller {
+  padding: 0 40px;
+}
+
+.checkout__total-cost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-bottom: 1px dashed #e9e9e9;
+  margin-bottom: 15px;
+}
+
+.checkout__total-cost span {
+  text-align: center;
+  font-size: 36px;
+  color: #44c020;
+}
+
+.checkout__film-info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 80px;
+  border-bottom: 1px dashed #e9e9e9;
+  margin-bottom: 12.5px;
+}
+
+.checkout__film-info span {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.checkout__film-info span.checkout__film-name {
+  display: flex;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+  padding-bottom: 5px;
+}
+
+.checkout__film-info span.checkout__film-name .green-label {
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0 5px 0 0;
+}
+
+.checkout__selected-seat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12.5px;
+  padding-bottom: 12.5px;
+  border-bottom: 1px dashed #e9e9e9;
+}
+
+.checkout__total-seat {
+  font-size: 14px;
+  color: #fb4226;
+}
+
+.checkout__seat-cost {
+  font-size: 16px;
+  color: #44c020;
+  padding: 0 15px;
+}
+
+.checkout__error {
+  font-size: 12px;
+  color: #fb4226;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+.checkout__email, .checkout__phone, .checkout__coupon {
+  margin-bottom: 12.5px;
+  padding-bottom: 12.5px;
+  border-bottom: 1px dashed #e9e9e9;
+}
+
+.checkout__email label, .checkout__phone label, .checkout__coupon label {
+  font-size: 16px;
+  color: #9b9b9b;
+  transition: all 0.4s;
+}
+
+.checkout__email label.onfocus, .checkout__phone label.onfocus, .checkout__coupon label.onfocus {
+  font-size: 12px;
+  color: #4a90e2;
+}
+
+.checkout__email input, .checkout__phone input, .checkout__coupon input {
+  width: 85%;
+  border: none;
+}
+
+.checkout__email input:focus, .checkout__phone input:focus, .checkout__coupon input:focus {
+  width: 90%;
+}
+
+.checkout__coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.checkout__coupon-wrapper {
+  width: 70%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 /*# sourceMappingURL=main.css.map */

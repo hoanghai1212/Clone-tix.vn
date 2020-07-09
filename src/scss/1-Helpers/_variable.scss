@@ -22,6 +22,13 @@ $bgColors: (
   "pigment": #00ac4d,   //Pigment Green used for label-p
   "harley": #ce3017,    //Harley Davidson Orange used for "MUA VÉ" button gradient
   "speech": #b30000,    //Speech Red used for buy button hover(in carousel)
+  "normal-seat": #3E515D,
+  "vip-seat":#f7b500,
+  "couple-seat": #b03550,
+  "selecting-seat": #44c020,
+  "selected-seat": #e7eaec,
+  "unavailable-seat": #102235,
+  "seatview-line": #fa7f6c,
 );
 
 
@@ -40,7 +47,9 @@ $txtColors: (
   "white": #ffffff,     //White used for button, dropdown, label, carousel, film block, app block, footer, detail page content, login page wrapper, title
   "sunset": #fa5238,    //Sunset Orange used for film block, news block, detail page content
   "smoke": #e9e9e9,     //White Smoke used for detail page content
-
+  "total-cost": #44c020,
+  "checkout": #333333,
+  "checkout-input": #4a90e2,
 );
 
 
@@ -59,6 +68,7 @@ $fontSizes: (
   "title": 25px,
   "detail-progress": 52px,
   "countdown": 29px,
+  "total-cost": 36px,
 );
 
 
@@ -93,6 +103,7 @@ $z-indexes: (
   "side-menu",  
   "header",    
   "checkout-header",
+  "center-seat",
   "ScrollTop",  
   "slick",      
   "tooltip",    

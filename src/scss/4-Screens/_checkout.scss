@@ -62,7 +62,7 @@
     @include fixed(top spacing(8) left -22%);
     background: url(../../../build/images/Detail/soi-100-100-wolf-p-15927180593840.png)
       no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: cover;
     min-height: calc(100% - 80px);
     width: 26%;
@@ -76,7 +76,7 @@
 
   &__seat {
     width: spacing(90);
-    margin: spacing(3) 0 0 spacing(6);
+    margin: spacing(2.5) 0 0 spacing(6);
 
     &-header {
       @include flexbox(flex, center, space-between);
@@ -105,6 +105,7 @@
     width: 10%;
     white-space: nowrap;
     text-align: center;
+
     p {
       color: tc("nobel");
     }
@@ -117,11 +118,255 @@
     text-align: center;
     margin-top: spacing(2);
     img {
-      width: spacing(90);
+      width: 100%;
+    }
+  }
+
+  &__seat-map {
+    @include flexbox(flex, center, flex-start, column);
+  }
+
+  &__seat-row {
+    display: flex;
+    min-height: spacing(2.7);
+  }
+
+  &__seat-wrapper {
+    @include flexbox(flex, center);
+    position: relative;
+    min-width: spacing(3.5);
+    user-select: none;
+
+    .exit {
+      cursor: pointer;
+      @include absolute(top 0);
+      transform: translateX(80%) rotate(270deg);
+      width: auto;
+      align-self: normal;
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    fill: currentColor;
+    width: spacing(2.7);
+  }
+
+  .seat {
+    color: bc("normal-seat");
+  }
+
+  .vip-seat {
+    position: relative;
+    color: bc("vip-seat");
+    img {
+      @include absolute(top 60% left 55.5%);
+      transform: translate(-44.5%, -40%) scale(0.9);
+      z-index: z("center-seat");
+    }
+  }
+
+  .left-seat,
+  .right-seat,
+  .couple-seat {
+    color: bc("couple-seat");
+    height: 100%;
+  }
+
+  .left-seat {
+    svg {
+      @include absolute(right spacing(0.3));
+    }
+  }
+
+  .right-seat {
+    svg {
+      @include absolute(left spacing(-0.3));
+    }
+  }
+
+  &__seat-rowname {
+    @include font(fs("h6"), tc("black"));
+    width: spacing(5.5);
+
+    span {
+      display: inline-block;
+      width: spacing(1);
+      text-align: center;
+    }
+  }
+
+  &__seat-legends {
+    margin-top: spacing(5);
+    span {
+      @include font(fs("body2"), tc("nobel"), fw("fwRegular"));
+      margin-top: spacing(0.5);
+    }
+  }
+
+  &__seat-type {
+    @include flexCenter();
+
+    &-wrapper {
+      @include flexCenter();
+      flex-direction: column;
+      margin-right: spacing(2.1);
+
+      svg {
+        @include size(spacing(1.4), auto);
+        margin: 0;
+      }
+
+      .selecting-seat {
+        color: bc("selecting-seat");
+      }
+
+      .selected-seat {
+        display: flex;
+        position: relative;
+        color: bc("selected-seat");
+
+        &::after {
+          content: "";
+          @include size(spacing(0.7));
+          @include absolute(top 40%, 0, -50%);
+          background: url(../../../build/images/Icon/seatnotchoose.png)
+            no-repeat;
+          background-size: contain;
+        }
+      }
+
+      .unavailable-seat {
+        color: rgba(bc("unavailable-seat"), 0.2);
+      }
+    }
+  }
+
+  &__view {
+    @include flexCenter();
+    margin-top: spacing(1.5);
+
+    &-wrapper {
+      span {
+        margin-right: spacing(2);
+
+        &::before {
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+          width: spacing(2.8);
+          margin-right: spacing(0.8);
+        }
+
+        &.center-seat::before {
+          border-top: spacing(0.2) dashed bc("seatview-line");
+        }
+
+        &.best-seat::before {
+          border-top: spacing(0.2) solid bc("seatview-line");
+        }
+      }
     }
   }
 
   &__right {
-    width: 26%;
+    @include fixed(top 0 right 0);
+    @include size(spacing(44), 100%);
+    @include box-shadow(0, 0, 1.5, 0, $color: rgba(bc("black"), 0.3));
+    @include custom-scrollbar();
+    background: bc("white");
+  }
+
+  &__controller {
+    padding: 0 spacing(4);
+  }
+
+  &__total-cost {
+    @include flexCenter();
+    height: spacing(8);
+    border-bottom: spacing(0.1) dashed bc("smoke");
+    margin-bottom: spacing(1.5);
+
+    span {
+      text-align: center;
+      @include font(fs("total-cost"), tc("total-cost"));
+    }
+  }
+
+  &__film-info {
+    @include flexbox(flex, flex-start, flex-start, column);
+    height: spacing(8);
+    border-bottom: spacing(0.1) dashed bc("smoke");
+    margin-bottom: spacing(1.25);
+
+    span {
+      @include font(fs("h6"), tc("checkout"), fw("fwRegular"));
+      margin-bottom: spacing(0.5);
+
+      &.checkout__film-name {
+        display: flex;
+        @include font(fs("h5"), tc("black"), fw("fwMedium"));
+        padding-bottom: spacing(0.5);
+
+        .green-label {
+          @include font(fs("body2"), $lhe: spacing(1.8));
+          margin: 0 spacing(0.5) 0 0;
+        }
+      }
+    }
+  }
+
+  &__selected-seat {
+    @include flexbox(flex, center, space-between);
+    @include margin-padding(bottom, spacing(1.25), bottom, spacing(1.25));
+    border-bottom: spacing(0.1) dashed bc("smoke");
+  }
+
+  &__total-seat {
+    @include font(fs("h6"), tc("primary"));
+  }
+
+  &__seat-cost {
+    @include font(fs("h5"), tc("total-cost"));
+    padding: 0 spacing(1.5);
+  }
+
+  &__error {
+    @include font(fs("body2"), tc("primary"), fw("fwRegular"));
+    margin-top: spacing(0.5);
+  }
+
+  &__email,
+  &__phone,
+  &__coupon {
+    @include margin-padding(bottom, spacing(1.25), bottom, spacing(1.25));
+    border-bottom: spacing(0.1) dashed bc("smoke");
+
+    label {
+      @include font(fs("h5"), tc("nobel"));
+      transition: all 0.4s;
+
+      &.onfocus {
+        @include font(fs("body2"), tc("checkout-input"));
+      }
+    }
+
+    input {
+      width: 85%;
+      border: none;
+
+      &:focus {
+        width: 90%;
+      }
+    }
+  }
+
+  &__coupon {
+    @include flexbox(flex, center, space-between, row);
+
+    &-wrapper {
+      width: 70%;
+      @include flexbox(flex, flex-start, flex-start, column);
+    }
   }
 }
