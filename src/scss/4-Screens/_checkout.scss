@@ -273,12 +273,21 @@
     @include fixed(top 0 right 0);
     @include size(spacing(44), 100%);
     @include box-shadow(0, 0, 1.5, 0, $color: rgba(bc("black"), 0.3));
-    @include custom-scrollbar();
     background: bc("white");
+
+    & > button {
+      border: none;
+      background-color: bc("disabled-btn");
+      @include absolute(bottom 0 left 0);
+      @include size(100%, spacing(6));
+      @include font(fs("h2"), tc("smoke"));
+    }
   }
 
   &__controller {
     padding: 0 spacing(4);
+    height: calc(100% - 140px);
+    @include custom-scrollbar();
   }
 
   &__total-cost {
@@ -301,7 +310,7 @@
 
     span {
       @include font(fs("h6"), tc("checkout"), fw("fwRegular"));
-      margin-bottom: spacing(0.5);
+      margin-bottom: spacing(0.2);
 
       &.checkout__film-name {
         display: flex;
@@ -309,7 +318,7 @@
         padding-bottom: spacing(0.5);
 
         .green-label {
-          @include font(fs("body2"), $lhe: spacing(1.8));
+          @include font(fs("body2"), tc("white"), fw("fwMedium"), spacing(1.8));
           margin: 0 spacing(0.5) 0 0;
         }
       }
@@ -332,41 +341,111 @@
   }
 
   &__error {
-    @include font(fs("body2"), tc("primary"), fw("fwRegular"));
+    @include font(fs("body2"), tc("primary"));
     margin-top: spacing(0.5);
+    letter-spacing: spacing(-0.1);
+
   }
 
   &__email,
   &__phone,
   &__coupon {
+    @include flexbox(flex, center, space-between);
     @include margin-padding(bottom, spacing(1.25), bottom, spacing(1.25));
     border-bottom: spacing(0.1) dashed bc("smoke");
 
     label {
       @include font(fs("h5"), tc("nobel"));
-      transition: all 0.4s;
+      transition: font-size 0.4s;
+
+      &.filled {
+        @include font(fs("body2"), tc("nobel"));
+      }
 
       &.onfocus {
         @include font(fs("body2"), tc("checkout-input"));
       }
+
+      &.filled,
+      &.onfocus {
+        + input {
+          width: 100%;
+        }
+      }
     }
 
     input {
-      width: 85%;
+      width: 80%;
       border: none;
+      margin: spacing(0.5) 0;
+    }
 
-      &:focus {
-        width: 90%;
+    .clearBtn {
+      display: none;
+      @include appearance();
+    }
+  }
+
+  &__email-wrapper,
+  &__phone-wrapper {
+    width: calc(100% - 20px);
+  }
+
+  &__coupon {
+    button {
+      border: none;
+      padding: spacing(0.7);
+      @include appearance($borrad: spacing(0.6), $bg: bc("disabled-btn"));
+      @include font(fs("subtitle"), tc("white"));
+    }
+
+    &-wrapper {
+      width: 70%;
+      @include flexbox(flex, $direction: column-reverse);
+
+      label {
+        @include font(fs("body2"), tc("nobel"));
+      }
+
+      input:focus {
+        + label {
+          @include font(fs("body2"), tc("checkout-input"));
+        }
       }
     }
   }
 
-  &__coupon {
-    @include flexbox(flex, center, space-between, row);
+  &__notice {
+    @include absolute(bottom spacing(6));
+    text-align: center;
+    padding: 0 spacing(4) spacing(2);
 
-    &-wrapper {
-      width: 70%;
-      @include flexbox(flex, flex-start, flex-start, column);
+    img {
+      @include size(spacing(1.6));
+      vertical-align: sub;
+    }
+
+    span {
+      @include font(fs("h6"), tc("charcoal"), $lhe: spacing(2));
+
+      span {
+        color: tc("checkout-notice");
+      }
+    }
+  }
+
+  &__paymethod {
+
+    p {
+      @include font(fs("h5"), tc("checkout"));
+      margin-bottom: spacing(0.5);
+    }
+
+    span {
+      display: inline-block;
+      @include font(fs("subtitle"), tc("primary"));
+      letter-spacing: spacing(-0.1);
+      margin: spacing(0.5) 0 ;
     }
   }
 }

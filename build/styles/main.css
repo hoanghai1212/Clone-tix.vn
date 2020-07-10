@@ -60,6 +60,13 @@ html {
   scroll-behavior: smooth;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 .slick-prev {
   top: 45%;
   left: 15px;
@@ -3125,30 +3132,43 @@ img:hover
   width: 440px;
   height: 100%;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-color: #c4c0c0 #e8e3e3;
-  scrollbar-width: thin;
   background: #ffffff;
 }
 
-.checkout__right::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-.checkout__right::-webkit-scrollbar-track-piece {
-  background: #e8e3e3;
-  border-radius: 0 4px 4px 0;
-}
-
-.checkout__right::-webkit-scrollbar-thumb {
-  background: #c4c0c0;
-  border-radius: 4px;
+.checkout__right > button {
+  border: none;
+  background-color: #afafaf;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  font-size: 24px;
+  color: #e9e9e9;
 }
 
 .checkout__controller {
   padding: 0 40px;
+  height: calc(100% - 140px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: #c4c0c0 #e8e3e3;
+  scrollbar-width: thin;
+}
+
+.checkout__controller::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.checkout__controller::-webkit-scrollbar-track-piece {
+  background: #e8e3e3;
+  border-radius: 0 4px 4px 0;
+}
+
+.checkout__controller::-webkit-scrollbar-thumb {
+  background: #c4c0c0;
+  border-radius: 4px;
 }
 
 .checkout__total-cost {
@@ -3180,7 +3200,7 @@ img:hover
   font-size: 14px;
   color: #333333;
   font-weight: 300;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .checkout__film-info span.checkout__film-name {
@@ -3193,6 +3213,8 @@ img:hover
 
 .checkout__film-info span.checkout__film-name .green-label {
   font-size: 12px;
+  color: #ffffff;
+  font-weight: 400;
   line-height: 18px;
   margin: 0 5px 0 0;
 }
@@ -3220,11 +3242,14 @@ img:hover
 .checkout__error {
   font-size: 12px;
   color: #fb4226;
-  font-weight: 300;
   margin-top: 5px;
+  letter-spacing: -1px;
 }
 
 .checkout__email, .checkout__phone, .checkout__coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 12.5px;
   padding-bottom: 12.5px;
   border-bottom: 1px dashed #e9e9e9;
@@ -3233,7 +3258,12 @@ img:hover
 .checkout__email label, .checkout__phone label, .checkout__coupon label {
   font-size: 16px;
   color: #9b9b9b;
-  transition: all 0.4s;
+  transition: font-size 0.4s;
+}
+
+.checkout__email label.filled, .checkout__phone label.filled, .checkout__coupon label.filled {
+  font-size: 12px;
+  color: #9b9b9b;
 }
 
 .checkout__email label.onfocus, .checkout__phone label.onfocus, .checkout__coupon label.onfocus {
@@ -3241,27 +3271,88 @@ img:hover
   color: #4a90e2;
 }
 
+.checkout__email label.filled + input, .checkout__email label.onfocus + input, .checkout__phone label.filled + input, .checkout__phone label.onfocus + input, .checkout__coupon label.filled + input, .checkout__coupon label.onfocus + input {
+  width: 100%;
+}
+
 .checkout__email input, .checkout__phone input, .checkout__coupon input {
-  width: 85%;
+  width: 80%;
   border: none;
+  margin: 5px 0;
 }
 
-.checkout__email input:focus, .checkout__phone input:focus, .checkout__coupon input:focus {
-  width: 90%;
+.checkout__email .clearBtn, .checkout__phone .clearBtn, .checkout__coupon .clearBtn {
+  display: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
 }
 
-.checkout__coupon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
+.checkout__email-wrapper, .checkout__phone-wrapper {
+  width: calc(100% - 20px);
+}
+
+.checkout__coupon button {
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 6px;
+  background: #afafaf;
+  font-size: 13px;
+  color: #ffffff;
 }
 
 .checkout__coupon-wrapper {
   width: 70%;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: column;
+  flex-direction: column-reverse;
+}
+
+.checkout__coupon-wrapper label {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.checkout__coupon-wrapper input:focus + label {
+  font-size: 12px;
+  color: #4a90e2;
+}
+
+.checkout__notice {
+  bottom: 60px;
+  position: absolute;
+  text-align: center;
+  padding: 0 40px 20px;
+}
+
+.checkout__notice img {
+  width: 16px;
+  height: 16px;
+  vertical-align: sub;
+}
+
+.checkout__notice span {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 20px;
+}
+
+.checkout__notice span span {
+  color: #f79320;
+}
+
+.checkout__paymethod p {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.checkout__paymethod span {
+  display: inline-block;
+  font-size: 13px;
+  color: #fb4226;
+  letter-spacing: -1px;
+  margin: 5px 0;
 }
 /*# sourceMappingURL=main.css.map */

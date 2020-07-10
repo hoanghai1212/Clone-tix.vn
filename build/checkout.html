@@ -1102,20 +1102,29 @@
                     <span class="checkout__seat-cost">0 đ</span>
                 </div>
                 <div class="checkout__email">
-                    <label for="userEmail">E-Mail</label>
-                    <input type="email" name="email" id="userEmail">
-                    <div class="checkout__error">E-Mail không được bỏ trống</div>
+                    <div class="checkout__email-wrapper">
+                        <label for="userEmail">E-Mail</label>
+                        <input type="email" name="email" id="userEmail">
+                        <div class="checkout__error">E-Mail không được bỏ trống</div>
+                    </div>
+                    <div class="clearBtn">
+                        <img src="../build/images/Icon/remove.png" alt="remove">
+                    </div>
                 </div>
                 <div class="checkout__phone">
-                    <label for="userPhone">Phone</label>
-                    <input type="text" name="phone" id="userPhone">
-                    <div class="checkout__error">Phone không được bỏ trống</div>
+                    <div class="checkout__phone-wrapper">
+                        <label for="userPhone">Phone</label>
+                        <input type="text" name="phone" id="userPhone">
+                        <div class="checkout__error">Phone không được bỏ trống</div>
+                    </div>
+                    <div class="clearBtn">
+                        <img src="../build/images/Icon/remove.png" alt="remove">
+                    </div>
                 </div>
-
                 <div class="checkout__coupon">
                     <div class="checkout__coupon-wrapper">
-                        <label for="couponCode">Mã giảm giá</label>
                         <input type="text" name="coupon" id="couponCode" placeholder="Nhập tại đây...">
+                        <label for="couponCode">Mã giảm giá</label>
                     </div>
                     <button disabled>Áp dụng</button>
                 </div>
@@ -1123,14 +1132,16 @@
                     <p>Hình thức thanh toán</p>
                     <span>Vui lòng chọn ghế để hiển thị phương thức thanh toán phù hợp.</span>
                 </div>
-                <div class="checkout__notice">
-                    <img src="" alt="exclam">
-                    <span>Vé đã mua không thể đổi hoặc hoàn tiền</span>
-                    <span>Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và <span>Email</span> đã
-                        nhập.</span>
-                </div>
-                <button>Đặt vé</button>
+
             </div>
+            <div class="checkout__notice">
+                <img src="./images/Icon/exclamation.png" alt="exclam">
+                <span>Vé đã mua không thể đổi hoặc hoàn tiền</span>
+                <br>
+                <span>Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và <span>Email</span> đã
+                    nhập.</span>
+            </div>
+            <button>Đặt vé</button>
         </div>
 
     </section>
