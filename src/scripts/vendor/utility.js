@@ -9,9 +9,9 @@ export const backToHome = () =>
 };
 
 /* Script for scroll to top button */
-export const handleScrollTopBtn = () =>
+export const handleScrollTopBtn = (el) =>
 {
-    const scrollBtn = document.querySelector("#btnScrollTop");
+    const scrollBtn = document.querySelector(el);
 
     if (scrollBtn)
     {
@@ -32,16 +32,13 @@ export const handleScrollTopBtn = () =>
     }
 };
 
-
-export const handleHideAll = () =>
+/* Script for show and hide film content on click */ 
+export const handleHideAndShow = () =>
 {
     var targetList = document.querySelectorAll(`.accordion`);
 
-
-
-    const getNextSibling = function (elem, className)
+    const getNextSibling = (elem, className) =>
     {
-
         let sibs = [];
 
         if (!className) sibs.push(elem);
@@ -125,7 +122,6 @@ export const handleHideAll = () =>
         });
 
         const cinemaMap = targetToClick.querySelector(".content--detail__cinema-map");
-
         if (cinemaMap)
         {
             cinemaMap.addEventListener("click", event =>
@@ -150,52 +146,6 @@ export const handleHideAll = () =>
         };
 
     });
-};
-
-/* Script for side menu on responsive */
-export const handleSideMenuToggle = () =>
-{
-    const sideMenu = document.getElementById("sideMenu");
-    if (sideMenu)
-    {
-
-
-        const openSideMenuBtn = document.getElementById("sideMenuBtn");
-        const closeSideMenuBtn = document.getElementById("closeSideMenuBtn");
-        const sideMenuLink = document.querySelectorAll("#sideMenuLink");
-
-        const closeSideMenu = (el) =>
-        {
-            el.addEventListener('click', () =>
-            {
-                sideMenu.classList.toggle("active");
-                document.body.style.overflow = "initial";
-            })
-
-            window.addEventListener('click', (event) =>
-            {
-                if (event.target === sideMenu)
-                {
-                    sideMenu.classList.toggle("active");
-                    document.body.style.overflow = "initial";
-                }
-            })
-        }
-
-
-        openSideMenuBtn.addEventListener("click", () =>
-        {
-            sideMenu.classList.toggle("active");
-            document.body.style.overflow = "hidden";
-        });
-
-        closeSideMenu(closeSideMenuBtn);
-
-        for (let link of sideMenuLink)
-        {
-            closeSideMenu(link);
-        }
-    }
 };
 
 /* Script for modal */
@@ -327,4 +277,95 @@ export const validatePhone = (phone) =>
         return true;
     }
     return "chỉ được chứa số";
+}
+
+/* Script for sidemenu on mobile */
+export const handleSideMenuToggle = () =>
+{
+    const SIDE_MENU = document.querySelector("#sideMenu");
+    const OPEN_BUTTON = document.querySelector("#openSideMenuBtn");
+    const CLOSE_BUTTON = document.querySelector("#closeSideMenuBtn");
+    const LINK_LIST = document.querySelectorAll("#sideMenuLink");
+
+    const closeSideMenu = (el) =>
+    {
+        el.addEventListener('click', () =>
+        {
+            SIDE_MENU.classList.toggle("active");
+            document.body.style.overflow = "initial";
+        })
+
+        window.addEventListener('click', (event) =>
+        {
+            if (event.target === SIDE_MENU)
+            {
+                SIDE_MENU.classList.toggle("active");
+                document.body.style.overflow = "initial";
+            }
+        })
+    }
+
+
+    OPEN_BUTTON.addEventListener("click", () =>
+    {
+        SIDE_MENU.classList.toggle("active");
+        document.body.style.overflow = "hidden";
+    });
+
+    closeSideMenu(CLOSE_BUTTON);
+
+    for (let link of LINK_LIST)
+    {
+        closeSideMenu(link);
+    }
+}
+
+export const toggleTab = (evt, tabID) =>
+{
+    var currentTab = document.getElementById(tabID);
+    var currentTargetDataSet = evt.currentTarget.dataset;
+
+    var tabcontent = document.getElementsByClassName(currentTargetDataSet.content);
+    var tablinks = document.getElementsByClassName(currentTargetDataSet.link);
+
+    for (let i = 0; i < tablinks.length; i++)
+    {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tabcontent[i].style.display = "none";
+    }
+
+    currentTab.style.display = "block";
+    evt.currentTarget.className += " active";
+
+    // FIX SLICK CAROUSEL NOT WORKING WHEN TAB DISPLAY NONE IF TABS HAVE SLICK
+    if (currentTargetDataSet.carousel && window.innerWidth > 992)
+    {
+        for (let el of tabcontent)
+        {
+            el.addEventListener('animationstart', () =>
+            {
+                $(`.${currentTargetDataSet.carousel}`).slick('setPosition');
+            });
+        }
+    }
+
+    //for multiple tab panel
+    var childDefault = currentTab.querySelector(".defaultOpenChild");
+    if (childDefault)
+    {
+        childDefault.click();
+    }
+}
+
+export const loadMoreToggle = (btnList) =>
+{
+    for (let btn of btnList)
+    {
+        btn.addEventListener('click', () =>
+        {
+            var target = btn.dataset.target;
+            document.getElementById(target).style.display = "flex";
+            btn.style.display = "none";
+        })
+    }
 }

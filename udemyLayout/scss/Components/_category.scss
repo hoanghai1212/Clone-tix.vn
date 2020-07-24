@@ -1,0 +1,27 @@
+.category {
+  padding: 0 spacing(2.4);
+  margin: spacing(4.8) auto 0;
+  max-width: spacing(134);
+
+  h1 {
+      font-size: fnsz("courseTitle");
+      font-weight: fnwe("fwBold");
+      margin-bottom: spacing(2);
+  }
+
+  &__item {
+      display: flex;
+      flex-direction: column;
+      margin-right: spacing(1.6);
+      margin-bottom: spacing(1.6);
+      border: spacing(0.1) solid c("imgWrapper");
+    border-radius: spacing(0.4);
+  }
+
+  &__title {
+      padding: spacing(2) spacing(3) spacing(4);
+      color: tc("category");
+      font-size: fnsz("h5");
+      font-weight: fnwe("fwBold");
+  }
+}

@@ -1,8 +1,13 @@
 .checkout {
   @include flexbox();
+  position: relative;
 
   &__left {
     width: 74%;
+
+    @include screen(md) {
+      width: 100%;
+    }
   }
 
   &__header {
@@ -12,6 +17,31 @@
     height: spacing(8);
     padding: 0 spacing(7) 0 spacing(4);
     z-index: z("checkout-header");
+
+    &.hide-on-mobile {
+      @include screen(md) {
+        display: none;
+      }
+    }
+
+    &.hide-on-desktop {
+      display: none;
+      @include screen(md) {
+        display: flex;
+        height: spacing(6);
+        padding: 0 spacing(1.5);
+        @include fixed(top 0);
+        width: 100%;
+      }
+    }
+  }
+
+  &__back-to-detail {
+    display: none;
+    @include screen(md) {
+      display: block;
+      @include size(spacing(1.5));
+    }
   }
 
   &__progress {
@@ -38,6 +68,12 @@
         }
       }
     }
+
+    @include screen(md) {
+      p {
+        font-weight: fw("fwBold");
+      }
+    }
   }
 
   &__user {
@@ -50,12 +86,22 @@
 
     span {
       color: tc("nobel");
+
+      @include screen(md) {
+        display: none;
+      }
     }
   }
 
   &__body {
     @include flexbox(flex, null, center);
     height: calc(100vh - 80px);
+
+    @include screen(md) {
+      display: none;
+      margin-top: spacing(6);
+      height: calc(100vh - 60px);
+    }
   }
 
   &__left-banner {
@@ -72,6 +118,10 @@
       background: bc("black");
       opacity: 0.7;
     }
+
+    @include screen(md) {
+      display: none;
+    }
   }
 
   &__seat {
@@ -81,6 +131,14 @@
     &-header {
       @include flexbox(flex, center, space-between);
     }
+
+    @include screen(md) {
+      margin: 0 spacing(4);
+
+      &-header {
+        padding-top: spacing(3);
+      }
+    }
   }
 
   &__cinema-info {
@@ -88,6 +146,9 @@
 
     img {
       width: 15%;
+      @include screen(md) {
+        width: 11%;
+      }
     }
 
     .cinemaBlock__wrap {
@@ -102,7 +163,6 @@
   }
 
   &__countdown {
-    width: 10%;
     white-space: nowrap;
     text-align: center;
 
@@ -119,6 +179,9 @@
     margin-top: spacing(2);
     img {
       width: 100%;
+      @include screen(md) {
+        width: 80%;
+      }
     }
   }
 
@@ -202,6 +265,10 @@
       @include font(fs("body2"), tc("nobel"), fw("fwRegular"));
       margin-top: spacing(0.5);
     }
+
+    @include screen(md) {
+      margin-bottom: spacing(10);
+    }
   }
 
   &__seat-type {
@@ -277,10 +344,25 @@
 
     & > button {
       border: none;
-      background-color: bc("disabled-btn");
       @include absolute(bottom 0 left 0);
       @include size(100%, spacing(6));
       @include font(fs("h2"), tc("smoke"));
+
+      &:disabled {
+        background-color: bc("disabled-btn");
+      }
+    }
+
+    @include screen(md) {
+      @include flexbox(flex, $direction: column);
+      @include size(100%, calc(100vh - 130px));
+      @include custom-scrollbar();
+      top: spacing(6);
+      box-shadow: unset;
+
+      & > button {
+        display: none;
+      }
     }
   }
 
@@ -288,6 +370,10 @@
     padding: 0 spacing(4);
     height: calc(100% - 140px);
     @include custom-scrollbar();
+    @include screen(md) {
+      overflow: unset;
+      height: auto;
+    }
   }
 
   &__total-cost {
@@ -344,7 +430,6 @@
     @include font(fs("body2"), tc("primary"));
     margin-top: spacing(0.5);
     letter-spacing: spacing(-0.1);
-
   }
 
   &__email,
@@ -407,9 +492,15 @@
         @include font(fs("body2"), tc("nobel"));
       }
 
-      input:focus {
-        + label {
+      input {
+        text-transform: uppercase;
+
+        &:focus + label {
           @include font(fs("body2"), tc("checkout-input"));
+        }
+
+        &::placeholder {
+          text-transform: initial;
         }
       }
     }
@@ -432,10 +523,14 @@
         color: tc("checkout-notice");
       }
     }
+
+    @include screen(md) {
+      position: static;
+      padding: spacing(20) spacing(4) spacing(13);
+    }
   }
 
   &__paymethod {
-
     p {
       @include font(fs("h5"), tc("checkout"));
       margin-bottom: spacing(0.5);
@@ -445,7 +540,38 @@
       display: inline-block;
       @include font(fs("subtitle"), tc("primary"));
       letter-spacing: spacing(-0.1);
-      margin: spacing(0.5) 0 ;
+      margin: spacing(0.5) 0;
+    }
+  }
+
+  &__continue-mobile {
+    display: none;
+
+    @include screen(md) {
+      display: flex;
+      @include fixed(bottom 0 left 0 right 0);
+      height: spacing(7);
+
+      div {
+        width: 50%;
+        @include flexCenter();
+      }
+    }
+  }
+
+  &__seat-selected {
+    background: bc("checkout-selected");
+    box-shadow: 0 spacing(-0.1) 0 0 bc("gainsboro"),
+      0 spacing(0.1) 0 0 bc("gainsboro");
+    @include font(fs("h6"), tc("total-cost"));
+  }
+
+  &__continue-btn {
+    background: bc("disabled-btn");
+    @include font(fs("h4"), tc("smoke"));
+
+    &.active {
+      background: bc("selecting-seat");
     }
   }
 }

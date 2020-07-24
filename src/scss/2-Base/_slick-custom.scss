@@ -18,6 +18,10 @@
   opacity: 0.5;
   border: none;
   cursor: pointer;
+
+  @include screen(custom, max, 1060) {
+    display: none !important;
+  }
 }
 
 .slick-dots {

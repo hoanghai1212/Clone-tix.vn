@@ -1,0 +1,196 @@
+@import "./Helpers/theme";
+@import "./Helpers/function";
+@import "./Helpers/mixin";
+@import "./Helpers/keyframes";
+@import "./Base/reset";
+@import "./Base/custom-bs";
+
+@import "./Components/header";
+@import "./Components/course";
+@import "./Components/banner";
+@import "./Components/category";
+@import "./Components/footer";
+
+.carousel {
+  background: url(../img/cover.jpg) no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
+
+  &__content {
+    background-color: c("paper");
+    padding: spacing(3);
+    max-width: 440px;
+    margin-left: spacing(4);
+    h1 {
+      @include Text(fnsz("h2"), tc("textPrimary"), fnwe("fwMedium"));
+      margin: spacing(0);
+      margin-bottom: spacing(2);
+    }
+
+    p {
+      @include Text(fnsz("h5"), tc("textPrimary"), fnwe("fwRegular"));
+    }
+  }
+
+  &__search {
+    height: spacing(5);
+    border: 1px solid c("darkGrey");
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input {
+      height: 100%;
+      width: 90%;
+      border: none;
+      outline: none;
+      padding: 0 spacing(1.5);
+    }
+
+    i {
+      cursor: pointer;
+    }
+  }
+}
+
+.teacher {
+  padding: spacing(4) 0;
+
+  &__img-wrapper {
+    margin-top: spacing(4.8);
+    padding: spacing(4) 0;
+  }
+
+  &__bg {
+    background: c("teacher");
+    position: relative;
+    height: spacing(32);
+
+    &--business {
+      background: c("business");
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-right: spacing(9.6);
+    }
+
+    &--business {
+      flex-direction: row-reverse;
+
+      img {
+        margin-left: spacing(9.6);
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__invite {
+    min-width: spacing(40);
+
+    h1 {
+      font-size: fnsz("teacherTitle");
+      font-weight: fnwe("fwMedium");
+    }
+
+    p {
+      font-size: fnsz("h5");
+    }
+
+    button {
+      height: spacing(4.8);
+      padding: 0 spacing(1.6);
+      color: tc("textWhite");
+      background: c("inviteButton");
+      border-radius: spacing(0.4);
+      border: none;
+      font-weight: fnwe("fwBold");
+
+      &:hover {
+        background: c("inviteButtonHover");
+      }
+    }
+    &--business {
+      color: tc("textWhite");
+    }
+  }
+
+  &__trusted {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: spacing(4.8);
+    padding: spacing(3.2);
+    border-bottom: spacing(0.1) solid c("trustedCopany");
+    border-top: spacing(0.1) solid c("trustedCopany");
+    h3 {
+      margin-bottom: spacing(3.4);
+      font-size: fnsz("courseTitle");
+      font-weight: fnwe("fwBold");
+    }
+  }
+
+  &__company-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: spacing(80);
+  }
+}
+
+.user-stories {
+  margin: spacing(4.8) 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: spacing(0.1) solid c("trustedCopany");
+    border-top: spacing(0.1) solid c("trustedCopany");
+    padding: spacing(6.4) 0 spacing(4.8);
+  }
+
+  &__video {
+    cursor: pointer;
+    position: relative;
+    img {
+      margin-right: spacing(6.4);
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 45%;
+      transform: translate(-50%, -50%);
+      width: spacing(6.4);
+      height: spacing(6.4);
+      font-size: spacing(6.4);
+      color: tc("textWhite");
+      background:c("black");
+      border-radius: 50%;
+    }
+  }
+
+  &__intro {
+    max-width: spacing(40);
+    h1 {
+      font-size: fnsz("teacherTitle");
+      font-weight: fnwe("fwMedium");
+    }
+
+    p {
+      font-size: fnsz("h5");
+    }
+  }
+}

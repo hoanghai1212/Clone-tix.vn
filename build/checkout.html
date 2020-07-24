@@ -13,10 +13,21 @@
 <body>
     <section class="checkout">
         <div class="checkout__left">
-            <div class="checkout__header">
+            <div class="checkout__header hide-on-mobile">
                 <div class="checkout__progress">
                     <p class="active"><span>01</span> CHỌN GHẾ & THANH TOÁN</p>
                     <p><span>02</span> KẾT QUẢ ĐẶT VÉ</p>
+                </div>
+                <div class="checkout__user">
+                    <img src="./images/Icon/avatar.png" alt="avatar">
+                    <span> Hoàng Hải Trương</span>
+                </div>
+            </div>
+
+            <div class="checkout__header hide-on-desktop">
+                <img src="./images/Icon/cancel-arrow.png" alt="X" class="checkout__back-to-detail">
+                <div class="checkout__progress">
+                    <p id="progressMobile">02.CHỌN GHẾ</p>
                 </div>
                 <div class="checkout__user">
                     <img src="./images/Icon/avatar.png" alt="avatar">
@@ -1141,9 +1152,13 @@
                 <span>Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và <span>Email</span> đã
                     nhập.</span>
             </div>
-            <button>Đặt vé</button>
+            <button disabled>Đặt vé</button>
         </div>
 
+        <div class="checkout__continue-mobile">
+            <div class="checkout__seat-selected">H1, H2</div>
+            <div class="checkout__continue-btn" onclick="handleChangeProgress(this)">Tiếp tục</div>
+        </div>
     </section>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"

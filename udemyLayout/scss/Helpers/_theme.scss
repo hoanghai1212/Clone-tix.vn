@@ -1,0 +1,72 @@
+// CREATE THEME
+
+//-----COLORS BACKGROUND------
+$bgcolors: (
+  "primary": #f7f8fa,
+  "secondary": #007791,
+  "paper": #ffffff,
+  "light": #f1f1f1,
+  "darkGrey": #686f7a,
+  "courseBorder": #dee2e6,
+  "coursePriceStrike": #73726c,
+  "imgWrapper": #dcdacb,
+  "courseBestseller": #ffe799,
+  "banner": #6e1a52,
+  "teacher": #fbfbf8,
+  "business": #003640,
+  "inviteButton": #0f7c90,
+  "inviteButtonHover": #094c59,
+  "trustedCopany": #dcdacb,
+  "black": #000000,
+  "footerLocation": #989586,
+);
+
+//-----COLORS TEXT------
+
+$txtcolors: (
+  "textPrimary": #3c3b37,
+  "textSecondary": #007791,
+  "textWhite": #ffffff,
+  "textGrey": #505763,
+  "textDarkGrey": #686f7a,
+  "courseQuote": #73726c,
+  "courseRating":#be5a0e,
+  "courseStar": #eb8a2f,
+  "courseBestseller": #593d00,
+  "category": #094c59,
+  "footerLink": #0f7c90,
+  
+
+);
+//-------FONT SIZE-------
+$fontSizes: (
+  "body1": 10px,
+  "body2": 12px,
+  "subtitle": 14px,
+  "h6": 16px,
+  "h5": 18px,
+  "h4": 20px,
+  "h3": 30px,
+  "h2": 40px,
+  "h1": 44px,
+  "courseTitle": 24px,
+  "teacherTitle": 32px,
+);
+//------FONT WEIGHT--------
+$fwArr: (
+  "fwBold": 700,
+  "fwMedium": 600,
+  "fwRegular": 400,
+  "fwLight": 300,
+);
+
+//----------SPACING---------
+$spacing: 10px;
+
+// BREAKPOINT
+$breakpoints: (
+  "extra-large": 1200px,
+  "large": 992px,
+  "medium": 768px,
+  "small": 576px,
+);

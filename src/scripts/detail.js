@@ -8,7 +8,7 @@ util.createSelectBox("#location-select");
 util.handleModalToggle("#modalBtn", "#modalLocation");
 util.handleSideMenuToggle();
 util.handleScrollTopBtn();
-util.handleHideAll();
+util.handleHideAndShow();
 
 window.backToHome = () =>
 {

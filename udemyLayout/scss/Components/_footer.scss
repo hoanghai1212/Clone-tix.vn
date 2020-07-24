@@ -1,0 +1,81 @@
+.footer {
+  margin: spacing(2.4) spacing(4.8) 0;
+  &__link {
+    ul {
+      list-style-type: none;
+      flex-basis: spacing(25.6);
+      margin-right: spacing(1.6);
+      padding-left: 0;
+      li {
+        a {
+          display: inline-block;
+          font-size: fnsz("subtitle");
+          margin: spacing(0.4) 0;
+          text-decoration: none;
+          color: tc("footerLink");
+
+          &:hover {
+            color: tc("category");
+          }
+        }
+      }
+    }
+  }
+
+  &__location {
+    width: spacing(24);
+    margin-left: auto;
+    button {
+      padding: spacing(0.7);
+      outline: none;
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border-radius: spacing(0.4);
+      border: spacing(0.1) solid c("footerLocation");
+      &::after {
+        display: none !important;
+      }
+
+      i:nth-of-type(1) {
+        color: tc("textWhite");
+        background: c("black");
+        border-radius: 50%;
+        margin-right: spacing(1.5);
+      }
+
+      i {
+        font-size: fnsz("body2");
+
+        &.fa-chevron-up {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: spacing(1);
+        }
+      }
+    }
+
+    .dropdown-menu {
+      right: 0;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: spacing(6.4) 0 spacing(4.8);
+    img {
+      width: spacing(11);
+    }
+  }
+
+  &__copyright {
+    color: tc("courseQuote");
+    font-size: fnsz("body2");
+    margin-bottom: 0;
+  }
+}

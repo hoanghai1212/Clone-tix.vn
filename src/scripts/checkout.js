@@ -23,7 +23,6 @@ const dataValidation = (id, callback) =>
                 labelElemt.classList.add("filled");
             } else
             {
-                console.log("a");
                 labelElemt.classList.remove("filled");
             }
         });
@@ -59,6 +58,26 @@ const dataValidation = (id, callback) =>
         error.style.display = "block";
         error.innerHTML = `${labelElemt.innerHTML} không được bỏ trống`;
     })
+}
+
+window.handleChangeProgress = (el) => {
+    const CHECKOUT = document.querySelector('.checkout__right');
+    const SELECTSEAT = document.querySelector('.checkout__body');
+    const PROGRESS = document.querySelector('#progressMobile');
+    if (CHECKOUT.style.display === "none")
+    {
+        CHECKOUT.style.display = "flex";
+        SELECTSEAT.style.display = "none";
+        el.innerText = "Đặt vé"
+        el.classList.add("active")
+        PROGRESS.innerText = "03.THANH TOÁN"
+    } else
+    {
+        CHECKOUT.style.display = "none";
+        SELECTSEAT.style.display = "flex";
+        el.innerText = "Tiếp tục"
+        PROGRESS.innerText = "02.CHỌN GHẾ"
+    }
 }
 
 dataValidation(`#userPhone`, validatePhone);

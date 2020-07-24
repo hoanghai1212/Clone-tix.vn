@@ -61,15 +61,15 @@ COMMENT KEYWORD to find:
     .dropdownselectDate,
     .dropdownselectCinema,
     .dropdownselectSession {
-      border-right: spacing(0.1) solid rgba(bc("smoke"),0.88);
+      border-right: spacing(0.1) solid rgba(bc("smoke"), 0.88);
     }
 
     .select-selected {
       @include centerAbsolute("top");
       @include truncateText(100%);
       @include font(fs("h6"), tc("black"));
-      background: url(../../../build/images/icon/dropdown-icon.png) no-repeat right
-        spacing(0.8) center;
+      background: url(../../../build/images/icon/dropdown-icon.png) no-repeat
+        right spacing(0.8) center;
       padding: 7%;
     }
 
@@ -153,27 +153,19 @@ COMMENT KEYWORD to find:
   &__tab {
     @include flexCenter();
     overflow: hidden;
+  }
 
-    button {
-      border: none;
-      outline: none;
-      background: none;
-      @include appearance($borrad: null);
-      @include font(fs("h3"), tc("black"));
-      @include margin-padding(
-        all,
-        0 spacing(0.5),
-        all,
-        spacing(1) spacing(1.5)
-      );
+  &__tablinks {
+    @include appearance($borrad: null);
+    @include font(fs("h3"), tc("black"));
+    @include margin-padding(all, 0 spacing(0.5), all, spacing(1) spacing(1.5));
 
-      &:hover {
-        font-size: fs("h2");
-      }
+    &:hover {
+      font-size: fs("h2");
+    }
 
-      &.active {
-        @include font(fs("h2"), tc("sunset"));
-      }
+    &.active {
+      @include font(fs("h2"), tc("sunset"));
     }
   }
 
@@ -237,7 +229,7 @@ COMMENT KEYWORD to find:
       @include font(fs("h5"), tc("white"));
       width: spacing(5.4);
       text-align: center;
-      background-color: rgba(bc("cyprus"),.8);
+      background-color: rgba(bc("cyprus"), 0.8);
       border: spacing(0.1) solid bc("whale");
       padding: spacing(0.2);
     }
@@ -245,7 +237,7 @@ COMMENT KEYWORD to find:
     &-showtime {
       @include absolute(bottom spacing(1) right spacing(0.8));
       @include font(fs("h5"), tc("white"), $lhe: 1.44);
-      background-color: rgba(bc("cyprus"),.8);
+      background-color: rgba(bc("cyprus"), 0.8);
       border: spacing(0.1) solid bc("whale");
       padding: spacing(0.2);
       border-radius: spacing(0.4);
@@ -266,7 +258,7 @@ COMMENT KEYWORD to find:
     &__sneak-show {
       @include absolute(bottom spacing(1) right spacing(1));
       @include font(fs("body2"), tc("white"), fw("fwRegular"), 1.55);
-      @include box-shadow(0, 0, 1, 0, rgba(bc("black"),.3), true);
+      @include box-shadow(0, 0, 1, 0, rgba(bc("black"), 0.3), true);
       padding: spacing(0.4) spacing(0.8);
       @include appearance(
         $property: opacity,
@@ -393,17 +385,16 @@ COMMENT KEYWORD to find:
   @include screen(sm) {
     &__tab {
       margin-bottom: spacing(1);
+    }
+    &__tablinks {
+      @include font(fs("h5"), tc("black"));
 
-      button {
-        @include font(fs("h5"), tc("black"));
+      &:hover {
+        font-size: fs("h4");
+      }
 
-        &:hover {
-          font-size: fs("h4");
-        }
-
-        &.active {
-          @include font(fs("h4"), tc("sunset"));
-        }
+      &.active {
+        @include font(fs("h4"), tc("sunset"));
       }
     }
   }
@@ -421,7 +412,7 @@ COMMENT KEYWORD to find:
     @include flexbox($direction: column, $align: center);
     @include custom-scrollbar;
     @include size(10%, spacing(70.5));
-    border: spacing(0.1) solid rgba(bc("smoke"),0.88);
+    border: spacing(0.1) solid rgba(bc("smoke"), 0.88);
     border-right: transparent;
     border-radius: spacing(0.4) 0 0 spacing(0.4);
   }
@@ -440,7 +431,7 @@ COMMENT KEYWORD to find:
       content: "";
       @include absolute(bottom 0 left 50%, $transX: -50%);
       width: 55%;
-      border-bottom: spacing(0.1) solid rgba(bc("smoke"),0.88);
+      border-bottom: spacing(0.1) solid rgba(bc("smoke"), 0.88);
     }
     &.active,
     &:hover {
@@ -453,7 +444,7 @@ COMMENT KEYWORD to find:
   &__cinema-detail {
     @include custom-scrollbar;
     @include size(30%, spacing(70.5));
-    border: spacing(0.1) solid rgba(bc("smoke"),0.88);
+    border: spacing(0.1) solid rgba(bc("smoke"), 0.88);
     padding: 0 spacing(2);
   }
 
@@ -472,7 +463,7 @@ COMMENT KEYWORD to find:
       content: "";
       @include absolute(bottom 0 left 50%, $transX: -50%);
       width: 100%;
-      border-bottom: spacing(0.1) solid rgba(bc("smoke"),0.88);
+      border-bottom: spacing(0.1) solid rgba(bc("smoke"), 0.88);
     }
 
     &.active,
@@ -512,7 +503,7 @@ COMMENT KEYWORD to find:
     @include custom-scrollbar;
     @include size(60%, spacing(70.5));
     padding: 0 spacing(2);
-    border: spacing(0.1) solid rgba(bc("smoke"),0.88);
+    border: spacing(0.1) solid rgba(bc("smoke"), 0.88);
     border-radius: 0 spacing(0.4) spacing(0.4) 0;
 
     border-left: transparent;
@@ -526,7 +517,7 @@ COMMENT KEYWORD to find:
         content: "";
         @include absolute(bottom 0 left 50%, $transX: -50%);
         width: 100%;
-        border-bottom: spacing(0.1) solid rgba(bc("smoke"),0.88);
+        border-bottom: spacing(0.1) solid rgba(bc("smoke"), 0.88);
       }
 
       img {
@@ -556,7 +547,7 @@ COMMENT KEYWORD to find:
     a {
       display: inline-block;
       width: calc(25% - 13px);
-      @include appearance($borrad: spacing(0.7), $bg: rgba(bc("smoke"),0.5));
+      @include appearance($borrad: spacing(0.7), $bg: rgba(bc("smoke"), 0.5));
       @include margin-padding(
         $m-amount: 0 spacing(1) spacing(1) 0,
         $p-amount: spacing(0.5) 0
@@ -594,27 +585,22 @@ COMMENT KEYWORD to find:
   &__tab {
     @include flexCenter();
     overflow: hidden;
+  }
 
-    button {
-      border: none;
-      outline: none;
-      background: none;
-      @include appearance($borrad: null);
-      @include font(fs("h3"), tc("black"));
-      @include margin-padding(
-        all,
-        0 spacing(0.5),
-        all,
-        spacing(1) spacing(1.5)
-      );
+  &__tablinks {
+    border: none;
+    outline: none;
+    background: none;
+    @include appearance($borrad: null);
+    @include font(fs("h3"), tc("black"));
+    @include margin-padding(all, 0 spacing(0.5), all, spacing(1) spacing(1.5));
 
-      &:hover {
-        font-size: fs("h2");
-      }
+    &:hover {
+      font-size: fs("h2");
+    }
 
-      &.active {
-        @include font(fs("h2"), tc("sunset"));
-      }
+    &.active {
+      @include font(fs("h2"), tc("sunset"));
     }
   }
 
@@ -742,19 +728,19 @@ COMMENT KEYWORD to find:
 
     &__tab {
       flex-wrap: wrap;
+    }
 
-      button {
-        @include font(fs("h5"), tc("black"));
-        @include margin-padding(all, 0 spacing(1), all, spacing(1.5) 0);
-        white-space: nowrap;
+    &__tablinks {
+      @include font(fs("h5"), tc("black"));
+      @include margin-padding(all, 0 spacing(1), all, spacing(1.5) 0);
+      white-space: nowrap;
 
-        &:hover {
-          font-size: fs("h4");
-        }
+      &:hover {
+        font-size: fs("h4");
+      }
 
-        &.active {
-          @include font(fs("h4"), tc("sunset"));
-        }
+      &.active {
+        @include font(fs("h4"), tc("sunset"));
       }
     }
   }

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="header__item header__item--1">
+      <img src="./img/logo-coral.svg" />
+    </a>
+
+    <div class="header__category header__item header__item--2">
+
+      <span>Categories</span>
+    </div>
+
+    <div class="header__search header__item header__item--3">
+      <input type="text" placeholder="Search for anything" />
+      <i class="fa fa-search"></i>
+    </div>
+
+    <nav class="header__nav header__item header__item--4">
+      <a>Udemy for business</a>
+      <a>Teach on udemy</a>
+    </nav>
+
+    <i class="fa fa-shopping-cart header__item header__item--5"></i>
+
+    <div class="header__auth header__item header__item--6">
+      <button class="header__auth__login">Log in</button>
+      <button class="header__auth__signup">Sign up</button>
+    </div>
+  </header>
+  <section class="carousel">
+    <div class="carousel__content">
+      <h1>Lean on learning</h1>
+      <p>Sale ends today! Count on courses as low as $10.99.</p>
+      <div class="carousel__search">
+        <input type="text" placeholder="What do you want to learn." />
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
+  </section>
+  <section class="course">
+    <div class="course__header">
+      <p class="course__title">The world's largest selection of courses </p>
+      <p class="course__quote">Choose from 100,000 online video courses with new additions published every month </p>
+    </div>
+
+    <div class="course__body">
+      <div class="course__tabpanel">
+        <ul class="nav nav-tabs course__tab-header" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business" role="tab"
+              aria-controls="business" aria-selected="true">Business</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="design-tab" data-toggle="tab" href="#design" role="tab" aria-controls="design"
+              aria-selected="false">Design</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="photography-tab" data-toggle="tab" href="#photography" role="tab"
+              aria-controls="photography" aria-selected="false">Photography</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="development-tab" data-toggle="tab" href="#development" role="tab"
+              aria-controls="development" aria-selected="false">Development</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="marketing-tab" data-toggle="tab" href="#marketing" role="tab"
+              aria-controls="marketing" aria-selected="false">Marketing</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="software-tab" data-toggle="tab" href="#software" role="tab" aria-controls="software"
+              aria-selected="false">IT & Software</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="personaldev-tab" data-toggle="tab" href="#personaldev" role="tab"
+              aria-controls="personaldev" aria-selected="false">Personal Development</a>
+          </li>
+        </ul>
+        <div class="tab-content course__tab-body" id="myTabContent">
+          <div class="tab-pane fade show active" id="business" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="design" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="photography" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="development" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="marketing" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="software" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="personaldev" role="tabpanel">
+            <div class="course__list row mt-4 mx-0 justify-content-between">
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+              <div class="course__item p-0">
+                <div class="card">
+                  <div class="course__img-wrapper">
+                    <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+                  </div>
+                  <div class="card-body p-0">
+                    <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                    <p class="course__author">Chris Croft</p>
+                    <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                        class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                      <span>(10,890)</span></div>
+                    <div class="course__price">$12.99 <span>$104.99</span></div>
+                    <div class="course__best-seller">Bestseller</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="course__viewing">
+        <p class="course__title">Student are viewing</p>
+        <div class="course__list row mt-4 mx-0 justify-content-between">
+          <div class="course__item p-0">
+            <div class="card">
+              <div class="course__img-wrapper">
+                <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+              </div>
+              <div class="card-body p-0">
+                <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                <p class="course__author">Chris Croft</p>
+                <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  <span>(10,890)</span></div>
+                <div class="course__price">$12.99 <span>$104.99</span></div>
+                <div class="course__best-seller">Bestseller</div>
+              </div>
+            </div>
+          </div>
+          <div class="course__item p-0">
+            <div class="card">
+              <div class="course__img-wrapper">
+                <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+              </div>
+              <div class="card-body p-0">
+                <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                <p class="course__author">Chris Croft</p>
+                <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  <span>(10,890)</span></div>
+                <div class="course__price">$12.99 <span>$104.99</span></div>
+                <div class="course__best-seller">Bestseller</div>
+              </div>
+            </div>
+          </div>
+          <div class="course__item p-0">
+            <div class="card">
+              <div class="course__img-wrapper">
+                <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+              </div>
+              <div class="card-body p-0">
+                <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                <p class="course__author">Chris Croft</p>
+                <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  <span>(10,890)</span></div>
+                <div class="course__price">$12.99 <span>$104.99</span></div>
+                <div class="course__best-seller">Bestseller</div>
+              </div>
+            </div>
+          </div>
+          <div class="course__item p-0">
+            <div class="card">
+              <div class="course__img-wrapper">
+                <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+              </div>
+              <div class="card-body p-0">
+                <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                <p class="course__author">Chris Croft</p>
+                <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  <span>(10,890)</span></div>
+                <div class="course__price">$12.99 <span>$104.99</span></div>
+                <div class="course__best-seller">Bestseller</div>
+              </div>
+            </div>
+          </div>
+          <div class="course__item p-0">
+            <div class="card">
+              <div class="course__img-wrapper">
+                <img class="w-100" src="./img/563478_2c35.jpg" alt="course">
+              </div>
+              <div class="card-body p-0">
+                <h4 class="course__name">Sales Training: Practical Sales Techniques</h4>
+                <p class="course__author">Chris Croft</p>
+                <div class="course__rating">4.7 <i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                    class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  <span>(10,890)</span></div>
+                <div class="course__price">$12.99 <span>$104.99</span></div>
+                <div class="course__best-seller">Bestseller</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+  <section class="banner d-flex justify-content-center align-items-center flex-column">
+    <h1>Get personal learning recommendations</h1>
+    <p>Answer a few questions for your top picks</p>
+    <button>Get started</button>
+  </section>
+  <section class="category">
+    <h1>Top categories</h1>
+    <div class="category__item-list row m-0">
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+      <div class="category__item">
+        <img src="./img/lohp-category-design.jpg" alt="design">
+        <span class="category__title">Design</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="teacher">
+    <div class="teacher__img-wrapper">
+      <div class="teacher__bg">
+        <div class="teacher__content">
+          <img src="./img/udlite-lohp-promo-teacher.jpg" alt="teacher">
+          <div class="teacher__invite">
+            <h1>Become an instructor</h1>
+            <p>Top instructors from around the world teach millions of students on Udemy. We provide the tools and
+              skills to teach what you love. </p>
+            <button>Start teaching today</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="teacher__trusted">
+      <h3> Trusted by companies of all sizes</h3>
+      <div class="teacher__company-wrapper">
+        <img src="./img/booking.svg" alt="booking">
+        <img src="./img/volkswagen.svg" alt="volkswagen">
+        <img src="./img/mercedes.svg" alt="mercedes">
+        <img src="./img/pinterest.svg" alt="pinterest">
+        <img src="./img/adidas.svg" alt="adidas">
+        <img src="./img/eventbrite-logo.svg" alt="eventbrite">
+      </div>
+    </div>
+
+    <div class="teacher__img-wrapper">
+      <div class="teacher__bg teacher__bg--business">
+        <div class="teacher__content teacher__content--business">
+          <img src="./img/udlite-lohp-promo-ufb.jpg" alt="ufb">
+          <div class="teacher__invite teacher__invite--business">
+            <h1>Udemy for Business</h1>
+            <p>Get unlimited access to 4,000+ of Udemy’s top courses for your team. </p>
+            <button>Get Udemy for Business</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="user-stories">
+    <div class="user-stories__content">
+      <div class="user-stories__video">
+        <img src="./img/mohamad-story.jpg" alt="mohammad">
+        <i class="fa fa-play-circle"></i>
+      </div>
+      <div class="user-stories__intro">
+        <h1>Transform your life through education</h1>
+        <p>Mohamad Alaloush launched a new career in software development by taking courses on Udemy. What will you be
+          able to do?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="footer__link d-flex">
+      <ul class="mr-2">
+        <li><a href="">Udemy for Business</a></li>
+        <li><a href="">Teach on Udemy</a></li>
+        <li><a href="">Get the app</a></li>
+        <li><a href="">About us</a></li>
+        <li><a href="">Contact us</a></li>
+      </ul>
+      <ul class="mr-2">
+        <li><a href="">Careers</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">Help and Support</a></li>
+        <li><a href="">Affiliate</a></li>
+      </ul>
+      <ul class="mr-2">
+        <li><a href="">Terms</a></li>
+        <li><a href="">Privacy policy and cookie policy</a></li>
+        <li><a href="">Sitemap</a></li>
+        <li><a href="">Featured courses</a></li>
+      </ul>
+
+      <div class="dropup footer__location">
+        <button class="dropdown-toggle" type="button" id="location" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-globe"></i> English <i class="fa fa-chevron-up"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="location">
+          <a class="dropdown-item" href="#">English</a>
+          <a class="dropdown-item" href="#">Deutsch</a>
+          <a class="dropdown-item" href="#">Español</a>
+          <a class="dropdown-item" href="#">Français</a>
+          <a class="dropdown-item" href="#">Bahasa Indonesia</a>
+          <a class="dropdown-item" href="#">Italiano</a>
+          <a class="dropdown-item" href="#">日本語</a>
+          <a class="dropdown-item" href="#">한국어</a>
+          <a class="dropdown-item" href="#">Nederlands</a>
+          <a class="dropdown-item" href="#">Polski</a>
+          <a class="dropdown-item" href="#">Português</a>
+          <a class="dropdown-item" href="#">Română</a>
+          <a class="dropdown-item" href="#">Русский</a>
+          <a class="dropdown-item" href="#">ภาษาไทย</a>
+          <a class="dropdown-item" href="#">Türkçe</a>
+          <a class="dropdown-item" href="#">中文(简体)</a>
+          <a class="dropdown-item" href="#">中文(繁體)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__logo">
+      <img src="./img/logo-coral.svg" alt="udemy">
+      <p class="footer__copyright">&copy;2020 Udemy, Inc.</p>
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

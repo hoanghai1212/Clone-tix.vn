@@ -1,0 +1,26 @@
+.banner {
+  margin-top: spacing(4.8);
+  padding: spacing(4.8) spacing(2.4);
+  background: url(https://udemy-images.udemy.com/browse_components/shared-assets/purple-intersect.svg)
+    repeat-x c("banner");
+  background-size: auto 120%;
+  background-position: 0 spacing(-1.4);
+  color: tc("textWhite");
+  h1 {
+    font-size: fnsz("h3");
+    font-weight: fnwe("fwBold");
+  }
+
+  p {
+    font-size: fnsz("h5");
+  }
+
+  button {
+    background: none;
+    color: tc("textWhite");
+    border: spacing(0.1) solid c("paper");
+    height: spacing(4.8);
+    padding: 0 spacing(1.6);
+    border-radius: spacing(0.4);
+  }
+}

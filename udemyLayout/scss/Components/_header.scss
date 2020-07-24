@@ -1,0 +1,133 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 spacing(2);
+  height: 80px;
+  box-shadow: 0 0 4px c("darkGrey");
+  position: relative;
+
+  img {
+    width: spacing(11);
+  }
+
+  &__category {
+    padding: spacing(1) spacing(2);
+    border-radius: 5px;
+    span {
+      @include Text(fnsz("subtitle"), tc("textGrey"), fnwe("fwRegular"));
+      cursor: pointer;
+      &:hover {
+        color: tc("textSecondary");
+      }
+    }
+    //parent selector
+  }
+
+  &__search {
+    border: 1px solid c("darkGrey");
+    border-radius: 3px;
+    width: 40%;
+    position: relative;
+    overflow: hidden;
+    background: c("primary");
+    border-radius: spacing(25);
+
+    input {
+      border: none;
+      width: 100%;
+      height: 40px;
+      background: c("primary");
+      padding: 0 spacing(1);
+      display: block;
+      &:focus {
+        outline: none;
+        background: c("paper");
+      }
+    }
+    i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      padding: 0 spacing(1);
+      color: c("secondary");
+      display: flex;
+      align-items: center;
+      &:hover {
+        background: c("secondary");
+        color: tc("textWhite");
+      }
+    }
+  }
+
+  & > i {
+    &:hover {
+      cursor: pointer;
+      color: tc("textSecondary");
+    }
+  }
+
+  &__nav {
+    a {
+      @include Text(fnsz("subtitle"), tc("textGrey"), fnwe("fwRegular"));
+      margin-right: spacing(2);
+      cursor: pointer;
+
+      &:hover {
+        color: tc("textSecondary");
+      }
+    }
+  }
+  &__auth {
+    width: 13%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    &__login {
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      outline: none;
+      width: 48%;
+      padding: spacing(0.5) spacing(1.5);
+      border: 1px solid c("darkGrey");
+      background: c("paper");
+      @include Text(fnsz("subtitle"), tc("textSecondary"), fnwe("fwBold"));
+      border-radius: 3px;
+
+      &:hover {
+        color: darken($color: tc("textSecondary"), $amount: 10);
+      }
+    }
+    &__signup {
+      overflow: hidden;
+      white-space: nowrap;
+      border-radius: 3px;
+      width: 48%;
+      cursor: pointer;
+      outline: none;
+      padding: spacing(0.5) spacing(1.5);
+      border: 1px solid c("secondary");
+      background: c("secondary");
+      @include Text(fnsz("subtitle"), tc("textWhite"), fnwe("fwBold"));
+
+      &:hover {
+        background-color: darken($color: c("secondary"), $amount: 10);
+      }
+    }
+  }
+
+  &__item {
+    -webkit-animation: fadeInUp 0.3s linear 0s;
+    animation: fadeInUp 0.3s linear 0s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    @for $number from 1 through 6 {
+      &--#{$number} {
+        -webkit-animation-delay: $number * 0.2s;
+        animation-delay: $number * 0.2s;
+      }
+    }
+  }
+}
